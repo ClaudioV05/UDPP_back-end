@@ -21,30 +21,47 @@ import springfox.documentation.spring.web.plugins.Docket;
 @Configuration
 public class SwaggerConfiguration {
 
-    @Value("${unifieddevelopmentpowerplatform.name}")
-    private String unifiedDevelopmentPowerPlatformApplication;
+    @Value("${openApiTitle}")
+    private String openApiTitle;
 
-    private Contact contact() {
-        return new Contact("Claudiomildo Ventura","https://www.linkedin.com/in/claudiomildoventura/","claudiomildo@hotmail.com");
+    @Value("${openApiDescription}")
+    private String openApiDescription;
+
+    @Value("${openApiVersion}")
+    private String openApiVersion;
+
+    @Value("${openApiTermsOfServiceUrl}")
+    private String openApiTermsOfServiceUrl;
+
+    @Value("${openApiProduces}")
+    private String openApiProduces;
+
+    @Value("${openApiLicenseUrl}")
+    private String openApiLicenseUrl;
+
+    @Value("${openapi.enginner.name}")
+    private String openApiEnginnerName;
+
+    @Value("${openapi.enginner.email}")
+    private String openApiEnginnerEmail;
+
+    @Value("${openapi.enginner.linkedin}")
+    private String openApiEnginnerLinkedin;
+
+    private Contact returnContactInformation() {
+        return new Contact(openApiEnginnerName, openApiEnginnerLinkedin, openApiEnginnerLinkedin);
     }
 
     private ApiInfoBuilder apiInformation() {
-        final String openApiTitle = unifiedDevelopmentPowerPlatformApplication + " Controller";
-        final String openApiDescription = "About\n" + "These API service is the evolution the of old project that generated class that was developed in Object Pascal using the Delphi XE10. The architecture pattern used is Domain-Driven Design(DDD).";
-        final String openApiVersion = "1.0";
-        final String openApiTermsOfServiceUrl = "-";
-        final String openApiLicense = "application/json";
-        final String openApiLicenseUrl = "https://www.linkedin.com/in/claudiomildoventura/";
-
         ApiInfoBuilder apiInfoBuilder = new ApiInfoBuilder();
 
         apiInfoBuilder.title(openApiTitle);
         apiInfoBuilder.description(openApiDescription);
         apiInfoBuilder.version(openApiVersion);
         apiInfoBuilder.termsOfServiceUrl(openApiTermsOfServiceUrl);
-        apiInfoBuilder.license(openApiLicense);
+        apiInfoBuilder.license(openApiProduces);
         apiInfoBuilder.licenseUrl(openApiLicenseUrl);
-        apiInfoBuilder.contact(this.contact());
+        apiInfoBuilder.contact(this.returnContactInformation());
 
         return apiInfoBuilder;
     }
@@ -52,7 +69,6 @@ public class SwaggerConfiguration {
     @Bean
     public Docket apiDetail() {
         String controllerPackageName = "com.service.unified_development_power_platform.api.controllers";
-        String produces = "application/json";
 
         Docket docket = new Docket(DocumentationType.SWAGGER_2);
 
@@ -61,8 +77,8 @@ public class SwaggerConfiguration {
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(this.apiInformation().build())
-                .consumes(new HashSet<String>(Arrays.asList(produces)))
-                .produces(new HashSet<String>(Arrays.asList(produces)));
+                .consumes(new HashSet<String>(Arrays.asList(openApiProduces)))
+                .produces(new HashSet<String>(Arrays.asList(openApiProduces)));
 
         return docket;
     }
