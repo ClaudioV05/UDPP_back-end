@@ -19,33 +19,33 @@ import springfox.documentation.spring.web.plugins.Docket;
  */
 @EnableWebMvc
 @Configuration
-public class SwaggerConfiguration {
+public class OpenApiConfiguration {
 
-    @Value("${openApiTitle}")
+    @Value("${openapi_title}")
     private String openApiTitle;
 
-    @Value("${openApiDescription}")
+    @Value("${openapi_description}")
     private String openApiDescription;
 
-    @Value("${openApiVersion}")
+    @Value("${openapi_version}")
     private String openApiVersion;
 
-    @Value("${openApiTermsOfServiceUrl}")
+    @Value("${openapi_terms_of_serviceUrl}")
     private String openApiTermsOfServiceUrl;
 
-    @Value("${openApiProduces}")
+    @Value("${openapi_produces}")
     private String openApiProduces;
 
-    @Value("${openApiLicenseUrl}")
+    @Value("${openapi_license_url}")
     private String openApiLicenseUrl;
 
-    @Value("${openapi.enginner.name}")
+    @Value("${openapi_name}")
     private String openApiEnginnerName;
 
-    @Value("${openapi.enginner.email}")
+    @Value("${openapi_email}")
     private String openApiEnginnerEmail;
 
-    @Value("${openapi.enginner.linkedin}")
+    @Value("${openapi_linkedin}")
     private String openApiEnginnerLinkedin;
 
     private Contact returnContactInformation() {
@@ -68,6 +68,7 @@ public class SwaggerConfiguration {
 
     @Bean
     public Docket apiDetail() {
+
         String controllerPackageName = "com.service.unified_development_power_platform.api.controllers";
 
         Docket docket = new Docket(DocumentationType.SWAGGER_2);
