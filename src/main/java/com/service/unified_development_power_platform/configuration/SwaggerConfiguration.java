@@ -3,6 +3,7 @@ package com.service.unified_development_power_platform.configuration;
 import java.util.Arrays;
 import java.util.HashSet;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -19,12 +20,16 @@ import springfox.documentation.spring.web.plugins.Docket;
 @EnableWebMvc
 @Configuration
 public class SwaggerConfiguration {
+
+    @Value("${unifieddevelopmentpowerplatform.name}")
+    private String unifiedDevelopmentPowerPlatformApplication;
+
     private Contact contact() {
         return new Contact("Claudiomildo Ventura","https://www.linkedin.com/in/claudiomildoventura/","claudiomildo@hotmail.com");
     }
 
     private ApiInfoBuilder apiInformation() {
-        final String openApiTitle = "The Unified Development Power Platform Controller";
+        final String openApiTitle = unifiedDevelopmentPowerPlatformApplication + " Controller";
         final String openApiDescription = "About\n" + "These API service is the evolution the of old project that generated class that was developed in Object Pascal using the Delphi XE10. The architecture pattern used is Domain-Driven Design(DDD).";
         final String openApiVersion = "1.0";
         final String openApiTermsOfServiceUrl = "-";
