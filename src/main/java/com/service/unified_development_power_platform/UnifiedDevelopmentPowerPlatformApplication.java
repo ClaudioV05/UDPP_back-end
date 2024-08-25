@@ -9,5 +9,4 @@ public class UnifiedDevelopmentPowerPlatformApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(UnifiedDevelopmentPowerPlatformApplication.class, args);
 	}
-
 }
