@@ -1,4 +1,4 @@
-package com.service.unified_development_power_platform.api.controllers;
+package com.service.unified_development_power_platform.presentation.api.Controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

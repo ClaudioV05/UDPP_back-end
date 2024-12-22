@@ -1,6 +1,6 @@
 package com.service.unified_development_power_platform.configuration;
 
-import com.service.unified_development_power_platform.api.Interceptor.RequestInterceptorUnifiedDevelopmentPowerPlatform;
+import com.service.unified_development_power_platform.presentation.api.Interceptor.*;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

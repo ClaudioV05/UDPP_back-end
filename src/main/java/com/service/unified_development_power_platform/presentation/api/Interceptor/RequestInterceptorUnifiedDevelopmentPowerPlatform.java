@@ -1,4 +1,4 @@
-package com.service.unified_development_power_platform.api.Interceptor;
+package com.service.unified_development_power_platform.presentation.api.Interceptor;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;

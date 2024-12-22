@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class UnifiedDevelopmentPowerPlatformApplication {
 
-	@Value("${unifieddevelopmentpowerplatform.name}")
+	@Value("${application.name}")
 	private String unifiedDevelopmentPowerPlatformApplication;
 
 	public static void main(String[] args) {
@@ -19,7 +19,8 @@ public class UnifiedDevelopmentPowerPlatformApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(String[] args) {
 		return runner -> {
-			System.out.println(unifiedDevelopmentPowerPlatformApplication);
+			System.out.println("1, 2, 3 ...");
+			System.out.println("The " + unifiedDevelopmentPowerPlatformApplication.toUpperCase() + " start.");
 		};
 	}
 }

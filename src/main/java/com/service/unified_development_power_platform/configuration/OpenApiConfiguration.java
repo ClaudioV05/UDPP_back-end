@@ -4,9 +4,12 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
+
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -14,73 +17,70 @@ import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
-/**
- * Swagger configuration.
- */
-@EnableWebMvc
+/** Swagger configuration. */
 @Configuration
+@EnableConfigurationProperties
+@PropertySources({ @PropertySource(value = "classpath:swagger.yml", factory = YamlConfigPropertySourceFactory.class),
+		@PropertySource(value = "classpath:udpp.yml", factory = YamlConfigPropertySourceFactory.class) })
 public class OpenApiConfiguration {
 
-    @Value("${openapi_title}")
-    private String openApiTitle;
+	@Value("${swagger_openapi.title:#{null}}")
+	private String openApiTitle;
 
-    @Value("${openapi_description}")
-    private String openApiDescription;
+	@Value("${swagger_openapi.description}")
+	private String openApiDescription;
 
-    @Value("${openapi_version}")
-    private String openApiVersion;
+	@Value("${swagger_openapi.version}")
+	private String openApiVersion;
 
-    @Value("${openapi_terms_of_serviceUrl}")
-    private String openApiTermsOfServiceUrl;
+	@Value("${swagger_openapi.terms_of_serviceUrl}")
+	private String openApiTermsOfServiceUrl;
 
-    @Value("${openapi_produces}")
-    private String openApiProduces;
+	@Value("${swagger_openapi.produces}")
+	private String openApiProduces;
 
-    @Value("${openapi_license_url}")
-    private String openApiLicenseUrl;
+	@Value("${swagger_openapi.license_url}")
+	private String openApiLicenseUrl;
 
-    @Value("${openapi_name}")
-    private String openApiEnginnerName;
+	@Value("${swagger_openapi_personal_information.name}")
+	private String openApiEnginnerName;
 
-    @Value("${openapi_email}")
-    private String openApiEnginnerEmail;
+	@Value("${swagger_openapi_personal_information.email}")
+	private String openApiEnginnerEmail;
 
-    @Value("${openapi_linkedin}")
-    private String openApiEnginnerLinkedin;
+	@Value("${swagger_openapi_personal_information.linkedin}")
+	private String openApiEnginnerLinkedin;
 
-    private Contact returnContactInformation() {
-        return new Contact(openApiEnginnerName, openApiEnginnerLinkedin, openApiEnginnerLinkedin);
-    }
+	private Contact returnContactInformation() {
+		return new Contact(openApiEnginnerName, openApiEnginnerLinkedin, openApiEnginnerLinkedin);
+	}
 
-    private ApiInfoBuilder apiInformation() {
-        ApiInfoBuilder apiInfoBuilder = new ApiInfoBuilder();
+	private ApiInfoBuilder apiInformation() {
+		ApiInfoBuilder apiInfoBuilder = new ApiInfoBuilder();
 
-        apiInfoBuilder.title(openApiTitle);
-        apiInfoBuilder.description(openApiDescription);
-        apiInfoBuilder.version(openApiVersion);
-        apiInfoBuilder.termsOfServiceUrl(openApiTermsOfServiceUrl);
-        apiInfoBuilder.license(openApiProduces);
-        apiInfoBuilder.licenseUrl(openApiLicenseUrl);
-        apiInfoBuilder.contact(this.returnContactInformation());
+		apiInfoBuilder.title(openApiTitle);
+		apiInfoBuilder.description(openApiDescription);
+		apiInfoBuilder.version(openApiVersion);
+		apiInfoBuilder.termsOfServiceUrl(openApiTermsOfServiceUrl);
+		apiInfoBuilder.license(openApiProduces);
+		apiInfoBuilder.licenseUrl(openApiLicenseUrl);
+		apiInfoBuilder.contact(this.returnContactInformation());
 
-        return apiInfoBuilder;
-    }
+		return apiInfoBuilder;
+	}
 
-    @Bean
-    public Docket apiDetail() {
+	@Bean
+	public Docket apiDetail() {
 
-        String controllerPackageName = "com.service.unified_development_power_platform.api.controllers";
+		String controllerPackageName = "com.service.unified_development_power_platform.presentation.api.Controllers";
 
-        Docket docket = new Docket(DocumentationType.SWAGGER_2);
+		Docket docket = new Docket(DocumentationType.SWAGGER_2);
 
-        docket.select()
-                .apis(RequestHandlerSelectors.basePackage(controllerPackageName))
-                .paths(PathSelectors.any())
-                .build()
-                .apiInfo(this.apiInformation().build())
-                .consumes(new HashSet<String>(Arrays.asList(openApiProduces)))
-                .produces(new HashSet<String>(Arrays.asList(openApiProduces)));
+		docket.select().apis(RequestHandlerSelectors.basePackage(controllerPackageName)).paths(PathSelectors.any())
+				.build().apiInfo(this.apiInformation().build())
+				.consumes(new HashSet<String>(Arrays.asList(openApiProduces)))
+				.produces(new HashSet<String>(Arrays.asList(openApiProduces)));
 
-        return docket;
-    }
+		return docket;
+	}
 }
