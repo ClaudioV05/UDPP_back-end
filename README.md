@@ -6,6 +6,6 @@
 
 <p dir="auto"><a></a></p>
   
-[![My Skills](https://skillicons.dev/icons?i=idea,java,spring,git,github,md)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=idea,eclipse,java,spring,git,github,md)](https://skillicons.dev)
 
 </article>
