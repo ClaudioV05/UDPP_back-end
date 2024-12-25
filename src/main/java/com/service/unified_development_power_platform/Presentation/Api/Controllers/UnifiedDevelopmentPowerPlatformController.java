@@ -1,5 +1,6 @@
 package com.service.unified_development_power_platform.Presentation.Api.Controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.service.unified_development_power_platform.Application.Services.ServiceImpUnifiedDevelopmentPowerPlatform;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
@@ -31,8 +33,12 @@ public class UnifiedDevelopmentPowerPlatformController {
 	 * @since 1.0
 	 * @see
 	 */
-	UnifiedDevelopmentPowerPlatformController() {
+	private final ServiceImpUnifiedDevelopmentPowerPlatform _serviceImpUnifiedDevelopmentPowerPlatform;
 
+	@Autowired
+	UnifiedDevelopmentPowerPlatformController(
+			ServiceImpUnifiedDevelopmentPowerPlatform serviceImpUnifiedDevelopmentPowerPlatform) {
+		_serviceImpUnifiedDevelopmentPowerPlatform = serviceImpUnifiedDevelopmentPowerPlatform;
 	}
 
 	/**
@@ -48,7 +54,7 @@ public class UnifiedDevelopmentPowerPlatformController {
 	@RequestMapping(value = "/UnifiedDevelopmentPowerPlatformInformation", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<String> UnifiedDevelopmentPowerPlatformInformation() {
 		try {
-			return new ResponseEntity<>("The unified development power platform.", HttpStatus.OK);
+			return new ResponseEntity<>(_serviceImpUnifiedDevelopmentPowerPlatform.titleInformation(), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
