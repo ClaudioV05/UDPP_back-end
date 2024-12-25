@@ -1,6 +1,6 @@
-package com.service.unified_development_power_platform.configuration;
+package com.service.unified_development_power_platform.Application.Configurations;
 
-import com.service.unified_development_power_platform.presentation.api.Interceptor.*;
+//import com.service.unified_development_power_platform.Presentation.Api.Interceptor.*;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -25,7 +25,7 @@ class RequestInterceptorConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry)
     {
-        registry.addInterceptor(new RequestInterceptorUnifiedDevelopmentPowerPlatform());
+        //registry.addInterceptor(new RequestInterceptorUnifiedDevelopmentPowerPlatform());
     }
     //* We can register any number of interceptors with our spring application context
 }

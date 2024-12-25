@@ -1,7 +1,4 @@
-/**
- * 
- */
-package com.service.unified_development_power_platform.configuration;
+package com.service.unified_development_power_platform.Application.Configurations;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -16,7 +13,7 @@ import org.springframework.lang.Nullable;
 /**
  * 
  */
-public class YamlConfigPropertySourceFactory implements PropertySourceFactory {
+public class YamlSourceFactory implements PropertySourceFactory {
 
 	@Override
 	public org.springframework.core.env.PropertySource<?> createPropertySource(@Nullable String name,
