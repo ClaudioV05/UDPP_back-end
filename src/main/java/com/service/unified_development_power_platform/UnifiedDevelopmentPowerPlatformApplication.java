@@ -17,7 +17,7 @@ import com.service.unified_development_power_platform.Application.Configurations
 public class UnifiedDevelopmentPowerPlatformApplication {
 
 	@Value("${application.title}")
-	private String unifiedDevelopmentPowerPlatformApplication;
+	private String _unifiedDevelopmentPowerPlatformApplication;
 
 	public static void main(String[] args) {
 		SpringApplication.run(UnifiedDevelopmentPowerPlatformApplication.class, args);
@@ -28,7 +28,7 @@ public class UnifiedDevelopmentPowerPlatformApplication {
 		return runner -> {
 			System.out.println("***************************");
 			System.out.println("1, 2, 3 ...");
-			System.out.println("The " + unifiedDevelopmentPowerPlatformApplication.toUpperCase() + " start.");
+			System.out.println("The " + _unifiedDevelopmentPowerPlatformApplication.toUpperCase() + " start.");
 			System.out.println("***************************");
 		};
 	}
