@@ -4,21 +4,25 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.service.unified_development_power_platform.Application.Services.ServiceImpUnifiedDevelopmentPowerPlatform;
+import com.service.unified_development_power_platform.Application.Interfaces.ServiceUnifiedDevelopmentPowerPlatform;
 
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 class ServiceImpUnifiedDevelopmentPowerPlatformTest {
+
+	@Mock
+	ServiceUnifiedDevelopmentPowerPlatform serviceUnifiedDevelopmentPowerPlatform;
 
 	@Test
 	@DisplayName("The title is shown")
-	void theTitleIsShow() {
+	void theTitleIsShow() throws Exception {
 		String result = "";
 		String stringEmpty = "";
-		ServiceImpUnifiedDevelopmentPowerPlatform serviceImpUnifiedDevelopmentPowerPlatform = new ServiceImpUnifiedDevelopmentPowerPlatform();
 
-		result = serviceImpUnifiedDevelopmentPowerPlatform.titleInformation();
+		result = serviceUnifiedDevelopmentPowerPlatform.titleInformation();
 
 		assertTrue(result != stringEmpty);
 	}
