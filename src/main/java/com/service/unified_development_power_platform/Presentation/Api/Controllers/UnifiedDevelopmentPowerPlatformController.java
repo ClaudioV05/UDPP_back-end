@@ -13,7 +13,10 @@ import com.service.unified_development_power_platform.Application.Services.Servi
 import com.service.unified_development_power_platform.Presentation.Api.Models.DtoMetadata;
 import com.service.unified_development_power_platform.Presentation.Api.Models.DtoTablesdata;
 
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * Controller Unified Development Power Platform - UDPP.
@@ -55,6 +58,17 @@ public class UnifiedDevelopmentPowerPlatformController {
 	 * @see
 	 */
 	@ResponseBody
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Status 200 OK", response = String.class),
+			@ApiResponse(code = 201, message = "Status 201 Created"),
+			@ApiResponse(code = 400, message = "Status 400 Bad Request"),
+			@ApiResponse(code = 401, message = "Status 401 Unauthorized"),
+			@ApiResponse(code = 403, message = "Status 403 Forbidden"),
+			@ApiResponse(code = 404, message = "Status 404 Not Found"),
+			@ApiResponse(code = 403, message = "Status 403 Forbidden"),
+			@ApiResponse(code = 500, message = "Status 500 Internal Server Error"),
+			@ApiResponse(code = 502, message = "Status 502 Bad Gateway"),
+			@ApiResponse(code = 503, message = "Status 503 Service Unavailable"),
+			@ApiResponse(code = 504, message = "Status 504 Gateway Timeout"), })
 	@RequestMapping(value = "/UnifiedDevelopmentPowerPlatformInformation", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<String> UnifiedDevelopmentPowerPlatformInformation() {
 		try {
@@ -76,7 +90,19 @@ public class UnifiedDevelopmentPowerPlatformController {
 	 * @return
 	 * @see
 	 */
+	@ApiIgnore
 	@ResponseBody
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Status 200 OK"),
+			@ApiResponse(code = 201, message = "Status 201 Created"),
+			@ApiResponse(code = 400, message = "Status 400 Bad Request"),
+			@ApiResponse(code = 401, message = "Status 401 Unauthorized"),
+			@ApiResponse(code = 403, message = "Status 403 Forbidden"),
+			@ApiResponse(code = 404, message = "Status 404 Not Found"),
+			@ApiResponse(code = 403, message = "Status 403 Forbidden"),
+			@ApiResponse(code = 500, message = "Status 500 Internal Server Error"),
+			@ApiResponse(code = 502, message = "Status 502 Bad Gateway"),
+			@ApiResponse(code = 503, message = "Status 503 Service Unavailable"),
+			@ApiResponse(code = 504, message = "Status 504 Gateway Timeout"), })
 	@RequestMapping(value = "/metadata", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public ResponseEntity<Void> metadata(@RequestBody(required = true) DtoMetadata dtoMetadata) {
 		try {
@@ -98,7 +124,19 @@ public class UnifiedDevelopmentPowerPlatformController {
 	 * @return
 	 * @see
 	 */
+	@ApiIgnore
 	@ResponseBody
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Status 200 OK"),
+			@ApiResponse(code = 201, message = "Status 201 Created"),
+			@ApiResponse(code = 400, message = "Status 400 Bad Request"),
+			@ApiResponse(code = 401, message = "Status 401 Unauthorized"),
+			@ApiResponse(code = 403, message = "Status 403 Forbidden"),
+			@ApiResponse(code = 404, message = "Status 404 Not Found"),
+			@ApiResponse(code = 403, message = "Status 403 Forbidden"),
+			@ApiResponse(code = 500, message = "Status 500 Internal Server Error"),
+			@ApiResponse(code = 502, message = "Status 502 Bad Gateway"),
+			@ApiResponse(code = 503, message = "Status 503 Service Unavailable"),
+			@ApiResponse(code = 504, message = "Status 504 Gateway Timeout"), })
 	@RequestMapping(value = "/tablesdata", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public ResponseEntity<Void> tablesdata(@RequestBody(required = true) DtoTablesdata dtoTablesdata) {
 		try {

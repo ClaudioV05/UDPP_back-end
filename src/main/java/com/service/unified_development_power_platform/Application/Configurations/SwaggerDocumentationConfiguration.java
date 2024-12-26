@@ -6,6 +6,7 @@ import java.util.HashSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.service.unified_development_power_platform.Infraestructure.Domain.Swagger;
 
@@ -30,12 +31,10 @@ public class SwaggerDocumentationConfiguration {
 	@Bean
 	Docket apiDetail() {
 
-		String controllerPackageName = "com.service.unified_development_power_platform.Presentation.Api.Controllers";
-
 		Docket docket = new Docket(DocumentationType.SWAGGER_2);
 
-		docket.select().apis(RequestHandlerSelectors.basePackage(controllerPackageName)).paths(PathSelectors.any())
-				.build().apiInfo(this.apiInformation().build())
+		docket.select().apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))
+				.paths(PathSelectors.any()).build().apiInfo(this.apiInformation().build())
 				.consumes(new HashSet<String>(Arrays.asList(_swagger.getOpenApiProduces())))
 				.produces(new HashSet<String>(Arrays.asList(_swagger.getOpenApiProduces())));
 
