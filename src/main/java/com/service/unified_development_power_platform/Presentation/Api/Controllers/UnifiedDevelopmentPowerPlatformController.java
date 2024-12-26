@@ -3,8 +3,9 @@ package com.service.unified_development_power_platform.Presentation.Api.Controll
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,6 +14,7 @@ import com.service.unified_development_power_platform.Application.Services.Servi
 import com.service.unified_development_power_platform.Presentation.Api.Models.DtoMetadata;
 import com.service.unified_development_power_platform.Presentation.Api.Models.DtoTablesdata;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
@@ -28,6 +30,7 @@ import springfox.documentation.annotations.ApiIgnore;
  */
 @RestController
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Api(value = "UnifiedDevelopmentPowerPlatformController", tags = { "UnifiedDevelopmentPowerPlatform Controller" })
 @RequestMapping("/UnifiedDevelopmentPowerPlatformController")
 public class UnifiedDevelopmentPowerPlatformController {
 
@@ -56,7 +59,9 @@ public class UnifiedDevelopmentPowerPlatformController {
 	 * @since 1.0
 	 * @return
 	 * @see
+	 * @author Claudiomildo Ventura
 	 */
+	//@ApiIgnore
 	@ResponseBody
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Status 200 OK", response = String.class),
 			@ApiResponse(code = 201, message = "Status 201 Created"),
@@ -69,7 +74,7 @@ public class UnifiedDevelopmentPowerPlatformController {
 			@ApiResponse(code = 502, message = "Status 502 Bad Gateway"),
 			@ApiResponse(code = 503, message = "Status 503 Service Unavailable"),
 			@ApiResponse(code = 504, message = "Status 504 Gateway Timeout"), })
-	@RequestMapping(value = "/UnifiedDevelopmentPowerPlatformInformation", method = RequestMethod.GET, produces = "application/json")
+	@GetMapping(value = { "/metadata" }, consumes = { "application/json" }, produces = { "application/json" })
 	public ResponseEntity<String> UnifiedDevelopmentPowerPlatformInformation() {
 		try {
 			return new ResponseEntity<>(_serviceImpUnifiedDevelopmentPowerPlatform.titleInformation(), HttpStatus.OK);
@@ -89,9 +94,9 @@ public class UnifiedDevelopmentPowerPlatformController {
 	 * @since 1.0
 	 * @return
 	 * @see
+	 * @author Claudiomildo Ventura
 	 */
-	@ApiIgnore
-	@ResponseBody
+	//@ApiIgnore
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Status 200 OK"),
 			@ApiResponse(code = 201, message = "Status 201 Created"),
 			@ApiResponse(code = 400, message = "Status 400 Bad Request"),
@@ -103,8 +108,9 @@ public class UnifiedDevelopmentPowerPlatformController {
 			@ApiResponse(code = 502, message = "Status 502 Bad Gateway"),
 			@ApiResponse(code = 503, message = "Status 503 Service Unavailable"),
 			@ApiResponse(code = 504, message = "Status 504 Gateway Timeout"), })
-	@RequestMapping(value = "/metadata", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-	public ResponseEntity<Void> metadata(@RequestBody(required = true) DtoMetadata dtoMetadata) {
+	@ResponseBody
+	@PostMapping(value = { "/metadata" }, consumes = { "application/json" }, produces = { "application/json" })
+	public ResponseEntity<Void> metadata(@RequestBody DtoMetadata dtoMetadata) {
 		try {
 			return ResponseEntity.noContent().build();
 		} catch (Exception e) {
@@ -123,9 +129,9 @@ public class UnifiedDevelopmentPowerPlatformController {
 	 * @since 1.0
 	 * @return
 	 * @see
+	 * @author Claudiomildo Ventura
 	 */
-	@ApiIgnore
-	@ResponseBody
+	//@ApiIgnore
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Status 200 OK"),
 			@ApiResponse(code = 201, message = "Status 201 Created"),
 			@ApiResponse(code = 400, message = "Status 400 Bad Request"),
@@ -137,13 +143,12 @@ public class UnifiedDevelopmentPowerPlatformController {
 			@ApiResponse(code = 502, message = "Status 502 Bad Gateway"),
 			@ApiResponse(code = 503, message = "Status 503 Service Unavailable"),
 			@ApiResponse(code = 504, message = "Status 504 Gateway Timeout"), })
-	@RequestMapping(value = "/tablesdata", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+	@PostMapping(value = { "/tablesdata" }, consumes = { "application/json" }, produces = { "application/json" })
 	public ResponseEntity<Void> tablesdata(@RequestBody(required = true) DtoTablesdata dtoTablesdata) {
 		try {
 			return ResponseEntity.noContent().build();
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-	}
-
+	}	
 }
