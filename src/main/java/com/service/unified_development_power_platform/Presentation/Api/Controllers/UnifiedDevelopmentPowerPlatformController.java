@@ -5,10 +5,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.service.unified_development_power_platform.Application.Services.ServiceImpUnifiedDevelopmentPowerPlatform;
+import com.service.unified_development_power_platform.Presentation.Api.Models.DtoMetadata;
+import com.service.unified_development_power_platform.Presentation.Api.Models.DtoTablesdata;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
@@ -51,6 +54,7 @@ public class UnifiedDevelopmentPowerPlatformController {
 	 * @return
 	 * @see
 	 */
+	@ResponseBody
 	@RequestMapping(value = "/UnifiedDevelopmentPowerPlatformInformation", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<String> UnifiedDevelopmentPowerPlatformInformation() {
 		try {
@@ -72,8 +76,9 @@ public class UnifiedDevelopmentPowerPlatformController {
 	 * @return
 	 * @see
 	 */
+	@ResponseBody
 	@RequestMapping(value = "/metadata", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-	public ResponseEntity<Void> metadata(@RequestBody(required = false) String filter) {
+	public ResponseEntity<Void> metadata(@RequestBody(required = true) DtoMetadata dtoMetadata) {
 		try {
 			return ResponseEntity.noContent().build();
 		} catch (Exception e) {
@@ -93,8 +98,9 @@ public class UnifiedDevelopmentPowerPlatformController {
 	 * @return
 	 * @see
 	 */
+	@ResponseBody
 	@RequestMapping(value = "/tablesdata", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-	public ResponseEntity<Void> tablesdata(@RequestBody(required = false) String filter) {
+	public ResponseEntity<Void> tablesdata(@RequestBody(required = true) DtoTablesdata dtoTablesdata) {
 		try {
 			return ResponseEntity.noContent().build();
 		} catch (Exception e) {
