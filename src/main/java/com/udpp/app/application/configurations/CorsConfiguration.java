@@ -1,5 +1,7 @@
 package com.udpp.app.application.configurations;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,22 +17,20 @@ public class CorsConfiguration {
 
 	@Value("${cors.urls}")
 	private String[] _urls;
-	
+
 	@Value("${cors.mapping}")
 	private String _mapping;
 
 	@Bean
 	WebMvcConfigurer enabledCorsConfiguration() {
-		
+
 		return new WebMvcConfigurer() {
-			
+
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				
+
 				if (_urls.length > -1) {
-					for (int i = 0; i < _urls.length; i++) {
-						registry.addMapping(_mapping).allowedOrigins(_urls[i]);
-					}
+					Arrays.stream(_urls).forEach(url -> registry.addMapping(_mapping).allowedOrigins(url));
 				}
 			}
 		};
