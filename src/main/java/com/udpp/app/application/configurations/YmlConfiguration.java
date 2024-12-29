@@ -8,15 +8,14 @@ import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.core.env.PropertiesPropertySource;
 import org.springframework.core.io.support.EncodedResource;
 import org.springframework.core.io.support.PropertySourceFactory;
+import org.springframework.core.env.PropertySource;
 import org.springframework.lang.Nullable;
 
-/**
- * 
- */
+/** Yml configuration. */
 public class YmlConfiguration implements PropertySourceFactory {
 
 	@Override
-	public org.springframework.core.env.PropertySource<?> createPropertySource(@Nullable String name,
+	public PropertySource<?> createPropertySource(@Nullable String name,
 			EncodedResource resource) throws IOException {
 		Properties propertiesFromYaml = this.loadYamlIntoProperties(resource);
 		String sourceName = name != null ? name : resource.getResource().getFilename();
