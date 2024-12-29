@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.udpp.app.infrastructure.domain;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -13,13 +10,10 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.PropertySources;
 import org.springframework.context.annotation.PropertySource;
 
-/**
- * 
- */
 @Component
 @EnableConfigurationProperties
 @PropertySources({ @PropertySource(value = "classpath:swagger.yml", factory = YmlConfiguration.class) })
-
+/** Swagger */
 public class Swagger {
 	@Value("${swagger_openapi.title:#{null}}")
 	private String openApiTitle;

@@ -4,7 +4,6 @@ import org.springdoc.core.models.GroupedOpenApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 import org.springframework.stereotype.Component;
@@ -17,7 +16,6 @@ import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.ExternalDocumentation;
 
 @Component
-//@Configuration
 @EnableConfigurationProperties
 @PropertySources({ @PropertySource(value = "classpath:swagger.yml", factory = YmlConfiguration.class) })
 /** Swagger configuration. */
