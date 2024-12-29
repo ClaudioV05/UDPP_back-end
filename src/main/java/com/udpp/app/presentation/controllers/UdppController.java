@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.udpp.app.presentation.dtos.DtoMetaData;
+import com.udpp.app.presentation.dtos.MetaDataDto;
 
 @RestController
 @RequestMapping("udpp")
@@ -18,9 +18,9 @@ public final class UdppController {
 	}
 	
 	@PostMapping(value = { "/metadata" })
-	public DtoMetaData metadata(@RequestBody DtoMetaData dtoMetaData) {
+	public MetaDataDto metadata(@RequestBody MetaDataDto dtoMetaData) {
 		
-		DtoMetaData resultDtoMetaData = new DtoMetaData();
+		MetaDataDto resultDtoMetaData = new MetaDataDto();
 		resultDtoMetaData.setData(dtoMetaData.getData());
 		resultDtoMetaData.setArchitecture(dtoMetaData.getArchitecture());
 

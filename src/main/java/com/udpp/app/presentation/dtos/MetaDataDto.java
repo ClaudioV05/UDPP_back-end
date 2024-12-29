@@ -6,7 +6,7 @@ package com.udpp.app.presentation.dtos;
 /**
  * 
  */
-public class DtoMetaData {
+public class MetaDataDto {
 	
 	private String data;
 	private int architecture;
