@@ -1,11 +1,6 @@
-/**
- * 
- */
 package com.udpp.app.presentation.dtos;
 
-/**
- * 
- */
+/** Metadata - data transfer object. */
 public class MetaDataDto {
 	
 	private String data;
