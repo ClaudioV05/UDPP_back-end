@@ -32,6 +32,6 @@ public class SwaggerConfiguration {
 
 	@Bean
 	GroupedOpenApi groupedOpenApi() {
-		return GroupedOpenApi.builder().group(_swagger.getApiGroup()).pathsToMatch(_swagger.getPatchsToMatch()).build();
+		return GroupedOpenApi.builder().group(_swagger.getApiGroup()).pathsToMatch(_swagger.getPathsToMatch()).build();
 	}
 }

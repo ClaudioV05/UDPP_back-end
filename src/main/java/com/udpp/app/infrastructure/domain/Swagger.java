@@ -42,7 +42,7 @@ public class Swagger {
 	private String apiGroup;
 	
 	@Value("${openapi_doc_conf.paths}")
-	private String patchsToMatch;
+	private String[] pathsToMatch;
 
 	public String getOpenApiTitle() {
 		return openApiTitle;
@@ -84,7 +84,7 @@ public class Swagger {
 		return apiGroup;
 	}
 	
-	public String getPatchsToMatch() {
-		return patchsToMatch;
+	public String[] getPathsToMatch() {
+		return pathsToMatch;
 	}
 }

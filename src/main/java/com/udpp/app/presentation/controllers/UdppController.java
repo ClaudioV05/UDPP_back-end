@@ -24,7 +24,6 @@ import com.udpp.app.presentation.dtos.MetaTableDto;
 @RequestMapping("udpp")
 public final class UdppController {
 
-	private static final String INFORMATION_PATH = "/information";
 	private static final String METADATA_PATH = "/metadata";
 	private static final String METATABLE_PATH = "/metatable";
 	
@@ -33,15 +32,6 @@ public final class UdppController {
 	@Autowired
 	UdppController(UdppService udppService){
 		_udppService = udppService;
-	}
-
-	@GetMapping(value = { INFORMATION_PATH })
-	public DataDto udppInformation() {
-
-		DataDto data = new DataDto();
-		data.setInformation(_udppService.getUdppInformation());
-		
-		return data;
 	}
 
 	/**
