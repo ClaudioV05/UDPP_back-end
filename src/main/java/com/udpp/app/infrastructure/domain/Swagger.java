@@ -1,46 +1,48 @@
 package com.udpp.app.infrastructure.domain;
 
-import org.springframework.beans.factory.annotation.Value;
-
 import org.springframework.stereotype.Component;
-
-import com.udpp.app.application.configurations.YmlConfiguration;
-
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySources;
 import org.springframework.context.annotation.PropertySource;
 
+import com.udpp.app.application.configurations.YmlConfiguration;
+
 @Component
-@EnableConfigurationProperties
 @PropertySources({ @PropertySource(value = "classpath:openapi_doc.yml", factory = YmlConfiguration.class) })
 /** Swagger */
 public class Swagger {
 	@Value("${openapi_doc.title:#{null}}")
 	private String openApiTitle;
 
-	@Value("${openapi_doc.description}")
+	@Value("${openapi_doc.description:#{null}}")
 	private String openApiDescription;
 
-	@Value("${openapi_doc.version}")
+	@Value("${openapi_doc.version:#{null}}")
 	private String openApiVersion;
 
-	@Value("${openapi_doc.terms_of_serviceUrl}")
+	@Value("${openapi_doc.terms_of_serviceUrl:#{null}}")
 	private String openApiTermsOfServiceUrl;
 
-	@Value("${openapi_doc.produces}")
+	@Value("${openapi_doc.produces:#{null}}")
 	private String openApiProduces;
 
-	@Value("${openapi_doc.license_url}")
+	@Value("${openapi_doc.license_url:#{null}}")
 	private String openApiLicenseUrl;
 
-	@Value("${openapi_doc_personal_information.name}")
+	@Value("${openapi_doc_personal_information.name:#{null}}")
 	private String openApiEnginnerName;
 
-	@Value("${openapi_doc_personal_information.email}")
+	@Value("${openapi_doc_personal_information.email:#{null}}")
 	private String openApiEnginnerEmail;
 
-	@Value("${openapi_doc_personal_information.linkedin}")
+	@Value("${openapi_doc_personal_information.linkedin:#{null}}")
 	private String openApiEnginnerLinkedin;
+	
+	@Value("${openapi_doc_conf.apigroup}")
+	private String apiGroup;
+	
+	@Value("${openapi_doc_conf.paths}")
+	private String patchsToMatch;
 
 	public String getOpenApiTitle() {
 		return openApiTitle;
@@ -76,5 +78,13 @@ public class Swagger {
 
 	public String getOpenApiEnginnerLinkedin() {
 		return openApiEnginnerLinkedin;
+	}
+	
+	public String getApiGroup() {
+		return apiGroup;
+	}
+	
+	public String getPatchsToMatch() {
+		return patchsToMatch;
 	}
 }

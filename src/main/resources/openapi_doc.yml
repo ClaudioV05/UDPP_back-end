@@ -1,4 +1,8 @@
 ---
+openapi_doc_conf:
+  paths: /udpp/**
+  apigroup: api-v1
+
 openapi_doc:
   title: The Unified Development Power Platform Application
   description: These API service is the evolution the of old project that generated class that was developed in Object Pascal using the Delphi XE10. The architecture pattern used is Domain-Driven Design(DDD).

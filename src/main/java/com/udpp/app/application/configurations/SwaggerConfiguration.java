@@ -4,8 +4,6 @@ import org.springdoc.core.models.GroupedOpenApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
 
 import com.udpp.app.infrastructure.domain.Swagger;
 
@@ -15,13 +13,10 @@ import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.ExternalDocumentation;
 
 @Configuration
-@PropertySources({@PropertySource(value = "classpath:openapi_doc.yml", factory = YmlConfiguration.class)})
 public class SwaggerConfiguration {
 
 	private final Swagger _swagger;
-	public static final String PATCHS_TO_MATCH = "/udpp/**";
-	public static final String API_GROUP = "api-v1";
-
+	
 	@Autowired
 	SwaggerConfiguration(Swagger swagger) {
 		_swagger = swagger;
@@ -37,7 +32,6 @@ public class SwaggerConfiguration {
 
 	@Bean
 	GroupedOpenApi groupedOpenApi() {
-		return GroupedOpenApi.builder().group(API_GROUP).pathsToMatch(PATCHS_TO_MATCH).build();
+		return GroupedOpenApi.builder().group(_swagger.getApiGroup()).pathsToMatch(_swagger.getPatchsToMatch()).build();
 	}
-
 }
