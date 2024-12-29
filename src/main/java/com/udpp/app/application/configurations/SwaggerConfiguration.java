@@ -14,9 +14,8 @@ import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.ExternalDocumentation;
 
-/** Swagger configuration. */
 @Configuration
-@PropertySources({@PropertySource(value = "classpath:swagger.yml", factory = YmlConfiguration.class)})
+@PropertySources({@PropertySource(value = "classpath:openapi_doc.yml", factory = YmlConfiguration.class)})
 public class SwaggerConfiguration {
 
 	private final Swagger _swagger;

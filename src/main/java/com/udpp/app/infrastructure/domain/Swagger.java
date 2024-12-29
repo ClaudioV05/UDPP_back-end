@@ -12,34 +12,34 @@ import org.springframework.context.annotation.PropertySource;
 
 @Component
 @EnableConfigurationProperties
-@PropertySources({ @PropertySource(value = "classpath:swagger.yml", factory = YmlConfiguration.class) })
+@PropertySources({ @PropertySource(value = "classpath:openapi_doc.yml", factory = YmlConfiguration.class) })
 /** Swagger */
 public class Swagger {
-	@Value("${swagger_openapi.title:#{null}}")
+	@Value("${openapi_doc.title:#{null}}")
 	private String openApiTitle;
 
-	@Value("${swagger_openapi.description}")
+	@Value("${openapi_doc.description}")
 	private String openApiDescription;
 
-	@Value("${swagger_openapi.version}")
+	@Value("${openapi_doc.version}")
 	private String openApiVersion;
 
-	@Value("${swagger_openapi.terms_of_serviceUrl}")
+	@Value("${openapi_doc.terms_of_serviceUrl}")
 	private String openApiTermsOfServiceUrl;
 
-	@Value("${swagger_openapi.produces}")
+	@Value("${openapi_doc.produces}")
 	private String openApiProduces;
 
-	@Value("${swagger_openapi.license_url}")
+	@Value("${openapi_doc.license_url}")
 	private String openApiLicenseUrl;
 
-	@Value("${swagger_openapi_personal_information.name}")
+	@Value("${openapi_doc_personal_information.name}")
 	private String openApiEnginnerName;
 
-	@Value("${swagger_openapi_personal_information.email}")
+	@Value("${openapi_doc_personal_information.email}")
 	private String openApiEnginnerEmail;
 
-	@Value("${swagger_openapi_personal_information.linkedin}")
+	@Value("${openapi_doc_personal_information.linkedin}")
 	private String openApiEnginnerLinkedin;
 
 	public String getOpenApiTitle() {
