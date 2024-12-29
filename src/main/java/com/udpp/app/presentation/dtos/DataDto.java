@@ -5,10 +5,6 @@ public class DataDto {
 
 	private String information;
 
-	public DataDto() {
-		this.information = "Unified Development Power Platform - UDPP";
-	}
-
 	public String getInformation() {
 		return information;
 	}
