@@ -1,0 +1,13 @@
+---
+swagger_openapi:
+  title: The Unified Development Power Platform Application
+  description: These API service is the evolution the of old project that generated class that was developed in Object Pascal using the Delphi XE10. The architecture pattern used is Domain-Driven Design(DDD).
+  version: 1.0
+  terms_of_serviceUrl: '-'
+  produces: application/json
+  license_url: https://www.linkedin.com/in/claudiomildoventura/
+
+swagger_openapi_personal_information:
+  name: Claudiomildo Ventura
+  email: claudiomildo@hotmail.com
+  linkedin: https://www.linkedin.com/in/claudiomildoventura/

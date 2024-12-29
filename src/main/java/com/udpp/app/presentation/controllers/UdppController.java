@@ -25,7 +25,7 @@ public final class UdppController {
 	private static final String INFORMATION_PATH = "/information";
 	private static final String METADATA_PATH = "/metadata";
 	private static final String METATABLE_PATH = "/metatable";
-
+	
 	@GetMapping(value = { "/udppInformation" })
 	public String udppInformation() {
 		return "Unified development platform";
