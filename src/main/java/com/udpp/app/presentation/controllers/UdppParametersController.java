@@ -1,5 +1,7 @@
 package com.udpp.app.presentation.controllers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +19,7 @@ import com.udpp.app.presentation.dtos.DataDto;
  * @see
  */
 @RestController
-@RequestMapping("UdppParameters")
+@RequestMapping("udppparameters")
 public final class UdppParametersController {
 
 	private final MetadataService _metadataService;
@@ -28,11 +30,10 @@ public final class UdppParametersController {
 	}
 
 	@GetMapping(value = { INFORMATION_PATH })
-	public DataDto udppInformation() {
+	public ResponseEntity<DataDto> udppInformation() {
 
 		DataDto data = new DataDto();
 		data.setInformation(_metadataService.getUDPPSelectParametersInformation());
-
-		return data;
+		return new ResponseEntity(data, HttpStatus.OK);
 	}
 }
