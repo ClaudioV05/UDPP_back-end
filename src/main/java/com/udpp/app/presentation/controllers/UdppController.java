@@ -1,14 +1,11 @@
 package com.udpp.app.presentation.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.udpp.app.application.interfaces.UdppService;
-import com.udpp.app.presentation.dtos.DataDto;
+import com.udpp.app.application.interfaces.MetadataService;
 import com.udpp.app.presentation.dtos.MetaDataDto;
 import com.udpp.app.presentation.dtos.MetaTableDto;
 
@@ -18,34 +15,34 @@ import com.udpp.app.presentation.dtos.MetaTableDto;
  * --
  *
  * @since 1.0
+ * @author Claudiomildo Ventura.
  * @see
  */
 @RestController
 @RequestMapping("udpp")
 public final class UdppController {
 
+	private final MetadataService _metadataService;
 	private static final String METADATA_PATH = "/metadata";
 	private static final String METATABLE_PATH = "/metatable";
 	
-	private final UdppService _udppService;
 	
-	@Autowired
-	UdppController(UdppService udppService){
-		_udppService = udppService;
+	UdppController(MetadataService metadataService){
+		_metadataService = metadataService;
 	}
 
 	/**
 	 * To receive the schema of database and do the creation of the tables with
 	 * their fields.
 	 *
-	 * @param string the string to be converted
+	 * @param metaData
 	 *               <p>
 	 *               --
 	 *
 	 * @since 1.0
-	 * @return
+	 * @return MetaDataDto
+	 * @author Claudiomildo Ventura.
 	 * @see
-	 * @author Claudiomildo Ventura
 	 */
 	@PostMapping(value = { METADATA_PATH })
 	public MetaDataDto metaData(@RequestBody MetaDataDto metaData) {
@@ -60,14 +57,14 @@ public final class UdppController {
 	 * To receive the table(s) with their field(s) that will generate the magic
 	 * solution - UDPP.
 	 * 
-	 * @param string the string to be converted
+	 * @param metaTable
 	 *               <p>
 	 *               --
 	 *
 	 * @since 1.0
-	 * @return
+	 * @return MetaTableDto
+	 * @author Claudiomildo Ventura.
 	 * @see
-	 * @author Claudiomildo Ventura
 	 */
 	@PostMapping(value = { METATABLE_PATH })
 	public MetaTableDto metaTable(@RequestBody MetaTableDto metaTable) {
