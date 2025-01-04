@@ -1,9 +1,8 @@
 ---
 openapi_doc_conf:
   paths: >
-    /udpp/**,
-    /UdppParameters/**
-
+    /api/udpp/**,
+    /api/udppparameters/**
   apigroup: api-v1
 
 openapi_doc:

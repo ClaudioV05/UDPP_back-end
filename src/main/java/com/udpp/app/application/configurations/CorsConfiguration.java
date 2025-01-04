@@ -15,11 +15,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @PropertySources({ @PropertySource(value = "classpath:cors.yml", factory = YmlConfiguration.class) })
 public class CorsConfiguration {
 
-	@Value("${cors.urls}")
-	private String[] _urls;
-
-	@Value("${cors.mapping}")
-	private String _mapping;
+	@Value("${cors.base_path}")
+	private String _basePath;
+	
+	@Value("${cors.allowed_origins}")
+	private String[] _allowedOrigins;
 
 	@Bean
 	WebMvcConfigurer enabledCorsConfiguration() {
@@ -28,10 +28,7 @@ public class CorsConfiguration {
 
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-
-				if (_urls.length > -1) {
-					Arrays.stream(_urls).forEach(url -> registry.addMapping(_mapping).allowedOrigins(url));
-				}
+				registry.addMapping(_basePath).allowedOrigins(_allowedOrigins);
 			}
 		};
 	}

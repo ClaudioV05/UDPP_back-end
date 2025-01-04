@@ -30,7 +30,7 @@ import jakarta.validation.Valid;
  * @see
  */
 @RestController
-@RequestMapping("udpp")
+@RequestMapping("/api/udpp")
 public final class UdppController {
 
 	private final MetadataService _metadataService;

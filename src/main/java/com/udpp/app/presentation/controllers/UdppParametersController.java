@@ -19,7 +19,7 @@ import com.udpp.app.presentation.dtos.DataDto;
  * @see
  */
 @RestController
-@RequestMapping("udppparameters")
+@RequestMapping("/api/udppparameters")
 public final class UdppParametersController {
 
 	private final MetadataService _metadataService;
@@ -34,6 +34,6 @@ public final class UdppParametersController {
 
 		DataDto data = new DataDto();
 		data.setInformation(_metadataService.getUDPPSelectParametersInformation());
-		return new ResponseEntity(data, HttpStatus.OK);
+		return new ResponseEntity<>(data, HttpStatus.OK);
 	}
 }
