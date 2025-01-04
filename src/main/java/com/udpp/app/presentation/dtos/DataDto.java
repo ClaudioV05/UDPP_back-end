@@ -1,7 +1,7 @@
 package com.udpp.app.presentation.dtos;
 
 /** Data - data transfer object. */
-public class DataDto {
+public final class DataDto {
 
 	private String information;
 

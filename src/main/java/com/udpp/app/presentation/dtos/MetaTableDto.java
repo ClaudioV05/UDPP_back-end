@@ -1,6 +1,6 @@
 package com.udpp.app.presentation.dtos;
 
 /** Metatable - data transfer object. */
-public class MetaTableDto {
+public final class MetaTableDto {
 	
 }

@@ -59,10 +59,6 @@ public final class UdppController {
 	public ResponseEntity<MetaDataDto> metaData(@RequestBody @Valid MetaDataDto metaData, BindingResult bindingResult)
 			throws Exception {
 
-		if (bindingResult.hasErrors()) {
-			throw new ResponseBadRequestException(this.getErrorMessages(bindingResult).toString());
-		}
-
 		MetaDataDto resultMetaData = new MetaDataDto();
 		resultMetaData.setData(metaData.getData());
 		resultMetaData.setArchitecture(metaData.getArchitecture());
