@@ -56,8 +56,12 @@ public final class UdppController {
 	 * @see
 	 */
 	@PostMapping(value = { METADATA_PATH })
-	public ResponseEntity<MetaDataDto> metaData(@RequestBody @Valid MetaDataDto metaData, BindingResult bindingResult)
-			throws Exception {
+	public ResponseEntity<MetaDataDto> metaData(@Valid @RequestBody final MetaDataDto metaData,
+			final BindingResult bindingResult) throws Exception {
+
+		if (bindingResult.hasErrors()) {
+			throw new ResponseBadRequestException(this.getErrorMessages(bindingResult).toString());
+		}
 
 		MetaDataDto resultMetaData = new MetaDataDto();
 		resultMetaData.setData(metaData.getData());
@@ -81,7 +85,7 @@ public final class UdppController {
 	 * @see
 	 */
 	@PostMapping(value = { METATABLE_PATH })
-	public MetaTableDto metaTable(@RequestBody MetaTableDto metaTable) throws Exception {
+	public MetaTableDto metaTable(@Valid @RequestBody final MetaTableDto metaTable) throws Exception {
 
 		MetaTableDto resultMetaTable = new MetaTableDto();
 		return resultMetaTable;
