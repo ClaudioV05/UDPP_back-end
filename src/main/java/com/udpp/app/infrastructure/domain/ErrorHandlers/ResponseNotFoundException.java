@@ -1,4 +1,4 @@
-package com.udpp.app.presentation.globalexceptionhandler;
+package com.udpp.app.infrastructure.domain.ErrorHandlers;
 
 public class ResponseNotFoundException extends RuntimeException {
 

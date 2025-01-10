@@ -7,9 +7,16 @@ import org.springframework.context.annotation.PropertySource;
 
 import com.udpp.app.application.configurations.YmlConfiguration;
 
+/**
+ * The swagger Entity.
+ *
+ * @since 1.0
+ * @author Claudiomildo Ventura.
+ * @see
+ */
 @Component
 @PropertySources({ @PropertySource(value = "classpath:openapi_doc.yml", factory = YmlConfiguration.class) })
-/** Swagger */
+
 public class Swagger {
 	@Value("${openapi_doc.title:#{null}}")
 	private String openApiTitle;

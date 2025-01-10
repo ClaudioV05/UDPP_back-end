@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.udpp.app.application.interfaces.MetadataService;
 import com.udpp.app.presentation.dtos.MetaDataDto;
 import com.udpp.app.presentation.dtos.MetaTableDto;
-import com.udpp.app.presentation.globalexceptionhandler.ResponseBadRequestException;
 
 import jakarta.validation.Valid;
 
@@ -37,6 +36,7 @@ public final class UdppController {
 	private static final String METADATA_PATH = "/metadata";
 	private static final String METATABLE_PATH = "/metatable";
 
+	@Autowired
 	UdppController(MetadataService metadataService) {
 		_metadataService = metadataService;
 	}
@@ -59,15 +59,11 @@ public final class UdppController {
 	public ResponseEntity<MetaDataDto> metaData(@Valid @RequestBody final MetaDataDto metaData,
 			final BindingResult bindingResult) throws Exception {
 
-		if (bindingResult.hasErrors()) {
-			throw new ResponseBadRequestException(this.getErrorMessages(bindingResult).toString());
-		}
+		_metadataService.udppReceiveAndSaveAllTablesAndFieldsOfSchemaDatabase(metaData, bindingResult);
 
-		MetaDataDto resultMetaData = new MetaDataDto();
-		resultMetaData.setData(metaData.getData());
-		resultMetaData.setArchitecture(metaData.getArchitecture());
 
-		return new ResponseEntity<>(resultMetaData, HttpStatus.OK);
+
+		return new ResponseEntity<>(metaData, HttpStatus.OK);
 	}
 
 	/**

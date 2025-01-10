@@ -5,6 +5,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import com.udpp.app.infrastructure.domain.ErrorHandlers.ResponseBadRequestException;
+import com.udpp.app.infrastructure.domain.ErrorHandlers.ResponseNotFoundException;
+import com.udpp.app.infrastructure.domain.ErrorHandlers.ResponseNullPointerException;
+
 @RestControllerAdvice
 public class AppControllerAdvice {
 
