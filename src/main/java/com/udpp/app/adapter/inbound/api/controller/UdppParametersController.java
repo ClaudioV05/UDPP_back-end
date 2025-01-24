@@ -17,7 +17,7 @@ import com.udpp.app.adapter.inbound.api.dto.DataDto;
 /// @author Claudiomildo Ventura.
 /// @see
 @RestController
-@RequestMapping("/api/udppparameters")
+@RequestMapping(value = "/api/udppparameters")
 public final class UdppParametersController {
 
 	private final MetadataServicePort _metadataService;

@@ -27,8 +27,8 @@ import jakarta.validation.Valid;
 /// @author Claudiomildo Ventura.
 /// @see
 @RestController
-@RequestMapping("/api/udpp")
-public final class UdppController {
+@RequestMapping(value = "/api/udpp")
+public class UdppController {
 
 	private final MetadataServicePort _metadataService;
 	private static final String METADATA_PATH = "/metadata";
@@ -52,14 +52,14 @@ public final class UdppController {
 	/// @throws Exception
 	/// @see
 	@PostMapping(value = { METADATA_PATH })
-	public ResponseEntity<MetaDataDto> metaData(@Valid @RequestBody final MetaDataDto metaData,
-			final BindingResult bindingResult) throws Exception {
+	public ResponseEntity<MetaDataDto> metaData(@RequestBody @Valid final MetaDataDto metaData, final BindingResult bindingResult) throws Exception {
 
-		//_metadataService.udppReceiveAndSaveAllTablesAndFieldsOfSchemaDatabase(metaData, bindingResult);
+		var aux = this.getErrorMessages(bindingResult);
 
-
-
-		return new ResponseEntity<>(metaData, HttpStatus.OK);
+		if (aux != null && !aux.isEmpty()) {
+			throw new Exception(aux.toString());
+		}
+        return new ResponseEntity<>(metaData, HttpStatus.OK);
 	}
 
 	/// To receive the table(s) with their field(s) that will generate the magic
@@ -81,8 +81,9 @@ public final class UdppController {
 		return resultMetaTable;
 	}
 
-	public List<String> getErrorMessages(BindingResult bindingResult) {
-		return (List<String>) bindingResult.getAllErrors().stream().map(error -> {
+	private List<String> getErrorMessages(BindingResult bindingResult) {
+		return (List<String>) bindingResult.getAllErrors().stream()
+				.map(error -> {
 			var defaultMessage = error.getDefaultMessage();
 
 			if (error instanceof FieldError) {
