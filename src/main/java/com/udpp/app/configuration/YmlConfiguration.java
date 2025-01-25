@@ -1,4 +1,4 @@
-package com.udpp.app.adapter.configuration;
+package com.udpp.app.configuration;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package com.udpp.app.adapter.inbound.api.errorhandler;
+package com.udpp.app.adapter.inbound.api.controlleradvice;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -10,13 +10,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 @RestControllerAdvice
-public final class UdppGlobalExceptionHandler {
+public final class UdppExceptionControllerAdvice {
 
     @ResponseBody
     @ExceptionHandler(HttpMediaTypeNotAcceptableException.class)
@@ -28,23 +23,5 @@ public final class UdppGlobalExceptionHandler {
     @ExceptionHandler(NoResourceFoundException.class)
     public ResponseEntity<String> handleNoResourceFoundException() {
         return new ResponseEntity<>("Method not supported",new HttpHeaders(), HttpStatus.METHOD_NOT_ALLOWED);
-    }
-
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<Map<String, List<String>>> handleValidationErrors(Exception ex) {
-            List<String> errors = Collections.singletonList(ex.getMessage());
-            return new ResponseEntity<>(getErrorsMap(errors), new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-
-    @ExceptionHandler(RuntimeException.class)
-    public final ResponseEntity<Map<String, List<String>>> handleRuntimeExceptions(RuntimeException ex) {
-        List<String> errors = Collections.singletonList(ex.getMessage());
-        return new ResponseEntity<>(getErrorsMap(errors), new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-
-    private Map<String, List<String>> getErrorsMap(List<String> errors) {
-        Map<String, List<String>> errorResponse = new HashMap<>();
-        errorResponse.put("errors", errors);
-        return errorResponse;
     }
 }

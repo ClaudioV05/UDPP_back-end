@@ -3,6 +3,7 @@ package com.udpp.app.adapter.inbound.api.controller;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.udpp.app.adapter.inbound.api.exceptionhandler.GlobalException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -57,7 +58,7 @@ public class UdppController {
 		var aux = this.getErrorMessages(bindingResult);
 
 		if (aux != null && !aux.isEmpty()) {
-			throw new Exception(aux.toString());
+			throw new GlobalException(aux.toString());
 		}
         return new ResponseEntity<>(metaData, HttpStatus.OK);
 	}

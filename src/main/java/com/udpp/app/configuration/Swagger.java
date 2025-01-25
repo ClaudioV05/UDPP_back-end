@@ -1,4 +1,4 @@
-package com.udpp.app.adapter.configuration;
+package com.udpp.app.configuration;
 
 import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Value;

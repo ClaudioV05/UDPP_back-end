@@ -1,4 +1,4 @@
-package com.udpp.app.adapter.configuration;
+package com.udpp.app.configuration;
 
 import org.springdoc.core.models.GroupedOpenApi;
 import org.springframework.beans.factory.annotation.Autowired;
