@@ -10,32 +10,32 @@ import org.springframework.validation.FieldError;
 
 import com.udpp.app.application.port.ValidationServicePort;
 
-/// The Validation service.
-///
-/// @since 1.0
-/// @author Claudiomildo Ventura.
-/// @see
 @Service
 public class ValidationService implements ValidationServicePort {
 
 	@Override
-	public ArrayList<String> getErrorMessages(BindingResult bindingResult) {
-		List<String> result = bindingResult.getAllErrors().stream().map(error -> {
-			var defaultMessage = error.getDefaultMessage();
+	public List<String> getErrorMessages(BindingResult bindingResult) {
+		List<String> result = new ArrayList<>();
 
-			if (error instanceof FieldError) {
-				var fieldError = (FieldError) error;
-				return String.format("%s %s", fieldError.getField(), defaultMessage);
-			} else {
-				return defaultMessage;
-			}
-		}).collect(Collectors.toList());
+		if (this.existErrorMessages(bindingResult)){
+			result = bindingResult.getAllErrors()
+					.stream()
+					.map(error -> {
+						var defaultMessage = error.getDefaultMessage();
+						if (error instanceof FieldError) {
+							var fieldError = (FieldError) error;
+							return String.format("%s %s", fieldError.getField(), defaultMessage);
+						} else {
+							return defaultMessage;
+						}
+					})
+					.collect(Collectors.toList());
+		}
 
-		return (ArrayList<String>) result;
+		return result;
 	}
 
-	@Override
-	public Boolean existErrorMessages(BindingResult bindingResult) {
+	private boolean existErrorMessages(BindingResult bindingResult) {
 		return bindingResult.hasErrors();
 	}
 }

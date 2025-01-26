@@ -1,12 +1,8 @@
 package com.udpp.app.application.port;
 
-/**
- * The Metadata table service.
- *
- * @since 1.0
- * @author Claudiomildo Ventura.
- * @see
- */
+/// The Meta table service.
+/// @since 1.0
+/// @author Claudiomildo Ventura.
 public interface MetadataTableServicePort {
 
 }

@@ -1,42 +1,58 @@
 package com.udpp.app.application.service;
 
+import com.udpp.app.adapter.inbound.api.dto.MetaDataDto;
+import com.udpp.app.adapter.inbound.api.dto.MetaTableDto;
+import com.udpp.app.adapter.inbound.api.exceptionhandler.GlobalException;
+import com.udpp.app.application.port.ParameterServicePort;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.udpp.app.application.port.MetadataServicePort;
 import com.udpp.app.application.port.ValidationServicePort;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
 
-/// The Metadata service.
-///
-/// @since 1.0
-/// @author Claudiomildo Ventura.
-/// @see
+import java.util.List;
+
 @Service
 public class MetadataService implements MetadataServicePort {
 
-	private final ValidationServicePort _validationService;
+	private final ValidationServicePort _validationServicePort;
+	private final ParameterServicePort _parameterServicePort;
 
 	@Autowired
-	MetadataService(ValidationServicePort validationService) {
-		_validationService = validationService;
+	MetadataService(ParameterServicePort parameterServicePort,
+					ValidationServicePort validationServicePort) {
+		_parameterServicePort = parameterServicePort;
+		_validationServicePort = validationServicePort;
 	}
 
 	@Override
-	public String getUDPPSelectParametersInformation() {
-		return "Unified Development Power Platform - UDPP";
+	public List<MetaDataDto> generateMetaData(MetaDataDto metadata, BindingResult bindingResult) {
+		try {
+			var result = _validationServicePort.getErrorMessages(bindingResult);
+
+			if (!result.isEmpty()){
+				throw new GlobalException(result.toString());
+			}
+			// continue here.
+
+			return null;
+		} catch (Exception ex) {
+			throw new GlobalException(ex.getMessage());
+		}
 	}
 
-	/*@Override
-	public Void udppReceiveAndSaveAllTablesAndFieldsOfSchemaDatabase(MetaDataDto metaData, BindingResult bindingResult) {
-
+	@Override
+	public List<MetaTableDto> generateMetaTable(MetaTableDto metatable) {
 		try {
-			MetaDataDto resultMetaData = new MetaDataDto();
-			resultMetaData.setData(metaData.getData());
-			resultMetaData.setArchitecture(metaData.getArchitecture());
-		} catch (Exception e) {
-			// TODO: handle exception
+			throw new UnsupportedOperationException("Not implemented.");
+		} catch (Exception ex) {
+			throw new GlobalException(ex.getMessage());
 		}
-		
-		return       null;
-	}*/
+	}
+
+	@Override
+	public String getSolutionTitle() {
+		return _parameterServicePort.getSolutionTitle();
+	}
 }

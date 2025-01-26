@@ -3,13 +3,13 @@ package com.udpp.app.adapter.inbound.api.dto;
 import java.util.Date;
 
 /// Error Message.
-public final class ErrorMessageDto {
+public final class MessageErrorDto {
 	private int statusCode;
 	private Date timestamp;
 	private String message;
 	private String description;
 
-	public ErrorMessageDto(int statusCode, Date timestamp, String message, String description) {
+	public MessageErrorDto(int statusCode, Date timestamp, String message, String description) {
 		this.statusCode = statusCode;
 		this.timestamp = timestamp;
 		this.message = message;
