@@ -2,7 +2,9 @@ package com.udpp.app.adapter.inbound.api.dto;
 
 import java.util.Date;
 
-/// Error Message.
+/// The Message error (Data transfer object).
+/// @since 1.0
+/// @author Claudiomildo Ventura.
 public final class MessageErrorDto {
 	private int statusCode;
 	private Date timestamp;
