@@ -26,9 +26,15 @@ public interface MetadataServicePort {
 	/// @return List<MetaTableDto>
 	List<MetaTableDto> generateMetaTable(MetaTableDto metatable);
 
-	/// To get the solution title.
+	/// To get the application title.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
 	/// @return String.
-	String getSolutionTitle();
+	String getTitle();
+
+	/// To get the application description.
+	/// @since 1.0
+	/// @author Claudiomildo Ventura.
+	/// @return String.
+	String getDescription();
 }

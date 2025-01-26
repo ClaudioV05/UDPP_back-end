@@ -20,5 +20,8 @@ public enum ControllerParameter {;
     public static final String METATABLE_ENDPOINT_PATH = "/metatable";
 
     /// Metadata endpoint path.
-    public static final String TITLE_ENDPOINT_PATH = "/solutionTitle";
+    public static final String TITLE_ENDPOINT_PATH = "/applicationTitle";
+
+    /// Metadata endpoint path.
+    public static final String DESCRIPTION_ENDPOINT_PATH = "/applicationDescription";
 }

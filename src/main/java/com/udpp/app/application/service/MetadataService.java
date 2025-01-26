@@ -52,7 +52,12 @@ public class MetadataService implements MetadataServicePort {
 	}
 
 	@Override
-	public String getSolutionTitle() {
-		return _parameterServicePort.getSolutionTitle();
+	public String getTitle() {
+		return _parameterServicePort.getTitle();
+	}
+
+	@Override
+	public String getDescription() {
+		return _parameterServicePort.getDescription();
 	}
 }

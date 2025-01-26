@@ -8,7 +8,12 @@ import org.springframework.stereotype.Service;
 public class ParameterService implements ParameterServicePort {
 
 	@Override
-	public String getSolutionTitle() {
+	public String getTitle() {
 		return ApplicationParameter.TITLE.toUpperCase();
+	}
+
+	@Override
+	public String getDescription() {
+		return ApplicationParameter.DESCRIPTION;
 	}
 }

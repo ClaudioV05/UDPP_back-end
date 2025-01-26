@@ -5,9 +5,15 @@ package com.udpp.app.application.port;
 /// @author Claudiomildo Ventura.
 public interface ParameterServicePort {
 
-	/// To get the solution title.
+	/// To get the application title.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
 	/// @return String.
-	String getSolutionTitle();
+	String getTitle();
+
+	/// To get the application description.
+	/// @since 1.0
+	/// @author Claudiomildo Ventura.
+	/// @return String.
+	String getDescription();
 }

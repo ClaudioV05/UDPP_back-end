@@ -24,13 +24,23 @@ public final class UdppParametersController {
 		_metadataService = metadataService;
 	}
 
-	/// The solution title.
+	/// The application title.
 	///
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
 	/// @return String.
 	@GetMapping(value = { ControllerParameter.TITLE_ENDPOINT_PATH })
-	public ResponseEntity<String> solutionTitle() {
-		return new ResponseEntity<>(_metadataService.getSolutionTitle(), HttpStatus.OK);
+	public ResponseEntity<String> applicationTitle() {
+		return new ResponseEntity<>(_metadataService.getTitle(), HttpStatus.OK);
+	}
+
+	/// The application description.
+	///
+	/// @since 1.0
+	/// @author Claudiomildo Ventura.
+	/// @return String.
+	@GetMapping(value = { ControllerParameter.DESCRIPTION_ENDPOINT_PATH })
+	public ResponseEntity<String> applicationDescription() {
+		return new ResponseEntity<>(_metadataService.getDescription(), HttpStatus.OK);
 	}
 }
