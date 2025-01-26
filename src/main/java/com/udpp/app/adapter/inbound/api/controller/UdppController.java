@@ -2,6 +2,7 @@ package com.udpp.app.adapter.inbound.api.controller;
 
 import java.util.List;
 
+import com.udpp.app.core.constant.ParameterController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,11 +23,9 @@ import jakarta.validation.Valid;
 /// @since 1.0
 /// @author Claudiomildo Ventura.
 @RestController
-@RequestMapping(value = "/api/udpp")
+@RequestMapping(value = ParameterController.UDPP_PATH)
 public class UdppController {
 	private final MetadataServicePort _metadataService;
-	private static final String METADATA_PATH = "/metadata";
-	private static final String METATABLE_PATH = "/metatable";
 
 	@Autowired
 	UdppController(MetadataServicePort metadataService) {
@@ -40,7 +39,7 @@ public class UdppController {
 	/// @param metaData
 	/// @return List<MetaDataDto>
 	/// @throws Exception
-	@PostMapping(value = { METADATA_PATH })
+	@PostMapping(value = { ParameterController.METADATA_ENDPOINT_PATH })
 		public ResponseEntity<List<MetaDataDto>> metaData(@RequestBody @Valid final MetaDataDto metaData, final BindingResult bindingResult) throws Exception {
         return new ResponseEntity<>(_metadataService.generateMetaData(metaData, bindingResult), HttpStatus.OK);
 	}
@@ -52,7 +51,7 @@ public class UdppController {
 	/// @param metaTable
 	/// @return List<MetaTableDto>
 	/// @throws Exception
-	@PostMapping(value = { METATABLE_PATH })
+	@PostMapping(value = { ParameterController.METATABLE_ENDPOINT_PATH })
 	public ResponseEntity<List<MetaTableDto>> metaTable(@Valid @RequestBody final MetaTableDto metaTable) throws Exception {
 		return new ResponseEntity<>(_metadataService.generateMetaTable(metaTable), HttpStatus.OK);
 	}

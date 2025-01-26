@@ -1,5 +1,6 @@
 package com.udpp.app.adapter.inbound.api.controller;
 
+import com.udpp.app.core.constant.ParameterController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +15,9 @@ import com.udpp.app.application.port.MetadataServicePort;
 /// @since 1.0
 /// @author Claudiomildo Ventura.
 @RestController
-@RequestMapping(value = "/api/udppparameters")
+@RequestMapping(value = ParameterController.UDPP_PARAMETER_PATH)
 public final class UdppParametersController {
 	private final MetadataServicePort _metadataService;
-	private static final String INFORMATION_PATH = "/solutionTitle";
 
 	@Autowired
 	UdppParametersController(MetadataServicePort metadataService) {
@@ -29,8 +29,8 @@ public final class UdppParametersController {
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
 	/// @return String.
-	@GetMapping(value = { INFORMATION_PATH })
-	public ResponseEntity<String> titleName() {
+	@GetMapping(value = { ParameterController.TITLE_ENDPOINT_PATH })
+	public ResponseEntity<String> solutionTitle() {
 		return new ResponseEntity<>(_metadataService.getSolutionTitle(), HttpStatus.OK);
 	}
 }
