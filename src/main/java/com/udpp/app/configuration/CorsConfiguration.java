@@ -8,9 +8,11 @@ import org.springframework.context.annotation.PropertySources;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-/** Cors configuration. */
+/// Cross-Origin Resource Sharing (CORS) configuration.
+/// @since 1.0
+/// @author Claudiomildo Ventura.
 @Configuration
-@PropertySources({ @PropertySource(value = "classpath:cors.yml", factory = YmlConfiguration.class) })
+@PropertySources({ @PropertySource(value = "classpath:cors.yml", factory = YamlConfiguration.class) })
 public class CorsConfiguration {
 
 	@Value("${cors.base_path}")

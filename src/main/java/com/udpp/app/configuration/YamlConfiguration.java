@@ -11,8 +11,10 @@ import org.springframework.core.io.support.PropertySourceFactory;
 import org.springframework.core.env.PropertySource;
 import org.springframework.lang.Nullable;
 
-/** Yml configuration. */
-public class YmlConfiguration implements PropertySourceFactory {
+/// Yaml configuration.
+/// @since 1.0
+/// @author Claudiomildo Ventura.
+public class YamlConfiguration implements PropertySourceFactory {
 
 	@Override
 	public PropertySource<?> createPropertySource(@Nullable String name,

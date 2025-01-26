@@ -5,16 +5,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySources;
 import org.springframework.context.annotation.PropertySource;
 
-/**
- * The swagger Entity.
- *
- * @since 1.0
- * @author Claudiomildo Ventura.
- * @see
- */
+/// Swagger.
+/// @since 1.0
+/// @author Claudiomildo Ventura.
 @Component
-@PropertySources({ @PropertySource(value = "classpath:openapi_doc.yml", factory = YmlConfiguration.class) })
-
+@PropertySources({ @PropertySource(value = "classpath:openapi_doc.yml", factory = YamlConfiguration.class) })
 public class Swagger {
 	@Value("${openapi_doc.title:#{null}}")
 	private String openApiTitle;

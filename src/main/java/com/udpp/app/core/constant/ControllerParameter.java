@@ -1,10 +1,9 @@
 package com.udpp.app.core.constant;
 
-/// The Parameter of controller enumerable.
+/// The Controller parameter.
 /// @since 1.0
 /// @author Claudiomildo Ventura.
-public enum ParameterController {;
-
+public enum ControllerParameter {;
     /// API path.
     private static final String API_PATH = "/api/";
 

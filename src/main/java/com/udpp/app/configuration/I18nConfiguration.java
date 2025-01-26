@@ -6,13 +6,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
+/// Internationalization (i18n) configuration.
+/// @since 1.0
+/// @author Claudiomildo Ventura.
 @Configuration
-public class Internationalization {
-	
+public class I18nConfiguration {
 	@Bean
 	SessionLocaleResolver localeResolver() {
-		SessionLocaleResolver slr = new SessionLocaleResolver();
-		slr.setDefaultLocale(Locale.ENGLISH);
-		return slr;
+
+		SessionLocaleResolver sessionLocaleResolver = new SessionLocaleResolver();
+		sessionLocaleResolver.setDefaultLocale(Locale.ENGLISH);
+		return sessionLocaleResolver;
 	}
 }

@@ -7,9 +7,11 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 import org.springframework.stereotype.Component;
 
-/** Unified Development Power Platform runner configuration. */
+/// Unified Development Power Platform runner configuration.
+/// @since 1.0
+/// @author Claudiomildo Ventura.
 @Component
-@PropertySources({ @PropertySource(value = "classpath:udpp.yml", factory = YmlConfiguration.class) })
+@PropertySources({ @PropertySource(value = "classpath:udpp.yml", factory = YamlConfiguration.class) })
 public class UdppRunnerConfiguration implements ApplicationRunner {
 
 	@Value("${application.title:#{null}}")
