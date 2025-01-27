@@ -14,35 +14,35 @@ public final class MetaDataDto {
 	@JsonProperty("data")
 	private String data;
 
-	/// The identify of architecture.
+	/// The identifier of architecture.
 	@Positive
 	@Min(value = 1, message = "should not be less than 1")
 	@Max(value = 3, message = "should not be more than 3")
 	@JsonProperty("architecture")
 	private int architecture;
 
-	/// The identify of development Environment.
+	/// The identifier of development Environment.
 	@Positive
 	@Min(value = 1, message = "should not be less than 1")
 	@Max(value = 3, message = "should not be more than 3")
 	@JsonProperty("idDevelopmentEnvironment")
 	private int idDevelopmentEnvironment;
 
-	/// The identify of databases.
+	/// The identifier of databases.
 	@Positive
 	@Min(value = 1, message = "should not be less than 1")
 	@Max(value = 3, message = "should not be more than 3")
 	@JsonProperty("idDatabase")
 	private int idDatabase;
 
-	/// The identify of database engine.
+	/// The identifier of database engine.
 	@Positive
 	@Min(value = 1, message = "should not be less than 1")
 	@Max(value = 3, message = "should not be more than 3")
 	@JsonProperty("idDatabaseEngine")
 	private int idDatabaseEngine;
 
-	/// The identify of forms.
+	/// The identifier of forms.
 	@Positive
 	@Min(value = 1, message = "should not be less than 1")
 	@Max(value = 3, message = "should not be more than 3")
