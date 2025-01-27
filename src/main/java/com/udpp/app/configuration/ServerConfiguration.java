@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 
-/// Server configuration.
+/// Server.
 /// @since 1.0
 /// @author Claudiomildo Ventura.
 @Configuration

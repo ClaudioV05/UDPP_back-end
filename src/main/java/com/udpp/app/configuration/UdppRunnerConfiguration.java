@@ -7,7 +7,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 import org.springframework.stereotype.Component;
 
-/// Unified Development Power Platform runner configuration.
+/// Unified Development Power Platform runner.
 /// @since 1.0
 /// @author Claudiomildo Ventura.
 @Component

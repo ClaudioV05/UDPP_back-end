@@ -8,7 +8,7 @@ import org.springframework.context.annotation.PropertySources;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-/// Cross-Origin Resource Sharing (CORS) configuration.
+/// Cross-Origin Resource Sharing (CORS).
 /// @since 1.0
 /// @author Claudiomildo Ventura.
 @Configuration

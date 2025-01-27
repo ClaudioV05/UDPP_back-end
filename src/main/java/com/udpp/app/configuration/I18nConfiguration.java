@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
-/// Internationalization (i18n) configuration.
+/// Internationalization (i18n).
 /// @since 1.0
 /// @author Claudiomildo Ventura.
 @Configuration
