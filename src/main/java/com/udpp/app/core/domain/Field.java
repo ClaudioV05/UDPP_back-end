@@ -1,6 +1,6 @@
 package com.udpp.app.core.domain;
 
-/// The Field class.
+/// The Field.
 /// @since 1.0
 /// @author Claudiomildo Ventura.
 public class Field {

@@ -2,7 +2,7 @@ package com.udpp.app.core.domain;
 
 import java.util.List;
 
-/// The Table class.
+/// The Table.
 /// @since 1.0
 /// @author Claudiomildo Ventura.
 public class Table {
