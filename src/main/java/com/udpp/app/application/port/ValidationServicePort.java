@@ -13,5 +13,6 @@ public interface ValidationServicePort {
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
 	/// @param bindingResult binding result.
+	/// @return List of String.
 	List<String> getErrorMessages(BindingResult bindingResult);
 }

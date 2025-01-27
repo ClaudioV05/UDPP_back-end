@@ -2,6 +2,7 @@ package com.udpp.app.application.port;
 
 import com.udpp.app.adapter.inbound.api.dto.MetaDataDto;
 import com.udpp.app.adapter.inbound.api.dto.MetaTableDto;
+import com.udpp.app.core.constant.Architecture;
 import org.springframework.validation.BindingResult;
 
 import java.util.List;
@@ -37,4 +38,10 @@ public interface MetadataServicePort {
 	/// @author Claudiomildo Ventura.
 	/// @return String.
 	String getDescription();
+
+	/// To get enum architectures description.
+	/// @since 1.0
+	/// @author Claudiomildo Ventura.
+	/// @return List of Architecture.
+	List<Architecture> getArchitecturesDescription();
 }

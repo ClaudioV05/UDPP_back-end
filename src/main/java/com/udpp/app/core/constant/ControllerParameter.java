@@ -4,24 +4,20 @@ package com.udpp.app.core.constant;
 /// @since 1.0
 /// @author Claudiomildo Ventura.
 public enum ControllerParameter {;
-    /// API path.
-    private static final String API_PATH = "/api/";
-
+    /// Base path.
+    private static final String BASE_PATH = "/api/";
     /// UDPP path.
-    public static final String UDPP_PATH = API_PATH + "udpp";
-
+    public static final String UDPP_PATH = BASE_PATH + "udpp";
     /// UDPP parameters path.
-    public static final String UDPP_PARAMETER_PATH = API_PATH + "udppparameters";
-
+    public static final String UDPP_PARAMETER_PATH = BASE_PATH + "udppparameters";
     /// Metadata endpoint path.
     public static final String METADATA_ENDPOINT_PATH = "/metadata";
-
     /// Metatable endpoint path.
     public static final String METATABLE_ENDPOINT_PATH = "/metatable";
-
-    /// Metadata endpoint path.
+    /// Title application endpoint path.
     public static final String TITLE_ENDPOINT_PATH = "/applicationTitle";
-
-    /// Metadata endpoint path.
+    /// Description application endpoint path.
     public static final String DESCRIPTION_ENDPOINT_PATH = "/applicationDescription";
+    /// Architectures endpoint path.
+    public static final String ARCHITECTURES_ENDPOINT_PATH = "/architectures";
 }

@@ -1,5 +1,6 @@
 package com.udpp.app.adapter.inbound.api.controller;
 
+import com.udpp.app.core.constant.Architecture;
 import com.udpp.app.core.constant.ControllerParameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.udpp.app.application.port.MetadataServicePort;
+
+import java.util.List;
 
 /// Controller Unified Development Power Platform parameters - UDPP.
 /// --
@@ -42,5 +45,15 @@ public final class UdppParametersController {
 	@GetMapping(value = { ControllerParameter.DESCRIPTION_ENDPOINT_PATH })
 	public ResponseEntity<String> applicationDescription() {
 		return new ResponseEntity<>(_metadataService.getDescription(), HttpStatus.OK);
+	}
+
+	/// The architecture description.
+	///
+	/// @since 1.0
+	/// @author Claudiomildo Ventura.
+	/// @return List of Architecture.
+	@GetMapping(value = { ControllerParameter.ARCHITECTURES_ENDPOINT_PATH })
+	public ResponseEntity<List<Architecture>> architectures() {
+		return new ResponseEntity<>(_metadataService.getArchitecturesDescription(), HttpStatus.OK);
 	}
 }
