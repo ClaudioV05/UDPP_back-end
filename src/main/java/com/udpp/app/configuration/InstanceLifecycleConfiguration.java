@@ -1,5 +1,6 @@
 package com.udpp.app.configuration;
 
+import com.udpp.app.adapter.inbound.api.mapper.MetaDataDto;
 import com.udpp.app.application.service.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
@@ -10,11 +11,6 @@ import org.springframework.context.annotation.Configuration;
 /// @author Claudiomildo Ventura.
 @Configuration
 public class InstanceLifecycleConfiguration {
-	@Bean
-	public ModelMapper modelMapper() {
-		return new ModelMapper();
-	}
-
 	@Bean
 	ArchitectureService createArchitectureService() {
 		return new ArchitectureService();
@@ -43,12 +39,14 @@ public class InstanceLifecycleConfiguration {
 	@Bean
 	MetadataService createMetadataService() {
 		return new MetadataService(
-				new ArchitectureService(),
-				new DatabaseService(),
-				new DatabaseEngineerService(),
-				new DevelopmentEnvironmentService(),
-				new ParameterService(new UnicodeService()),
-				new ValidationService());
+			   new ModelMapper(),
+			   new MetaDataDto(),
+			   new ArchitectureService(),
+			   new DatabaseService(),
+			   new DatabaseEngineerService(),
+			   new DevelopmentEnvironmentService(),
+			   new ParameterService(new UnicodeService()),
+			   new ValidationService());
 	}
 
 	@Bean

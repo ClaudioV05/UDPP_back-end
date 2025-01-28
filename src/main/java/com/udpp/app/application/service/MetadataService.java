@@ -16,15 +16,13 @@ import com.udpp.app.core.domain.DatabaseEngineer;
 import com.udpp.app.core.domain.DevelopmentEnvironment;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 
 import java.util.List;
 
 public class MetadataService implements MetadataServicePort {
-	@Autowired
-	private ModelMapper modelMapper;
-
+	private final ModelMapper _mapper;
+	private MetaDataDto _metaDataDto;
 	private final ArchitectureServicePort _architectureService;
 	private final DatabaseServicePort _databaseService;
 	private final DatabaseEngineerServicePort _databaseEngineerService;
@@ -32,12 +30,16 @@ public class MetadataService implements MetadataServicePort {
 	private final ParameterServicePort _parameterService;
 	private final ValidationServicePort _validationService;
 
-	public MetadataService(ArchitectureService architectureService,
-					DatabaseServicePort databaseService,
-					DatabaseEngineerServicePort databaseEngineerService,
-					DevelopmentEnvironmentServicePort developmentEnvironmentService,
-					ParameterServicePort parameterService,
-					ValidationServicePort validationService) {
+	public MetadataService(ModelMapper mapper,
+						   MetaDataDto metaDataDto,
+						   ArchitectureService architectureService,
+						   DatabaseServicePort databaseService,
+						   DatabaseEngineerServicePort databaseEngineerService,
+						   DevelopmentEnvironmentServicePort developmentEnvironmentService,
+						   ParameterServicePort parameterService,
+						   ValidationServicePort validationService) {
+		this._mapper = mapper;
+		this._metaDataDto = metaDataDto;
 		this._databaseService = databaseService;
 		this._databaseEngineerService = databaseEngineerService;
 		this._developmentEnvironmentService = developmentEnvironmentService;
@@ -83,14 +85,10 @@ public class MetadataService implements MetadataServicePort {
 	@Override
 	public MetaDataDto getDescription() {
 		try {
-			MetaDataDto metaDataDto = new MetaDataDto();
-			var metadata = _parameterService.getDescription();
-			metaDataDto = modelMapper.map(metadata, MetaDataDto.class);
-			return metaDataDto;
+			return _mapper.map(_parameterService.getDescription(), MetaDataDto.class);
 		} catch (Exception ex) {
 			throw new GlobalException(ex.getMessage());
 		}
-
 	}
 
 	@Override
