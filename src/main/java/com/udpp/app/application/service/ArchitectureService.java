@@ -12,13 +12,13 @@ import java.util.stream.Collectors;
 public class ArchitectureService implements ArchitectureServicePort {
     @Override
     public List<Architecture> getArchitecturesDescription() {
-        int index = 0;
+        final int[] index = {0};
         List<Architecture> lstArchitecture = new ArrayList<>();
 
-        for (ArchitectureConst architecture : ArchitectureConst.values()){
-            lstArchitecture.add(new Architecture(index, architecture.getKey()));
-            index++;
-        }
+        Arrays.stream(ArchitectureConst.values()).forEach(architecture -> {
+            lstArchitecture.add(new Architecture(index[0], architecture.getDescription()));
+            index[0]++;
+        });
 
         return lstArchitecture;
     }

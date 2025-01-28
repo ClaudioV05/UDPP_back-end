@@ -10,14 +10,14 @@ public enum ArchitectureConst {
     MEDIATR("MediatR"),
     MVC("Model view controller");
 
-    /// key.
-    private final String key;
+    /// description.
+    private final String description;
 
-    ArchitectureConst(String key) {
-        this.key = key;
+    ArchitectureConst(String description) {
+        this.description = description;
     }
 
-    public String getKey() {
-        return key;
+    public String getDescription() {
+        return description;
     }
 }
