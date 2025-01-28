@@ -15,26 +15,26 @@ import java.util.List;
 
 @Service
 public class MetadataService implements MetadataServicePort {
-	private final ArchitectureServicePort _architectureServicePort;
-	private final DatabaseServicePort _databaseServicePort;
-	private final ParameterServicePort _parameterServicePort;
-	private final ValidationServicePort _validationServicePort;
+	private final ArchitectureServicePort _architectureService;
+	private final DatabaseServicePort _databaseService;
+	private final ParameterServicePort _parameterService;
+	private final ValidationServicePort _validationService;
 
 	@Autowired
 	MetadataService(ArchitectureService architectureService,
-					DatabaseServicePort databaseServicePort,
-					ParameterServicePort parameterServicePort,
-					ValidationServicePort validationServicePort) {
-		_databaseServicePort = databaseServicePort;
-		_architectureServicePort = architectureService;
-		_parameterServicePort = parameterServicePort;
-		_validationServicePort = validationServicePort;
+					DatabaseServicePort databaseService,
+					ParameterServicePort parameterService,
+					ValidationServicePort validationService) {
+		_databaseService = databaseService;
+		_architectureService = architectureService;
+		_parameterService = parameterService;
+		_validationService = validationService;
 	}
 
 	@Override
 	public List<MetaDataDto> generateMetaData(MetaDataDto metadata, BindingResult bindingResult) {
 		try {
-			var result = _validationServicePort.getErrorMessages(bindingResult);
+			var result = _validationService.getErrorMessages(bindingResult);
 
 			if (!result.isEmpty()){
 				throw new GlobalException(result.toString());
@@ -58,21 +58,21 @@ public class MetadataService implements MetadataServicePort {
 
 	@Override
 	public String getTitle() {
-		return _parameterServicePort.getTitle();
+		return _parameterService.getTitle();
 	}
 
 	@Override
 	public String getDescription() {
-		return _parameterServicePort.getDescription();
+		return _parameterService.getDescription();
 	}
 
 	@Override
 	public List<Architecture> getArchitecturesDescription() {
-	return _architectureServicePort.getArchitecturesDescription();
+	return _architectureService.getArchitecturesDescription();
 	}
 
 	@Override
 	public List<Database> getDatabasesDescription() {
-		return _databaseServicePort.getDatabasesDescription();
+		return _databaseService.getDatabasesDescription();
 	}
 }
