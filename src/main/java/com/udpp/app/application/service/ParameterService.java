@@ -3,6 +3,7 @@ package com.udpp.app.application.service;
 import com.udpp.app.application.port.ParameterServicePort;
 import com.udpp.app.application.port.UnicodeServicePort;
 import com.udpp.app.core.constant.ApplicationConst;
+import com.udpp.app.core.domain.Metadata;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,12 +15,12 @@ public class ParameterService implements ParameterServicePort {
 	}
 
 	@Override
-	public String getTitle() {
-		return _unicodeService.setToUpper(ApplicationConst.TITLE);
+	public Metadata getTitle() {
+		return new Metadata(Integer.MIN_VALUE, (_unicodeService.setToUpper(ApplicationConst.TITLE)));
 	}
 
 	@Override
-	public String getDescription() {
-		return ApplicationConst.DESCRIPTION;
+	public Metadata getDescription() {
+		return new Metadata(Integer.MIN_VALUE, ApplicationConst.DESCRIPTION);
 	}
 }

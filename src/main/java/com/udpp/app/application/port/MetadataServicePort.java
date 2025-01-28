@@ -30,13 +30,13 @@ public interface MetadataServicePort {
 	/// To get the application title.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
-	/// @return String.
-	String getTitle();
+	/// @return MetaDataDto.
+	MetaDataDto getTitle();
 	/// To get the application description.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
-	/// @return String.
-	String getDescription();
+	/// @return MetaDataDto.
+	MetaDataDto getDescription();
 	/// To get enum architectures description.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.

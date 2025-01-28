@@ -65,13 +65,21 @@ public class MetadataService implements MetadataServicePort {
 	}
 
 	@Override
-	public String getTitle() {
-		return _parameterService.getTitle();
+	public MetaDataDto getTitle() {
+		MetaDataDto metaDataDto = new MetaDataDto();
+		var metadata = _parameterService.getTitle();
+		metaDataDto.setData(metadata.getData());
+
+		return metaDataDto;
 	}
 
 	@Override
-	public String getDescription() {
-		return _parameterService.getDescription();
+	public MetaDataDto getDescription() {
+		MetaDataDto metaDataDto = new MetaDataDto();
+		var metadata = _parameterService.getDescription();
+		metaDataDto.setData(metadata.getData());
+
+		return metaDataDto;
 	}
 
 	@Override
