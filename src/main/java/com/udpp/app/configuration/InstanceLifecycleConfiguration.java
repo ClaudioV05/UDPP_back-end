@@ -5,6 +5,7 @@ import com.udpp.app.application.service.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 
 /// The Instance Lifecycle.
 /// @since 1.0
@@ -37,6 +38,7 @@ public class InstanceLifecycleConfiguration {
 	}
 
 	@Bean
+	@Lazy
 	MetadataService createMetadataService() {
 		return new MetadataService(
 			   new ModelMapper(),
