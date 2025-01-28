@@ -14,11 +14,11 @@ public class ParameterService implements ParameterServicePort {
 
 	@Override
 	public Metadata getTitle() {
-		return new Metadata(Integer.MIN_VALUE, (_unicodeService.setToUpper(ApplicationConst.TITLE)));
+		return new Metadata(0, (_unicodeService.setToUpper(ApplicationConst.TITLE)));
 	}
 
 	@Override
 	public Metadata getDescription() {
-		return new Metadata(Integer.MIN_VALUE, ApplicationConst.DESCRIPTION);
+		return new Metadata(0, ApplicationConst.DESCRIPTION);
 	}
 }

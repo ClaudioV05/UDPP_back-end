@@ -72,11 +72,11 @@ public class MetadataService implements MetadataServicePort {
 
 	@Override
 	public MetaDataDto getTitle() {
-		//MetaDataDto metaDataDto = new MetaDataDto();
-		var metadata = this._parameterService.getTitle();
-		//metaDataDto.setData(metadata.getData());
-
-		return null;//metaDataDto;
+		try {
+			return this._mapper.map(this._parameterService.getTitle(), MetaDataDto.class);
+		} catch (Exception ex) {
+			throw new GlobalException(ex.getMessage());
+		}
 	}
 
 	@Override
