@@ -13,22 +13,22 @@ import org.springframework.context.annotation.Configuration;
 public class InstanceLifecycleConfiguration {
 	@Bean
 	ArchitectureService createArchitectureService() {
-		return new ArchitectureService();
+		return new ArchitectureService(new UnicodeService());
 	}
 
 	@Bean
 	DatabaseEngineerService createDatabaseEngineerService() {
-		return new DatabaseEngineerService();
+		return new DatabaseEngineerService(new UnicodeService());
 	}
 
 	@Bean
 	DatabaseService createDatabaseService() {
-		return new DatabaseService();
+		return new DatabaseService(new UnicodeService());
 	}
 
 	@Bean
 	DevelopmentEnvironmentService createDevelopmentEnvironmentService() {
-		return new DevelopmentEnvironmentService();
+		return new DevelopmentEnvironmentService(new UnicodeService());
 	}
 
 	@Bean
@@ -40,10 +40,10 @@ public class InstanceLifecycleConfiguration {
 	MetadataService createMetadataService() {
 		return new MetadataService(
 			   new ModelMapper(),
-			   new ArchitectureService(),
-			   new DatabaseService(),
-			   new DatabaseEngineerService(),
-			   new DevelopmentEnvironmentService(),
+			   new ArchitectureService(new UnicodeService()),
+			   new DatabaseService(new UnicodeService()),
+			   new DatabaseEngineerService(new UnicodeService()),
+			   new DevelopmentEnvironmentService(new UnicodeService()),
 			   new ParameterService(new UnicodeService()),
 			   new ValidationService());
 	}
