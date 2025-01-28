@@ -18,6 +18,8 @@ import com.udpp.app.core.domain.DevelopmentEnvironment;
 import org.modelmapper.ModelMapper;
 import org.springframework.validation.BindingResult;
 
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 public class MetadataService implements MetadataServicePort {
@@ -89,7 +91,7 @@ public class MetadataService implements MetadataServicePort {
 	}
 
 	@Override
-	public List<Architecture> getArchitecturesDescription() {
+	public LinkedHashSet<Architecture> getArchitecturesDescription() {
 		try {
 			return this._architectureService.getArchitecturesDescription();
 		} catch (Exception ex) {

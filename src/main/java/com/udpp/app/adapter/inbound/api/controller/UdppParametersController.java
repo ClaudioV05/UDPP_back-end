@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.udpp.app.application.port.MetadataServicePort;
 
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 /// Unified Development Power Platform parameters - UDPP controller.
@@ -57,7 +59,7 @@ public final class UdppParametersController {
 	/// @author Claudiomildo Ventura.
 	/// @return List of Architecture.
 	@GetMapping(value = { ControllerConst.ARCHITECTURES_ENDPOINT_PATH })
-	public ResponseEntity<List<Architecture>> architectures() {
+	public ResponseEntity<LinkedHashSet<Architecture>> architectures() {
 		return new ResponseEntity<>(_metadataService.getArchitecturesDescription(), HttpStatus.OK);
 	}
 

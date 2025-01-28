@@ -2,6 +2,8 @@ package com.udpp.app.application.port;
 
 import com.udpp.app.core.domain.Architecture;
 
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 /// The Architecture service.
@@ -12,5 +14,5 @@ public interface ArchitectureServicePort {
     /// @since 1.0
     /// @author Claudiomildo Ventura.
     /// @return List of Architecture.
-    List<Architecture> getArchitecturesDescription();
+    LinkedHashSet<Architecture> getArchitecturesDescription();
 }

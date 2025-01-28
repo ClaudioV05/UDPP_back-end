@@ -8,6 +8,8 @@ import com.udpp.app.core.domain.DatabaseEngineer;
 import com.udpp.app.core.domain.DevelopmentEnvironment;
 import org.springframework.validation.BindingResult;
 
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 /// The Metadata service.
@@ -41,7 +43,7 @@ public interface MetadataServicePort {
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
 	/// @return List of Architecture.
-	List<Architecture> getArchitecturesDescription();
+	LinkedHashSet<Architecture> getArchitecturesDescription();
 	/// To get enum database description.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
