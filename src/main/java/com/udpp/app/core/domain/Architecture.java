@@ -7,6 +7,10 @@ public class Architecture {
     private int id;
     private String data;
 
+    public Architecture() {
+
+    }
+
     public Architecture(int id, String data) {
         this.id = id;
         this.data = data;

@@ -2,10 +2,6 @@ package com.udpp.app.adapter.inbound.api.controller;
 
 import com.udpp.app.adapter.inbound.api.mapper.MetaDataDto;
 import com.udpp.app.core.constant.ControllerConst;
-import com.udpp.app.core.domain.Architecture;
-import com.udpp.app.core.domain.Database;
-import com.udpp.app.core.domain.DatabaseEngineer;
-import com.udpp.app.core.domain.DevelopmentEnvironment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -57,7 +53,7 @@ public final class UdppParametersController {
 	/// @author Claudiomildo Ventura.
 	/// @return List of Architecture.
 	@GetMapping(value = { ControllerConst.ARCHITECTURES_ENDPOINT_PATH })
-	public ResponseEntity<LinkedHashSet<Architecture>> architectures() {
+	public ResponseEntity<LinkedHashSet<MetaDataDto>> architectures() {
 		return new ResponseEntity<>(_metadataService.getArchitecturesDescription(), HttpStatus.OK);
 	}
 
@@ -67,7 +63,7 @@ public final class UdppParametersController {
 	/// @author Claudiomildo Ventura.
 	/// @return List of Database.
 	@GetMapping(value = { ControllerConst.DATABASES_ENDPOINT_PATH })
-	public ResponseEntity<LinkedHashSet<Database>> databases() {
+	public ResponseEntity<LinkedHashSet<MetaDataDto>> databases() {
 		return new ResponseEntity<>(_metadataService.getDatabasesDescription(), HttpStatus.OK);
 	}
 
@@ -77,7 +73,7 @@ public final class UdppParametersController {
 	/// @author Claudiomildo Ventura.
 	/// @return List of Database engineer.
 	@GetMapping(value = { ControllerConst.DATABASES_ENGINEER_ENDPOINT_PATH })
-	public ResponseEntity<LinkedHashSet<DatabaseEngineer>> databasesEngineer() {
+	public ResponseEntity<LinkedHashSet<MetaDataDto>> databasesEngineer() {
 		return new ResponseEntity<>(_metadataService.getDatabasesEngineerDescription(), HttpStatus.OK);
 	}
 
@@ -87,7 +83,7 @@ public final class UdppParametersController {
 	/// @author Claudiomildo Ventura.
 	/// @return List of Development environment.
 	@GetMapping(value = { ControllerConst.DEVELOPMENT_ENVIRONMENT_ENDPOINT_PATH })
-	public ResponseEntity<LinkedHashSet<DevelopmentEnvironment>> developmentEnvironment() {
+	public ResponseEntity<LinkedHashSet<MetaDataDto>> developmentEnvironment() {
 		return new ResponseEntity<>(_metadataService.getDevelopmentEnvironmentDescription(), HttpStatus.OK);
 	}
 }

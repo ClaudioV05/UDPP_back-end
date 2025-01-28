@@ -10,16 +10,13 @@ import com.udpp.app.application.port.DatabaseEngineerServicePort;
 import com.udpp.app.application.port.DevelopmentEnvironmentServicePort;
 import com.udpp.app.application.port.ParameterServicePort;
 import com.udpp.app.application.port.ValidationServicePort;
-import com.udpp.app.core.domain.Architecture;
-import com.udpp.app.core.domain.Database;
-import com.udpp.app.core.domain.DatabaseEngineer;
-import com.udpp.app.core.domain.DevelopmentEnvironment;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.validation.BindingResult;
 
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MetadataService implements MetadataServicePort {
 	private final ModelMapper _mapper;
@@ -47,7 +44,7 @@ public class MetadataService implements MetadataServicePort {
 	}
 
 	@Override
-	public List<MetaDataDto> generateMetaData(com.udpp.app.adapter.inbound.api.dto.MetaDataDto metadata, BindingResult bindingResult) {
+	public List<com.udpp.app.adapter.inbound.api.mapper.MetaDataDto> generateMetaData(com.udpp.app.adapter.inbound.api.dto.MetaDataDto metadata, BindingResult bindingResult) {
 		try {
 			var result = this._validationService.getErrorMessages(bindingResult);
 
@@ -90,36 +87,48 @@ public class MetadataService implements MetadataServicePort {
 	}
 
 	@Override
-	public LinkedHashSet<Architecture> getArchitecturesDescription() {
+	public LinkedHashSet<MetaDataDto> getArchitecturesDescription() {
 		try {
-			return this._architectureService.getArchitecturesDescription();
+			return this._architectureService.getArchitecturesDescription()
+					.stream()
+					.map(source -> this._mapper.map(source, com.udpp.app.adapter.inbound.api.mapper.MetaDataDto.class))
+					.collect(Collectors.toCollection(LinkedHashSet::new));
 		} catch (Exception ex) {
 			throw new GlobalException(ex.getMessage());
 		}
 	}
 
 	@Override
-	public LinkedHashSet<Database> getDatabasesDescription() {
+	public LinkedHashSet<MetaDataDto> getDatabasesDescription() {
 		try {
-			return this._databaseService.getDatabasesDescription();
+			return this._databaseService.getDatabasesDescription()
+					.stream()
+					.map(source -> this._mapper.map(source, com.udpp.app.adapter.inbound.api.mapper.MetaDataDto.class))
+					.collect(Collectors.toCollection(LinkedHashSet::new));
 		}catch (Exception ex) {
 			throw new GlobalException(ex.getMessage());
 		}
 	}
 
 	@Override
-	public LinkedHashSet<DatabaseEngineer> getDatabasesEngineerDescription() {
+	public LinkedHashSet<MetaDataDto> getDatabasesEngineerDescription() {
 		try {
-			return this._databaseEngineerService.getDatabasesEngineerDescription();
+			return this._databaseEngineerService.getDatabasesEngineerDescription()
+					.stream()
+					.map(source -> this._mapper.map(source, com.udpp.app.adapter.inbound.api.mapper.MetaDataDto.class))
+					.collect(Collectors.toCollection(LinkedHashSet::new));
 		}catch (Exception ex) {
 			throw new GlobalException(ex.getMessage());
 		}
 	}
 
 	@Override
-	public LinkedHashSet<DevelopmentEnvironment> getDevelopmentEnvironmentDescription() {
+	public LinkedHashSet<MetaDataDto> getDevelopmentEnvironmentDescription() {
 		try {
-			return this._developmentEnvironmentService.getDevelopmentEnvironmentDescription();
+			return this._developmentEnvironmentService.getDevelopmentEnvironmentDescription()
+					.stream()
+					.map(source -> this._mapper.map(source, com.udpp.app.adapter.inbound.api.mapper.MetaDataDto.class))
+					.collect(Collectors.toCollection(LinkedHashSet::new));
 		}catch (Exception ex) {
 			throw new GlobalException(ex.getMessage());
 		}

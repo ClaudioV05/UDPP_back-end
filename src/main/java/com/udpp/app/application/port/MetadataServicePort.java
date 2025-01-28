@@ -2,10 +2,6 @@ package com.udpp.app.application.port;
 
 import com.udpp.app.adapter.inbound.api.mapper.MetaDataDto;
 import com.udpp.app.adapter.inbound.api.dto.MetaTableDto;
-import com.udpp.app.core.domain.Architecture;
-import com.udpp.app.core.domain.Database;
-import com.udpp.app.core.domain.DatabaseEngineer;
-import com.udpp.app.core.domain.DevelopmentEnvironment;
 import org.springframework.validation.BindingResult;
 
 import java.util.LinkedHashSet;
@@ -21,7 +17,7 @@ public interface MetadataServicePort {
 	/// @param metadata metadata.
 	/// @param bindingResult binding result.
 	/// @return List<MetaDataDto>
-	List<MetaDataDto> generateMetaData(com.udpp.app.adapter.inbound.api.dto.MetaDataDto metadata, BindingResult bindingResult);
+	List<com.udpp.app.adapter.inbound.api.mapper.MetaDataDto> generateMetaData(com.udpp.app.adapter.inbound.api.dto.MetaDataDto metadata, BindingResult bindingResult);
 	/// Generate MetaTable.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
@@ -41,21 +37,21 @@ public interface MetadataServicePort {
 	/// To get enum architectures description.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
-	/// @return Set of Architecture.
-	LinkedHashSet<Architecture> getArchitecturesDescription();
+	/// @return Set of MetaDataDto.
+	LinkedHashSet<com.udpp.app.adapter.inbound.api.mapper.MetaDataDto> getArchitecturesDescription();
 	/// To get enum database description.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
-	/// @return Set of Database.
-	LinkedHashSet<Database> getDatabasesDescription();
+	/// @return Set of MetaDataDto.
+	LinkedHashSet<com.udpp.app.adapter.inbound.api.mapper.MetaDataDto> getDatabasesDescription();
 	/// To get enum database engineer description.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
-	/// @return Set of Database engineer.
-	LinkedHashSet<DatabaseEngineer> getDatabasesEngineerDescription();
+	/// @return Set of MetaDataDto.
+	LinkedHashSet<com.udpp.app.adapter.inbound.api.mapper.MetaDataDto> getDatabasesEngineerDescription();
 	/// To get enum development environment description.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
-	/// @return Set of Development environment.
-	LinkedHashSet<DevelopmentEnvironment> getDevelopmentEnvironmentDescription();
+	/// @return Set of MetaDataDto.
+	LinkedHashSet<com.udpp.app.adapter.inbound.api.mapper.MetaDataDto> getDevelopmentEnvironmentDescription();
 }
