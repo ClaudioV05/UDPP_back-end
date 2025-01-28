@@ -22,7 +22,6 @@ import java.util.List;
 
 public class MetadataService implements MetadataServicePort {
 	private final ModelMapper _mapper;
-	private MetaDataDto _metaDataDto;
 	private final ArchitectureServicePort _architectureService;
 	private final DatabaseServicePort _databaseService;
 	private final DatabaseEngineerServicePort _databaseEngineerService;
@@ -31,7 +30,6 @@ public class MetadataService implements MetadataServicePort {
 	private final ValidationServicePort _validationService;
 
 	public MetadataService(ModelMapper mapper,
-						   MetaDataDto metaDataDto,
 						   ArchitectureService architectureService,
 						   DatabaseServicePort databaseService,
 						   DatabaseEngineerServicePort databaseEngineerService,
@@ -39,7 +37,6 @@ public class MetadataService implements MetadataServicePort {
 						   ParameterServicePort parameterService,
 						   ValidationServicePort validationService) {
 		this._mapper = mapper;
-		this._metaDataDto = metaDataDto;
 		this._databaseService = databaseService;
 		this._databaseEngineerService = databaseEngineerService;
 		this._developmentEnvironmentService = developmentEnvironmentService;
@@ -51,7 +48,7 @@ public class MetadataService implements MetadataServicePort {
 	@Override
 	public List<MetaDataDto> generateMetaData(MetaDataDto metadata, BindingResult bindingResult) {
 		try {
-			var result = _validationService.getErrorMessages(bindingResult);
+			var result = this._validationService.getErrorMessages(bindingResult);
 
 			if (!result.isEmpty()){
 				throw new GlobalException(result.toString());
@@ -76,7 +73,7 @@ public class MetadataService implements MetadataServicePort {
 	@Override
 	public MetaDataDto getTitle() {
 		//MetaDataDto metaDataDto = new MetaDataDto();
-		var metadata = _parameterService.getTitle();
+		var metadata = this._parameterService.getTitle();
 		//metaDataDto.setData(metadata.getData());
 
 		return null;//metaDataDto;
@@ -85,7 +82,7 @@ public class MetadataService implements MetadataServicePort {
 	@Override
 	public MetaDataDto getDescription() {
 		try {
-			return _mapper.map(_parameterService.getDescription(), MetaDataDto.class);
+			return this._mapper.map(this._parameterService.getDescription(), MetaDataDto.class);
 		} catch (Exception ex) {
 			throw new GlobalException(ex.getMessage());
 		}
@@ -94,7 +91,7 @@ public class MetadataService implements MetadataServicePort {
 	@Override
 	public List<Architecture> getArchitecturesDescription() {
 		try {
-			return _architectureService.getArchitecturesDescription();
+			return this._architectureService.getArchitecturesDescription();
 		} catch (Exception ex) {
 			throw new GlobalException(ex.getMessage());
 		}
@@ -103,7 +100,7 @@ public class MetadataService implements MetadataServicePort {
 	@Override
 	public List<Database> getDatabasesDescription() {
 		try {
-			return _databaseService.getDatabasesDescription();
+			return this._databaseService.getDatabasesDescription();
 		}catch (Exception ex) {
 			throw new GlobalException(ex.getMessage());
 		}
@@ -112,7 +109,7 @@ public class MetadataService implements MetadataServicePort {
 	@Override
 	public List<DatabaseEngineer> getDatabasesEngineerDescription() {
 		try {
-			return _databaseEngineerService.getDatabasesEngineerDescription();
+			return this._databaseEngineerService.getDatabasesEngineerDescription();
 		}catch (Exception ex) {
 			throw new GlobalException(ex.getMessage());
 		}
@@ -121,7 +118,7 @@ public class MetadataService implements MetadataServicePort {
 	@Override
 	public List<DevelopmentEnvironment> getDevelopmentEnvironmentDescription() {
 		try {
-			return _developmentEnvironmentService.getDevelopmentEnvironmentDescription();
+			return this._developmentEnvironmentService.getDevelopmentEnvironmentDescription();
 		}catch (Exception ex) {
 			throw new GlobalException(ex.getMessage());
 		}

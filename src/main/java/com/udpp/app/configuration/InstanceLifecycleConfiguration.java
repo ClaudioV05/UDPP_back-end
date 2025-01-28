@@ -40,7 +40,6 @@ public class InstanceLifecycleConfiguration {
 	MetadataService createMetadataService() {
 		return new MetadataService(
 			   new ModelMapper(),
-			   new MetaDataDto(),
 			   new ArchitectureService(),
 			   new DatabaseService(),
 			   new DatabaseEngineerService(),
