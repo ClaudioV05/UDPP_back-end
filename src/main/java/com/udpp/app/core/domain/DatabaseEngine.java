@@ -1,11 +1,9 @@
 package com.udpp.app.core.domain;
 
-/// The Databases engine.
+/// The Database engine.
 /// @since 1.0
 /// @author Claudiomildo Ventura.
-public class DatabasesEngine {
-    /// Id.
-    private long id;
-    /// Name.
+public class DatabaseEngine {
+    private int id;
     private String name;
 }

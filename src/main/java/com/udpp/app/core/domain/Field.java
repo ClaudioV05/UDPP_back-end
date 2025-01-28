@@ -4,14 +4,11 @@ package com.udpp.app.core.domain;
 /// @since 1.0
 /// @author Claudiomildo Ventura.
 public class Field {
-    /// The table's id.
     public int idTables;
-    /// Name.
     public String name;
-    /// The type of field.
     public String typeField;
     /// The field will be auto create when generate the class.
-    public boolean AutoCreate;
+    public boolean autoCreate;
     /// The field length.
     public int fieldLength;
     /// Whether the field is primary key.
@@ -44,11 +41,11 @@ public class Field {
     }
 
     public boolean getAutoCreate() {
-        return AutoCreate;
+        return autoCreate;
     }
 
     public void setAutoCreate(boolean autoCreate) {
-        AutoCreate = autoCreate;
+        this.autoCreate = autoCreate;
     }
 
     public int getFieldLength() {
@@ -64,7 +61,7 @@ public class Field {
     }
 
     public void setPrimaryKey(boolean primaryKey) {
-        isPrimaryKey = primaryKey;
+        this.isPrimaryKey = primaryKey;
     }
 
     public boolean getNull() {
@@ -72,6 +69,6 @@ public class Field {
     }
 
     public void setNull(boolean aNull) {
-        isNull = aNull;
+        this.isNull = aNull;
     }
 }

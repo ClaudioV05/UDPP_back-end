@@ -6,19 +6,15 @@ import java.util.List;
 /// @since 1.0
 /// @author Claudiomildo Ventura.
 public class Table {
-    /// Id.
-    private long id;
-    /// Name.
-    private String Name;
-    /// Auto create.
-    private boolean AutoCreate;
-    /// fields.
+    private int id;
+    private String name;
+    private boolean autoCreate;
     List<Field> fields;
 
-    public Table(long id, String name, boolean autoCreate, List<Field> fields) {
+    public Table(int id, String name, boolean autoCreate, List<Field> fields) {
         this.id = id;
-        Name = name;
-        AutoCreate = autoCreate;
+        this.name = name;
+        this.autoCreate = autoCreate;
         this.fields = fields;
     }
 
@@ -26,24 +22,24 @@ public class Table {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public boolean getAutoCreate() {
-        return AutoCreate;
+        return autoCreate;
     }
 
     public void setAutoCreate(boolean autoCreate) {
-        AutoCreate = autoCreate;
+        this.autoCreate = autoCreate;
     }
 
     public List<Field> getFields() {

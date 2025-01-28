@@ -25,10 +25,10 @@ public class MetadataService implements MetadataServicePort {
 					DatabaseServicePort databaseService,
 					ParameterServicePort parameterService,
 					ValidationServicePort validationService) {
-		_databaseService = databaseService;
-		_architectureService = architectureService;
-		_parameterService = parameterService;
-		_validationService = validationService;
+		this._databaseService = databaseService;
+		this._architectureService = architectureService;
+		this._parameterService = parameterService;
+		this._validationService = validationService;
 	}
 
 	@Override

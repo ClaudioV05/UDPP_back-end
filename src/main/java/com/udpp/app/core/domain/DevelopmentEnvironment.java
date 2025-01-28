@@ -4,8 +4,6 @@ package com.udpp.app.core.domain;
 /// @since 1.0
 /// @author Claudiomildo Ventura.
 public class DevelopmentEnvironment {
-    /// Id.
-    private long id;
-    /// Name.
+    private int id;
     private String name;
 }

@@ -4,12 +4,10 @@ package com.udpp.app.core.domain;
 /// @since 1.0
 /// @author Claudiomildo Ventura.
 public class Architecture {
-    /// Id.
-    private long id;
-    /// Name.
+    private int id;
     private String name;
 
-    public Architecture(long id, String name) {
+    public Architecture(int id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -18,7 +16,7 @@ public class Architecture {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
