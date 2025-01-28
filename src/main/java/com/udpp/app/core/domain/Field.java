@@ -6,22 +6,16 @@ package com.udpp.app.core.domain;
 public class Field {
     /// The table's id.
     public int idTables;
-
     /// Name.
     public String name;
-
     /// The type of field.
     public String typeField;
-
     /// The field will be auto create when generate the class.
     public boolean AutoCreate;
-
     /// The field length.
     public int fieldLength;
-
     /// Whether the field is primary key.
     public boolean isPrimaryKey;
-
     /// Whether the field has null value.
     public boolean isNull;
 

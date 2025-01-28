@@ -1,6 +1,6 @@
 package com.udpp.app.application.port;
 
-import com.udpp.app.core.constant.Architecture;
+import com.udpp.app.core.domain.Architecture;
 
 import java.util.List;
 

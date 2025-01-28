@@ -1,9 +1,9 @@
 package com.udpp.app.core.constant;
 
-/// The Application parameter.
+/// The Application const.
 /// @since 1.0
 /// @author Claudiomildo Ventura.
-public enum ApplicationParameter {;
+public enum ApplicationConst {;
     /// Title.
     public static final String TITLE = "Unified Development Power Platform";
 

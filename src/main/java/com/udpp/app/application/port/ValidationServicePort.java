@@ -8,7 +8,6 @@ import org.springframework.validation.BindingResult;
 /// @since 1.0
 /// @author Claudiomildo Ventura.
 public interface ValidationServicePort {
-
 	/// To get error messages.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.

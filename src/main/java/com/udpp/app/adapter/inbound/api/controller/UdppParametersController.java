@@ -1,7 +1,7 @@
 package com.udpp.app.adapter.inbound.api.controller;
 
-import com.udpp.app.core.constant.Architecture;
-import com.udpp.app.core.constant.ControllerParameter;
+import com.udpp.app.core.constant.ControllerConst;
+import com.udpp.app.core.domain.Architecture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,12 +13,12 @@ import com.udpp.app.application.port.MetadataServicePort;
 
 import java.util.List;
 
-/// Controller Unified Development Power Platform parameters - UDPP.
+/// Unified Development Power Platform parameters - UDPP controller.
 /// --
 /// @since 1.0
 /// @author Claudiomildo Ventura.
 @RestController
-@RequestMapping(value = ControllerParameter.UDPP_PARAMETER_PATH)
+@RequestMapping(value = ControllerConst.UDPP_PARAMETER_PATH)
 public final class UdppParametersController {
 	private final MetadataServicePort _metadataService;
 
@@ -32,7 +32,7 @@ public final class UdppParametersController {
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
 	/// @return String.
-	@GetMapping(value = { ControllerParameter.TITLE_ENDPOINT_PATH })
+	@GetMapping(value = { ControllerConst.TITLE_ENDPOINT_PATH })
 	public ResponseEntity<String> applicationTitle() {
 		return new ResponseEntity<>(_metadataService.getTitle(), HttpStatus.OK);
 	}
@@ -42,7 +42,7 @@ public final class UdppParametersController {
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
 	/// @return String.
-	@GetMapping(value = { ControllerParameter.DESCRIPTION_ENDPOINT_PATH })
+	@GetMapping(value = { ControllerConst.DESCRIPTION_ENDPOINT_PATH })
 	public ResponseEntity<String> applicationDescription() {
 		return new ResponseEntity<>(_metadataService.getDescription(), HttpStatus.OK);
 	}
@@ -52,7 +52,7 @@ public final class UdppParametersController {
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
 	/// @return List of Architecture.
-	@GetMapping(value = { ControllerParameter.ARCHITECTURES_ENDPOINT_PATH })
+	@GetMapping(value = { ControllerConst.ARCHITECTURES_ENDPOINT_PATH })
 	public ResponseEntity<List<Architecture>> architectures() {
 		return new ResponseEntity<>(_metadataService.getArchitecturesDescription(), HttpStatus.OK);
 	}

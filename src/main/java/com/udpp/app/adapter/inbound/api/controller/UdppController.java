@@ -2,7 +2,7 @@ package com.udpp.app.adapter.inbound.api.controller;
 
 import java.util.List;
 
-import com.udpp.app.core.constant.ControllerParameter;
+import com.udpp.app.core.constant.ControllerConst;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,12 +18,12 @@ import com.udpp.app.adapter.inbound.api.dto.MetaTableDto;
 
 import jakarta.validation.Valid;
 
-/// Controller Unified Development Power Platform - UDPP.
+/// Unified Development Power Platform - UDPP controller.
 /// --
 /// @since 1.0
 /// @author Claudiomildo Ventura.
 @RestController
-@RequestMapping(value = ControllerParameter.UDPP_PATH)
+@RequestMapping(value = ControllerConst.UDPP_PATH)
 public final class UdppController {
 	private final MetadataServicePort _metadataService;
 
@@ -39,7 +39,7 @@ public final class UdppController {
 	/// @param metaData
 	/// @return List<MetaDataDto>
 	/// @throws Exception
-	@PostMapping(value = { ControllerParameter.METADATA_ENDPOINT_PATH })
+	@PostMapping(value = { ControllerConst.METADATA_ENDPOINT_PATH })
 		public ResponseEntity<List<MetaDataDto>> metaData(@RequestBody @Valid final MetaDataDto metaData, final BindingResult bindingResult) throws Exception {
         return new ResponseEntity<>(_metadataService.generateMetaData(metaData, bindingResult), HttpStatus.OK);
 	}
@@ -51,7 +51,7 @@ public final class UdppController {
 	/// @param metaTable
 	/// @return List<MetaTableDto>
 	/// @throws Exception
-	@PostMapping(value = { ControllerParameter.METATABLE_ENDPOINT_PATH })
+	@PostMapping(value = { ControllerConst.METATABLE_ENDPOINT_PATH })
 	public ResponseEntity<List<MetaTableDto>> metaTable(@Valid @RequestBody final MetaTableDto metaTable) throws Exception {
 		return new ResponseEntity<>(_metadataService.generateMetaTable(metaTable), HttpStatus.OK);
 	}

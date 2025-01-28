@@ -6,7 +6,6 @@ package com.udpp.app.core.domain;
 public class DevelopmentEnvironment {
     /// Id.
     private long id;
-
     /// Name.
-    private String Name;
+    private String name;
 }

@@ -11,9 +11,17 @@ import org.springframework.web.context.request.WebRequest;
 
 import java.util.Date;
 
+/// Unified Development Power Platform - UDPP global exception controller advice.
+/// --
+/// @since 1.0
+/// @author Claudiomildo Ventura.
 @RestControllerAdvice
 public class UdppGlobalExceptionControllerAdvice {
 
+    /// To Handle Http Media Type Not Acceptable exception.
+    /// @since 1.0
+    /// @author Claudiomildo Ventura.
+    /// @return ResponseEntity<String>.
     @ResponseBody
     @ExceptionHandler(GlobalException.class)
     protected ResponseEntity<MessageErrorDto> handleHttpMediaTypeNotAcceptableException(GlobalException ex, WebRequest request) {

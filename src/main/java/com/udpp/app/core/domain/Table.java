@@ -8,13 +8,11 @@ import java.util.List;
 public class Table {
     /// Id.
     private long id;
-
     /// Name.
     private String Name;
-
     /// Auto create.
     private boolean AutoCreate;
-
+    /// fields.
     List<Field> fields;
 
     public Table(long id, String name, boolean autoCreate, List<Field> fields) {
