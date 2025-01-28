@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 
 import com.udpp.app.application.port.ValidationServicePort;
 
-@Service
 public class ValidationService implements ValidationServicePort {
 
 	@Override

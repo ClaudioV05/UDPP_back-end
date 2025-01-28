@@ -10,12 +10,10 @@ import com.udpp.app.core.domain.DatabaseEngineer;
 import com.udpp.app.core.domain.DevelopmentEnvironment;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
 import java.util.List;
 
-@Service
 public class MetadataService implements MetadataServicePort {
 	private final ArchitectureServicePort _architectureService;
 	private final DatabaseServicePort _databaseService;
@@ -24,8 +22,7 @@ public class MetadataService implements MetadataServicePort {
 	private final ParameterServicePort _parameterService;
 	private final ValidationServicePort _validationService;
 
-	@Autowired
-	MetadataService(ArchitectureService architectureService,
+	public MetadataService(ArchitectureService architectureService,
 					DatabaseServicePort databaseService,
 					DatabaseEngineerServicePort databaseEngineerService,
 					DevelopmentEnvironmentServicePort developmentEnvironmentService,

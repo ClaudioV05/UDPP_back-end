@@ -3,13 +3,11 @@ package com.udpp.app.application.service;
 import com.udpp.app.application.port.DevelopmentEnvironmentServicePort;
 import com.udpp.app.core.constant.DevelopmentEnvironmentConst;
 import com.udpp.app.core.domain.DevelopmentEnvironment;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@Service
 public class DevelopmentEnvironmentService implements DevelopmentEnvironmentServicePort {
     @Override
     public List<DevelopmentEnvironment> getDevelopmentEnvironmentDescription() {

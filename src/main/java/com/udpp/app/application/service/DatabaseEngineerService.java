@@ -3,13 +3,11 @@ package com.udpp.app.application.service;
 import com.udpp.app.application.port.DatabaseEngineerServicePort;
 import com.udpp.app.core.constant.DatabaseEngineerConst;
 import com.udpp.app.core.domain.DatabaseEngineer;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@Service
 public class DatabaseEngineerService implements DatabaseEngineerServicePort {
     @Override
     public List<DatabaseEngineer> getDatabasesEngineerDescription() {
