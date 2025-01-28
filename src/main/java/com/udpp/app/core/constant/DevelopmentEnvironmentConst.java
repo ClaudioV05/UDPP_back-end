@@ -1,15 +1,17 @@
 package com.udpp.app.core.constant;
 
-/// The Database engineer const.
+/// The Development environment const.
 /// @since 1.0
 /// @author Claudiomildo Ventura.
-public enum DatabaseEngineerConst {
+public enum DevelopmentEnvironmentConst {
     UNDEFINED("Undefined"),
-    HIBERNATE("Hibernate");
+    INTELlIJ("Intellij"),
+    VISUALSTUDIO("Visual Studio"),
+    DELPHIXE10("Delphi XE10");
 
     private final String description;
 
-    DatabaseEngineerConst(String description) {
+    DevelopmentEnvironmentConst(String description) {
         this.description = description;
     }
 

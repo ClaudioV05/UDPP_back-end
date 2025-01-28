@@ -14,8 +14,8 @@ public class ArchitectureService implements ArchitectureServicePort {
         final int[] index = {0};
         List<Architecture> lstItem = new ArrayList<>();
 
-        Arrays.stream(ArchitectureConst.values()).forEach(architecture -> {
-            lstItem.add(new Architecture(index[0], architecture.getDescription()));
+        Arrays.stream(ArchitectureConst.values()).forEach(item -> {
+            lstItem.add(new Architecture(index[0], item.getDescription()));
             index[0]++;
         });
 

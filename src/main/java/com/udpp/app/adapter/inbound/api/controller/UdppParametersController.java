@@ -4,6 +4,7 @@ import com.udpp.app.core.constant.ControllerConst;
 import com.udpp.app.core.domain.Architecture;
 import com.udpp.app.core.domain.Database;
 import com.udpp.app.core.domain.DatabaseEngineer;
+import com.udpp.app.core.domain.DevelopmentEnvironment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -77,5 +78,15 @@ public final class UdppParametersController {
 	@GetMapping(value = { ControllerConst.DATABASES_ENGINEER_ENDPOINT_PATH })
 	public ResponseEntity<List<DatabaseEngineer>> databasesEngineer() {
 		return new ResponseEntity<>(_metadataService.getDatabasesEngineerDescription(), HttpStatus.OK);
+	}
+
+	/// The development environment description.
+	///
+	/// @since 1.0
+	/// @author Claudiomildo Ventura.
+	/// @return List of Development environment.
+	@GetMapping(value = { ControllerConst.DEVELOPMENT_ENVIRONMENT_ENDPOINT_PATH })
+	public ResponseEntity<List<DevelopmentEnvironment>> developmentEnvironment() {
+		return new ResponseEntity<>(_metadataService.getDevelopmentEnvironmentDescription(), HttpStatus.OK);
 	}
 }

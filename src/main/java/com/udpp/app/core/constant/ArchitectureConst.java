@@ -10,7 +10,6 @@ public enum ArchitectureConst {
     MEDIATR("MediatR"),
     MVC("Model view controller");
 
-    /// description.
     private final String description;
 
     ArchitectureConst(String description) {

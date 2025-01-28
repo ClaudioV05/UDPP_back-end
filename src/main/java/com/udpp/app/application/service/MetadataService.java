@@ -7,6 +7,7 @@ import com.udpp.app.application.port.*;
 import com.udpp.app.core.domain.Architecture;
 import com.udpp.app.core.domain.Database;
 import com.udpp.app.core.domain.DatabaseEngineer;
+import com.udpp.app.core.domain.DevelopmentEnvironment;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ public class MetadataService implements MetadataServicePort {
 	private final ArchitectureServicePort _architectureService;
 	private final DatabaseServicePort _databaseService;
 	private final DatabaseEngineerServicePort _databaseEngineerService;
+	private final DevelopmentEnvironmentServicePort _developmentEnvironmentService;
 	private final ParameterServicePort _parameterService;
 	private final ValidationServicePort _validationService;
 
@@ -26,10 +28,12 @@ public class MetadataService implements MetadataServicePort {
 	MetadataService(ArchitectureService architectureService,
 					DatabaseServicePort databaseService,
 					DatabaseEngineerServicePort databaseEngineerService,
+					DevelopmentEnvironmentServicePort developmentEnvironmentService,
 					ParameterServicePort parameterService,
 					ValidationServicePort validationService) {
 		this._databaseService = databaseService;
 		this._databaseEngineerService = databaseEngineerService;
+		this._developmentEnvironmentService = developmentEnvironmentService;
 		this._architectureService = architectureService;
 		this._parameterService = parameterService;
 		this._validationService = validationService;
@@ -83,5 +87,10 @@ public class MetadataService implements MetadataServicePort {
 	@Override
 	public List<DatabaseEngineer> getDatabasesEngineerDescription() {
 		return _databaseEngineerService.getDatabasesEngineerDescription();
+	}
+
+	@Override
+	public List<DevelopmentEnvironment> getDevelopmentEnvironmentDescription() {
+		return _developmentEnvironmentService.getDevelopmentEnvironmentDescription();
 	}
 }

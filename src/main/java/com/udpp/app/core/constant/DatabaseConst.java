@@ -10,7 +10,6 @@ public enum DatabaseConst {
     FIREBIRD("Firebird"),
     SYBASE("Sybase");
 
-    /// description.
     private final String description;
 
     DatabaseConst(String description) {
