@@ -40,9 +40,8 @@ public final class UdppController {
 	/// @return List<MetaDataDto>
 	/// @throws Exception
 	@PostMapping(value = { ControllerConst.METADATA_ENDPOINT_PATH })
-		public ResponseEntity<List<MetaDataDto>> metaData(@RequestBody @Valid final MetaDataDto metaData, final BindingResult bindingResult) throws Exception {
-        //return new ResponseEntity<>(_metadataService.generateMetaData(metaData, bindingResult), HttpStatus.OK);
-        return null;
+		public ResponseEntity<List<com.udpp.app.adapter.inbound.api.mapper.MetaDataDto>> metaData(@RequestBody @Valid final MetaDataDto metaData, final BindingResult bindingResult) throws Exception {
+        return new ResponseEntity<>(_metadataService.generateMetaData(metaData, bindingResult), HttpStatus.OK);
 	}
 
 	/// To receive the table(s) with their field(s) that will generate the magic solution - UDPP.

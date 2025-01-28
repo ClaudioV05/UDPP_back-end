@@ -21,13 +21,13 @@ public interface MetadataServicePort {
 	/// @param metadata metadata.
 	/// @param bindingResult binding result.
 	/// @return List<MetaDataDto>
-	List<MetaDataDto> generateMetaData(MetaDataDto metadata, BindingResult bindingResult);
+	List<MetaDataDto> generateMetaData(com.udpp.app.adapter.inbound.api.dto.MetaDataDto metadata, BindingResult bindingResult);
 	/// Generate MetaTable.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
 	/// @param metatable metatable.
 	/// @return List<MetaTableDto>
-	List<MetaTableDto> generateMetaTable(MetaTableDto metatable);
+	List<MetaTableDto> generateMetaTable(com.udpp.app.adapter.inbound.api.dto.MetaTableDto metatable);
 	/// To get the application title.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
@@ -41,21 +41,21 @@ public interface MetadataServicePort {
 	/// To get enum architectures description.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
-	/// @return List of Architecture.
+	/// @return Set of Architecture.
 	LinkedHashSet<Architecture> getArchitecturesDescription();
 	/// To get enum database description.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
-	/// @return List of Database.
-	List<Database> getDatabasesDescription();
+	/// @return Set of Database.
+	LinkedHashSet<Database> getDatabasesDescription();
 	/// To get enum database engineer description.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
-	/// @return List of Database engineer.
-	List<DatabaseEngineer> getDatabasesEngineerDescription();
+	/// @return Set of Database engineer.
+	LinkedHashSet<DatabaseEngineer> getDatabasesEngineerDescription();
 	/// To get enum development environment description.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
-	/// @return List of Development environment.
-	List<DevelopmentEnvironment> getDevelopmentEnvironmentDescription();
+	/// @return Set of Development environment.
+	LinkedHashSet<DevelopmentEnvironment> getDevelopmentEnvironmentDescription();
 }

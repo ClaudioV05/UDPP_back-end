@@ -2,7 +2,7 @@ package com.udpp.app.application.port;
 
 import com.udpp.app.core.domain.Database;
 
-import java.util.List;
+import java.util.LinkedHashSet;
 
 /// The Database service.
 /// @since 1.0
@@ -11,6 +11,6 @@ public interface DatabaseServicePort {
     /// To get enum database description.
     /// @since 1.0
     /// @author Claudiomildo Ventura.
-    /// @return List of Database.
-    List<Database> getDatabasesDescription();
+    /// @return Set of Database.
+    LinkedHashSet<Database> getDatabasesDescription();
 }

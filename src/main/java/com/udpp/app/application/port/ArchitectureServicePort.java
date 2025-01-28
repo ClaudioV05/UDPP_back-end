@@ -11,6 +11,6 @@ public interface ArchitectureServicePort {
     /// To get enum architectures description.
     /// @since 1.0
     /// @author Claudiomildo Ventura.
-    /// @return List of Architecture.
+    /// @return Set of Architecture.
     LinkedHashSet<Architecture> getArchitecturesDescription();
 }

@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.udpp.app.application.port.MetadataServicePort;
 
-import java.util.HashSet;
 import java.util.LinkedHashSet;
-import java.util.List;
 
 /// Unified Development Power Platform parameters - UDPP controller.
 /// --
@@ -69,7 +67,7 @@ public final class UdppParametersController {
 	/// @author Claudiomildo Ventura.
 	/// @return List of Database.
 	@GetMapping(value = { ControllerConst.DATABASES_ENDPOINT_PATH })
-	public ResponseEntity<List<Database>> databases() {
+	public ResponseEntity<LinkedHashSet<Database>> databases() {
 		return new ResponseEntity<>(_metadataService.getDatabasesDescription(), HttpStatus.OK);
 	}
 
@@ -79,7 +77,7 @@ public final class UdppParametersController {
 	/// @author Claudiomildo Ventura.
 	/// @return List of Database engineer.
 	@GetMapping(value = { ControllerConst.DATABASES_ENGINEER_ENDPOINT_PATH })
-	public ResponseEntity<List<DatabaseEngineer>> databasesEngineer() {
+	public ResponseEntity<LinkedHashSet<DatabaseEngineer>> databasesEngineer() {
 		return new ResponseEntity<>(_metadataService.getDatabasesEngineerDescription(), HttpStatus.OK);
 	}
 
@@ -89,7 +87,7 @@ public final class UdppParametersController {
 	/// @author Claudiomildo Ventura.
 	/// @return List of Development environment.
 	@GetMapping(value = { ControllerConst.DEVELOPMENT_ENVIRONMENT_ENDPOINT_PATH })
-	public ResponseEntity<List<DevelopmentEnvironment>> developmentEnvironment() {
+	public ResponseEntity<LinkedHashSet<DevelopmentEnvironment>> developmentEnvironment() {
 		return new ResponseEntity<>(_metadataService.getDevelopmentEnvironmentDescription(), HttpStatus.OK);
 	}
 }

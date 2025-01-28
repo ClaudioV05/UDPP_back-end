@@ -47,7 +47,7 @@ public class MetadataService implements MetadataServicePort {
 	}
 
 	@Override
-	public List<MetaDataDto> generateMetaData(MetaDataDto metadata, BindingResult bindingResult) {
+	public List<MetaDataDto> generateMetaData(com.udpp.app.adapter.inbound.api.dto.MetaDataDto metadata, BindingResult bindingResult) {
 		try {
 			var result = this._validationService.getErrorMessages(bindingResult);
 
@@ -99,7 +99,7 @@ public class MetadataService implements MetadataServicePort {
 	}
 
 	@Override
-	public List<Database> getDatabasesDescription() {
+	public LinkedHashSet<Database> getDatabasesDescription() {
 		try {
 			return this._databaseService.getDatabasesDescription();
 		}catch (Exception ex) {
@@ -108,7 +108,7 @@ public class MetadataService implements MetadataServicePort {
 	}
 
 	@Override
-	public List<DatabaseEngineer> getDatabasesEngineerDescription() {
+	public LinkedHashSet<DatabaseEngineer> getDatabasesEngineerDescription() {
 		try {
 			return this._databaseEngineerService.getDatabasesEngineerDescription();
 		}catch (Exception ex) {
@@ -117,7 +117,7 @@ public class MetadataService implements MetadataServicePort {
 	}
 
 	@Override
-	public List<DevelopmentEnvironment> getDevelopmentEnvironmentDescription() {
+	public LinkedHashSet<DevelopmentEnvironment> getDevelopmentEnvironmentDescription() {
 		try {
 			return this._developmentEnvironmentService.getDevelopmentEnvironmentDescription();
 		}catch (Exception ex) {

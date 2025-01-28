@@ -4,15 +4,14 @@ import com.udpp.app.application.port.DatabaseServicePort;
 import com.udpp.app.core.constant.DatabaseConst;
 import com.udpp.app.core.domain.Database;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.LinkedHashSet;
 
 public class DatabaseService implements DatabaseServicePort {
     @Override
-    public List<Database> getDatabasesDescription() {
+    public LinkedHashSet<Database> getDatabasesDescription() {
         final int[] index = {0};
-        List<Database> lstItem = new ArrayList<>();
+        LinkedHashSet<Database> lstItem = new LinkedHashSet<>();
 
         Arrays.stream(DatabaseConst.values()).forEach(item -> {
             lstItem.add(new Database(index[0], item.getDescription()));

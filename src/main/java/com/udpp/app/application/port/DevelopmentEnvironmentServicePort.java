@@ -2,7 +2,7 @@ package com.udpp.app.application.port;
 
 import com.udpp.app.core.domain.DevelopmentEnvironment;
 
-import java.util.List;
+import java.util.LinkedHashSet;
 
 /// The Development environment service.
 /// @since 1.0
@@ -11,6 +11,6 @@ public interface DevelopmentEnvironmentServicePort {
     /// To get enum development environment description.
     /// @since 1.0
     /// @author Claudiomildo Ventura.
-    /// @return List of Development environment.
-    List<DevelopmentEnvironment> getDevelopmentEnvironmentDescription();
+    /// @return Set of Development environment.
+    LinkedHashSet<DevelopmentEnvironment> getDevelopmentEnvironmentDescription();
 }

@@ -4,15 +4,14 @@ import com.udpp.app.application.port.DatabaseEngineerServicePort;
 import com.udpp.app.core.constant.DatabaseEngineerConst;
 import com.udpp.app.core.domain.DatabaseEngineer;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.LinkedHashSet;
 
 public class DatabaseEngineerService implements DatabaseEngineerServicePort {
     @Override
-    public List<DatabaseEngineer> getDatabasesEngineerDescription() {
+    public LinkedHashSet<DatabaseEngineer> getDatabasesEngineerDescription() {
         final int[] index = {0};
-        List<DatabaseEngineer> lstItem = new ArrayList<>();
+        LinkedHashSet<DatabaseEngineer> lstItem = new LinkedHashSet<>();
 
         Arrays.stream(DatabaseEngineerConst.values()).forEach(item -> {
             lstItem.add(new DatabaseEngineer(index[0], item.getDescription()));

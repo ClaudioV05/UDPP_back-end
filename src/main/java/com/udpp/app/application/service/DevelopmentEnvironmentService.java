@@ -4,15 +4,14 @@ import com.udpp.app.application.port.DevelopmentEnvironmentServicePort;
 import com.udpp.app.core.constant.DevelopmentEnvironmentConst;
 import com.udpp.app.core.domain.DevelopmentEnvironment;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.LinkedHashSet;
 
 public class DevelopmentEnvironmentService implements DevelopmentEnvironmentServicePort {
     @Override
-    public List<DevelopmentEnvironment> getDevelopmentEnvironmentDescription() {
+    public LinkedHashSet<DevelopmentEnvironment> getDevelopmentEnvironmentDescription() {
         final int[] index = {0};
-        List<DevelopmentEnvironment> lstItem = new ArrayList<>();
+        LinkedHashSet<DevelopmentEnvironment> lstItem = new LinkedHashSet<>();
 
         Arrays.stream(DevelopmentEnvironmentConst.values()).forEach(item -> {
             lstItem.add(new DevelopmentEnvironment(index[0], item.getDescription()));
