@@ -10,13 +10,13 @@ public enum DatabaseConst {
     FIREBIRD("Firebird"),
     SYBASE("Sybase");
 
-    private final String description;
+    private final String data;
 
-    DatabaseConst(String description) {
-        this.description = description;
+    DatabaseConst(String data) {
+        this.data = data;
     }
 
-    public String getDescription() {
-        return description;
+    public String getData() {
+        return data;
     }
 }

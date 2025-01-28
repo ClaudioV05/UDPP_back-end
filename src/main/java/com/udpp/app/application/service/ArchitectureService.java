@@ -22,7 +22,7 @@ public class ArchitectureService implements ArchitectureServicePort {
         LinkedHashSet<Architecture> lstItem = new LinkedHashSet<>();
 
         Arrays.stream(ArchitectureConst.values()).forEach(item -> {
-            lstItem.add(new Architecture(index[0], _unicodeService.setToUpper(item.getDescription())));
+            lstItem.add(new Architecture(index[0], _unicodeService.setToUpper(item.getData())));
             index[0]++;
         });
 

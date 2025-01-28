@@ -7,13 +7,13 @@ public enum DatabaseEngineerConst {
     UNDEFINED("Undefined"),
     HIBERNATE("Hibernate");
 
-    private final String description;
+    private final String data;
 
-    DatabaseEngineerConst(String description) {
-        this.description = description;
+    DatabaseEngineerConst(String data) {
+        this.data = data;
     }
 
-    public String getDescription() {
-        return description;
+    public String getData() {
+        return data;
     }
 }

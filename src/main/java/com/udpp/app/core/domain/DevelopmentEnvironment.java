@@ -5,11 +5,11 @@ package com.udpp.app.core.domain;
 /// @author Claudiomildo Ventura.
 public class DevelopmentEnvironment {
     private int id;
-    private String name;
+    private String data;
 
-    public DevelopmentEnvironment(int id, String name) {
+    public DevelopmentEnvironment(int id, String data) {
         this.id = id;
-        this.name = name;
+        this.data = data;
     }
 
     public int getId() {
@@ -20,11 +20,11 @@ public class DevelopmentEnvironment {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getData() {
+        return data;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setData(String data) {
+        this.data = data;
     }
 }

@@ -1,6 +1,5 @@
 package com.udpp.app.configuration;
 
-import com.udpp.app.adapter.inbound.api.mapper.MetaDataDto;
 import com.udpp.app.application.service.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

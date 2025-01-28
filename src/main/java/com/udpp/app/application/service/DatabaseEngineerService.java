@@ -22,7 +22,7 @@ public class DatabaseEngineerService implements DatabaseEngineerServicePort {
         LinkedHashSet<DatabaseEngineer> lstItem = new LinkedHashSet<>();
 
         Arrays.stream(DatabaseEngineerConst.values()).forEach(item -> {
-            lstItem.add(new DatabaseEngineer(index[0], _unicodeService.setToUpper(item.getDescription())));
+            lstItem.add(new DatabaseEngineer(index[0], _unicodeService.setToUpper(item.getData())));
             index[0]++;
         });
 

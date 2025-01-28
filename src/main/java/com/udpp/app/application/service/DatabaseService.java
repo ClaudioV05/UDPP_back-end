@@ -22,7 +22,7 @@ public class DatabaseService implements DatabaseServicePort {
         LinkedHashSet<Database> lstItem = new LinkedHashSet<>();
 
         Arrays.stream(DatabaseConst.values()).forEach(item -> {
-            lstItem.add(new Database(index[0], _unicodeService.setToUpper(item.getDescription())));
+            lstItem.add(new Database(index[0], _unicodeService.setToUpper(item.getData())));
             index[0]++;
         });
 

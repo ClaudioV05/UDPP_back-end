@@ -10,13 +10,13 @@ public enum ArchitectureConst {
     MEDIATR("MediatR"),
     MVC("Model view controller");
 
-    private final String description;
+    private final String data;
 
-    ArchitectureConst(String description) {
-        this.description = description;
+    ArchitectureConst(String data) {
+        this.data = data;
     }
 
-    public String getDescription() {
-        return description;
+    public String getData() {
+        return data;
     }
 }

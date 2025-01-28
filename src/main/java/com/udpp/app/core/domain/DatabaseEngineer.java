@@ -5,11 +5,11 @@ package com.udpp.app.core.domain;
 /// @author Claudiomildo Ventura.
 public class DatabaseEngineer {
     private int id;
-    private String name;
+    private String data;
 
-    public DatabaseEngineer(int id, String name) {
+    public DatabaseEngineer(int id, String data) {
         this.id = id;
-        this.name = name;
+        this.data = data;
     }
 
     public int getId() {
@@ -20,11 +20,11 @@ public class DatabaseEngineer {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getData() {
+        return data;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setData(String data) {
+        this.data = data;
     }
 }

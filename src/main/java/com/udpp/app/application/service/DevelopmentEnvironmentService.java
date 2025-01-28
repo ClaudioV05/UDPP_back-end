@@ -22,7 +22,7 @@ public class DevelopmentEnvironmentService implements DevelopmentEnvironmentServ
         LinkedHashSet<DevelopmentEnvironment> lstItem = new LinkedHashSet<>();
 
         Arrays.stream(DevelopmentEnvironmentConst.values()).forEach(item -> {
-            lstItem.add(new DevelopmentEnvironment(index[0], _unicodeService.setToUpper(item.getDescription())));
+            lstItem.add(new DevelopmentEnvironment(index[0], _unicodeService.setToUpper(item.getData())));
             index[0]++;
         });
 

@@ -9,13 +9,13 @@ public enum DevelopmentEnvironmentConst {
     VISUALSTUDIO("Visual Studio"),
     DELPHIXE10("Delphi XE10");
 
-    private final String description;
+    private final String data;
 
-    DevelopmentEnvironmentConst(String description) {
-        this.description = description;
+    DevelopmentEnvironmentConst(String data) {
+        this.data = data;
     }
 
-    public String getDescription() {
-        return description;
+    public String getData() {
+        return data;
     }
 }
