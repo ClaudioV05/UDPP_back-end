@@ -1,6 +1,6 @@
 package com.udpp.app.application.service;
 
-import com.udpp.app.adapter.inbound.api.dto.MetaDataDto;
+import com.udpp.app.adapter.inbound.api.mapper.MetaDataDto;
 import com.udpp.app.adapter.inbound.api.dto.MetaTableDto;
 import com.udpp.app.adapter.inbound.api.exceptionhandler.GlobalException;
 import com.udpp.app.application.port.MetadataServicePort;
@@ -15,11 +15,16 @@ import com.udpp.app.core.domain.Database;
 import com.udpp.app.core.domain.DatabaseEngineer;
 import com.udpp.app.core.domain.DevelopmentEnvironment;
 
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 
 import java.util.List;
 
 public class MetadataService implements MetadataServicePort {
+	@Autowired
+	private ModelMapper modelMapper;
+
 	private final ArchitectureServicePort _architectureService;
 	private final DatabaseServicePort _databaseService;
 	private final DatabaseEngineerServicePort _databaseEngineerService;
@@ -68,39 +73,59 @@ public class MetadataService implements MetadataServicePort {
 
 	@Override
 	public MetaDataDto getTitle() {
-		MetaDataDto metaDataDto = new MetaDataDto();
+		//MetaDataDto metaDataDto = new MetaDataDto();
 		var metadata = _parameterService.getTitle();
-		metaDataDto.setData(metadata.getData());
+		//metaDataDto.setData(metadata.getData());
 
-		return metaDataDto;
+		return null;//metaDataDto;
 	}
 
 	@Override
 	public MetaDataDto getDescription() {
-		MetaDataDto metaDataDto = new MetaDataDto();
-		var metadata = _parameterService.getDescription();
-		metaDataDto.setData(metadata.getData());
+		try {
+			MetaDataDto metaDataDto = new MetaDataDto();
+			var metadata = _parameterService.getDescription();
+			metaDataDto = modelMapper.map(metadata, MetaDataDto.class);
+			return metaDataDto;
+		} catch (Exception ex) {
+			throw new GlobalException(ex.getMessage());
+		}
 
-		return metaDataDto;
 	}
 
 	@Override
 	public List<Architecture> getArchitecturesDescription() {
-	return _architectureService.getArchitecturesDescription();
+		try {
+			return _architectureService.getArchitecturesDescription();
+		} catch (Exception ex) {
+			throw new GlobalException(ex.getMessage());
+		}
 	}
 
 	@Override
 	public List<Database> getDatabasesDescription() {
-		return _databaseService.getDatabasesDescription();
+		try {
+			return _databaseService.getDatabasesDescription();
+		}catch (Exception ex) {
+			throw new GlobalException(ex.getMessage());
+		}
 	}
 
 	@Override
 	public List<DatabaseEngineer> getDatabasesEngineerDescription() {
-		return _databaseEngineerService.getDatabasesEngineerDescription();
+		try {
+			return _databaseEngineerService.getDatabasesEngineerDescription();
+		}catch (Exception ex) {
+			throw new GlobalException(ex.getMessage());
+		}
 	}
 
 	@Override
 	public List<DevelopmentEnvironment> getDevelopmentEnvironmentDescription() {
-		return _developmentEnvironmentService.getDevelopmentEnvironmentDescription();
+		try {
+			return _developmentEnvironmentService.getDevelopmentEnvironmentDescription();
+		}catch (Exception ex) {
+			throw new GlobalException(ex.getMessage());
+		}
 	}
 }

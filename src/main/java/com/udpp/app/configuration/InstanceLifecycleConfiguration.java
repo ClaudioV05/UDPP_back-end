@@ -1,6 +1,7 @@
 package com.udpp.app.configuration;
 
 import com.udpp.app.application.service.*;
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,6 +10,11 @@ import org.springframework.context.annotation.Configuration;
 /// @author Claudiomildo Ventura.
 @Configuration
 public class InstanceLifecycleConfiguration {
+	@Bean
+	public ModelMapper modelMapper() {
+		return new ModelMapper();
+	}
+
 	@Bean
 	ArchitectureService createArchitectureService() {
 		return new ArchitectureService();
@@ -63,5 +69,10 @@ public class InstanceLifecycleConfiguration {
 	@Bean
 	ValidationService createValidationService() {
 		return new ValidationService();
+	}
+
+	@Bean
+	LogService createLogService() {
+		return new LogService();
 	}
 }

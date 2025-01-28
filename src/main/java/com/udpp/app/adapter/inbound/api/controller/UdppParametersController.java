@@ -1,6 +1,6 @@
 package com.udpp.app.adapter.inbound.api.controller;
 
-import com.udpp.app.adapter.inbound.api.dto.MetaDataDto;
+import com.udpp.app.adapter.inbound.api.mapper.MetaDataDto;
 import com.udpp.app.core.constant.ControllerConst;
 import com.udpp.app.core.domain.Architecture;
 import com.udpp.app.core.domain.Database;
@@ -47,7 +47,7 @@ public final class UdppParametersController {
 	/// @author Claudiomildo Ventura.
 	/// @return MetaDataDto.
 	@GetMapping(value = { ControllerConst.DESCRIPTION_ENDPOINT_PATH })
-	public ResponseEntity<MetaDataDto> applicationDescription() {
+	public ResponseEntity<MetaDataDto> applicationDescription() throws Exception {
 		return new ResponseEntity<>(_metadataService.getDescription(), HttpStatus.OK);
 	}
 

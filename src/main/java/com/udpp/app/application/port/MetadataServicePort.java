@@ -1,6 +1,6 @@
 package com.udpp.app.application.port;
 
-import com.udpp.app.adapter.inbound.api.dto.MetaDataDto;
+import com.udpp.app.adapter.inbound.api.mapper.MetaDataDto;
 import com.udpp.app.adapter.inbound.api.dto.MetaTableDto;
 import com.udpp.app.core.domain.Architecture;
 import com.udpp.app.core.domain.Database;
