@@ -20,4 +20,6 @@ public enum ControllerConst {;
     public static final String DESCRIPTION_ENDPOINT_PATH = "/applicationDescription";
     /// Architectures endpoint path.
     public static final String ARCHITECTURES_ENDPOINT_PATH = "/architectures";
+    /// Database endpoint path.
+    public static final String DATABASES_ENDPOINT_PATH = "/databases";
 }

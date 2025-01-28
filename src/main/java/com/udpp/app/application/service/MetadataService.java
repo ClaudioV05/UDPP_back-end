@@ -3,13 +3,11 @@ package com.udpp.app.application.service;
 import com.udpp.app.adapter.inbound.api.dto.MetaDataDto;
 import com.udpp.app.adapter.inbound.api.dto.MetaTableDto;
 import com.udpp.app.adapter.inbound.api.exceptionhandler.GlobalException;
-import com.udpp.app.application.port.ArchitectureServicePort;
-import com.udpp.app.application.port.ParameterServicePort;
+import com.udpp.app.application.port.*;
 import com.udpp.app.core.domain.Architecture;
+import com.udpp.app.core.domain.Database;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.udpp.app.application.port.MetadataServicePort;
-import com.udpp.app.application.port.ValidationServicePort;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
@@ -18,13 +16,16 @@ import java.util.List;
 @Service
 public class MetadataService implements MetadataServicePort {
 	private final ArchitectureServicePort _architectureServicePort;
+	private final DatabaseServicePort _databaseServicePort;
 	private final ParameterServicePort _parameterServicePort;
 	private final ValidationServicePort _validationServicePort;
 
 	@Autowired
 	MetadataService(ArchitectureService architectureService,
+					DatabaseServicePort databaseServicePort,
 					ParameterServicePort parameterServicePort,
 					ValidationServicePort validationServicePort) {
+		_databaseServicePort = databaseServicePort;
 		_architectureServicePort = architectureService;
 		_parameterServicePort = parameterServicePort;
 		_validationServicePort = validationServicePort;
@@ -68,5 +69,10 @@ public class MetadataService implements MetadataServicePort {
 	@Override
 	public List<Architecture> getArchitecturesDescription() {
 	return _architectureServicePort.getArchitecturesDescription();
+	}
+
+	@Override
+	public List<Database> getDatabasesDescription() {
+		return _databaseServicePort.getDatabasesDescription();
 	}
 }

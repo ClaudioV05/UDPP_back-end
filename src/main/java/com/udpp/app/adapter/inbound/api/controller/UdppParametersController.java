@@ -2,6 +2,7 @@ package com.udpp.app.adapter.inbound.api.controller;
 
 import com.udpp.app.core.constant.ControllerConst;
 import com.udpp.app.core.domain.Architecture;
+import com.udpp.app.core.domain.Database;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -55,5 +56,15 @@ public final class UdppParametersController {
 	@GetMapping(value = { ControllerConst.ARCHITECTURES_ENDPOINT_PATH })
 	public ResponseEntity<List<Architecture>> architectures() {
 		return new ResponseEntity<>(_metadataService.getArchitecturesDescription(), HttpStatus.OK);
+	}
+
+	/// The database description.
+	///
+	/// @since 1.0
+	/// @author Claudiomildo Ventura.
+	/// @return List of Database.
+	@GetMapping(value = { ControllerConst.DATABASES_ENDPOINT_PATH })
+	public ResponseEntity<List<Database>> databases() {
+		return new ResponseEntity<>(_metadataService.getDatabasesDescription(), HttpStatus.OK);
 	}
 }
