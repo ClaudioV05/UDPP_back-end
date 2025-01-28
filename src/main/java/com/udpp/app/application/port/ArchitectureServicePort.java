@@ -2,9 +2,7 @@ package com.udpp.app.application.port;
 
 import com.udpp.app.core.domain.Architecture;
 
-import java.util.HashSet;
 import java.util.LinkedHashSet;
-import java.util.List;
 
 /// The Architecture service.
 /// @since 1.0

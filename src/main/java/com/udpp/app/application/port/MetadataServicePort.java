@@ -8,7 +8,6 @@ import com.udpp.app.core.domain.DatabaseEngineer;
 import com.udpp.app.core.domain.DevelopmentEnvironment;
 import org.springframework.validation.BindingResult;
 
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 
