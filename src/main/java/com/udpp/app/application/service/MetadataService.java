@@ -6,6 +6,7 @@ import com.udpp.app.adapter.inbound.api.exceptionhandler.GlobalException;
 import com.udpp.app.application.port.*;
 import com.udpp.app.core.domain.Architecture;
 import com.udpp.app.core.domain.Database;
+import com.udpp.app.core.domain.DatabaseEngineer;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -17,15 +18,18 @@ import java.util.List;
 public class MetadataService implements MetadataServicePort {
 	private final ArchitectureServicePort _architectureService;
 	private final DatabaseServicePort _databaseService;
+	private final DatabaseEngineerServicePort _databaseEngineerService;
 	private final ParameterServicePort _parameterService;
 	private final ValidationServicePort _validationService;
 
 	@Autowired
 	MetadataService(ArchitectureService architectureService,
 					DatabaseServicePort databaseService,
+					DatabaseEngineerServicePort databaseEngineerService,
 					ParameterServicePort parameterService,
 					ValidationServicePort validationService) {
 		this._databaseService = databaseService;
+		this._databaseEngineerService = databaseEngineerService;
 		this._architectureService = architectureService;
 		this._parameterService = parameterService;
 		this._validationService = validationService;
@@ -74,5 +78,10 @@ public class MetadataService implements MetadataServicePort {
 	@Override
 	public List<Database> getDatabasesDescription() {
 		return _databaseService.getDatabasesDescription();
+	}
+
+	@Override
+	public List<DatabaseEngineer> getDatabasesEngineerDescription() {
+		return _databaseEngineerService.getDatabasesEngineerDescription();
 	}
 }

@@ -12,13 +12,13 @@ public class ArchitectureService implements ArchitectureServicePort {
     @Override
     public List<Architecture> getArchitecturesDescription() {
         final int[] index = {0};
-        List<Architecture> lstArchitecture = new ArrayList<>();
+        List<Architecture> lstItem = new ArrayList<>();
 
         Arrays.stream(ArchitectureConst.values()).forEach(architecture -> {
-            lstArchitecture.add(new Architecture(index[0], architecture.getDescription()));
+            lstItem.add(new Architecture(index[0], architecture.getDescription()));
             index[0]++;
         });
 
-        return lstArchitecture;
+        return lstItem;
     }
 }

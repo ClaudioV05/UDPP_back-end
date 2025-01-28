@@ -14,13 +14,13 @@ public class DatabaseService implements DatabaseServicePort {
     @Override
     public List<Database> getDatabasesDescription() {
         final int[] index = {0};
-        List<Database> lstDatabase = new ArrayList<>();
+        List<Database> lstItem = new ArrayList<>();
 
         Arrays.stream(DatabaseConst.values()).forEach(item -> {
-            lstDatabase.add(new Database(index[0], item.getDescription()));
+            lstItem.add(new Database(index[0], item.getDescription()));
             index[0]++;
         });
 
-        return lstDatabase;
+        return lstItem;
     }
 }
