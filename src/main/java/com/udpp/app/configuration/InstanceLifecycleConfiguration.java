@@ -46,7 +46,8 @@ public class InstanceLifecycleConfiguration {
 			   new DatabaseEngineerService(new UnicodeService()),
 			   new DevelopmentEnvironmentService(new UnicodeService()),
 			   new ParameterService(new UnicodeService()),
-			   new ValidationService());
+			   new ValidationService(),
+			   new MapperService(new ModelMapper()));
 	}
 
 	@Bean
