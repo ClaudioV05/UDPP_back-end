@@ -15,4 +15,5 @@ public enum ControllerConst {;
     public static final String DATABASES_ENDPOINT_PATH = "/databases";
     public static final String DATABASES_ENGINEER_ENDPOINT_PATH = "/databasesEngineer";
     public static final String DEVELOPMENT_ENVIRONMENT_ENDPOINT_PATH = "/developmentEnvironment";
+    public static final String FORM_ENDPOINT_PATH = "/form";
 }

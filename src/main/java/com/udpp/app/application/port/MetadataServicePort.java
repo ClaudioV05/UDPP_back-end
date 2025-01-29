@@ -54,4 +54,9 @@ public interface MetadataServicePort {
 	/// @author Claudiomildo Ventura.
 	/// @return Set of MetaDataDto.
 	LinkedHashSet<com.udpp.app.adapter.inbound.api.mapper.MetaDataDto> getDevelopmentEnvironmentData();
+	/// To get enum form data.
+	/// @since 1.0
+	/// @author Claudiomildo Ventura.
+	/// @return Set of MetaDataDto.
+	LinkedHashSet<com.udpp.app.adapter.inbound.api.mapper.MetaDataDto> getFormData();
 }

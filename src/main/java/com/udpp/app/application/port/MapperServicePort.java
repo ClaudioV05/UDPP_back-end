@@ -1,10 +1,7 @@
 package com.udpp.app.application.port;
 
 import com.udpp.app.adapter.inbound.api.mapper.MetaDataDto;
-import com.udpp.app.core.domain.Architecture;
-import com.udpp.app.core.domain.Database;
-import com.udpp.app.core.domain.DatabaseEngineer;
-import com.udpp.app.core.domain.DevelopmentEnvironment;
+import com.udpp.app.core.domain.*;
 
 import java.util.LinkedHashSet;
 
@@ -48,4 +45,10 @@ public interface MapperServicePort {
     /// @param lstDevelopmentEnvironment lstDevelopmentEnvironment.
     /// @return Set of MetaDataDto.
     LinkedHashSet<MetaDataDto> convertLstDevelopmentEnvironment(LinkedHashSet<DevelopmentEnvironment> lstDevelopmentEnvironment);
+    /// Convert to set of form.
+    /// @since 1.0
+    /// @author Claudiomildo Ventura.
+    /// @param lstForm lstForm.
+    /// @return Set of MetaDataDto.
+    LinkedHashSet<MetaDataDto> convertLstForm(LinkedHashSet<Form> lstForm);
 }

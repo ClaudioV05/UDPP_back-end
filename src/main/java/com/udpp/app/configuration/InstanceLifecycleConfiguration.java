@@ -32,6 +32,11 @@ public class InstanceLifecycleConfiguration {
 	}
 
 	@Bean
+	FormService createFormService() {
+		return new FormService(new UnicodeService());
+	}
+
+	@Bean
 	MetadataFieldService createMetadataFieldService() {
 		return new MetadataFieldService();
 	}
@@ -46,7 +51,8 @@ public class InstanceLifecycleConfiguration {
 			   new DevelopmentEnvironmentService(new UnicodeService()),
 			   new ParameterService(new UnicodeService()),
 			   new ValidationService(),
-			   new MapperService(new ModelMapper()));
+			   new MapperService(new ModelMapper()),
+			   new FormService(new UnicodeService()));
 	}
 
 	@Bean
