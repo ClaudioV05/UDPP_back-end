@@ -8,9 +8,9 @@ import java.util.LinkedHashSet;
 /// @since 1.0
 /// @author Claudiomildo Ventura.
 public interface ArchitectureServicePort {
-    /// To get enum architectures description.
+    /// To get enum architectures data.
     /// @since 1.0
     /// @author Claudiomildo Ventura.
     /// @return Set of Architecture.
-    LinkedHashSet<Architecture> getArchitecturesDescription();
+    LinkedHashSet<Architecture> getData();
 }

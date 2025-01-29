@@ -84,45 +84,36 @@ public class MetadataService implements MetadataServicePort {
 	}
 
 	@Override
-	public LinkedHashSet<MetaDataDto> getArchitecturesDescription() {
+	public LinkedHashSet<MetaDataDto> getArchitectureData() {
 		try {
-			return this._architectureService.getArchitecturesDescription()
-					.stream()
-					.map(source -> this._mapper.map(source, com.udpp.app.adapter.inbound.api.mapper.MetaDataDto.class))
-					.collect(Collectors.toCollection(LinkedHashSet::new));
+			return this._mapperServicePort.convertToArchitecture(this._architectureService.getData());
 		} catch (Exception ex) {
 			throw new GlobalException(ex.getMessage());
 		}
 	}
 
 	@Override
-	public LinkedHashSet<MetaDataDto> getDatabasesDescription() {
+	public LinkedHashSet<MetaDataDto> getDatabasesData() {
 		try {
-			return this._databaseService.getDatabasesDescription()
-					.stream()
-					.map(source -> this._mapper.map(source, com.udpp.app.adapter.inbound.api.mapper.MetaDataDto.class))
-					.collect(Collectors.toCollection(LinkedHashSet::new));
+			return this._mapperServicePort.convertToDatabase(this._databaseService.getData());
 		}catch (Exception ex) {
 			throw new GlobalException(ex.getMessage());
 		}
 	}
 
 	@Override
-	public LinkedHashSet<MetaDataDto> getDatabasesEngineerDescription() {
+	public LinkedHashSet<MetaDataDto> getDatabasesEngineerData() {
 		try {
-			return this._databaseEngineerService.getDatabasesEngineerDescription()
-					.stream()
-					.map(source -> this._mapper.map(source, com.udpp.app.adapter.inbound.api.mapper.MetaDataDto.class))
-					.collect(Collectors.toCollection(LinkedHashSet::new));
+			return this._mapperServicePort.convertToDatabaseEngineer(this._databaseEngineerService.getData());
 		}catch (Exception ex) {
 			throw new GlobalException(ex.getMessage());
 		}
 	}
 
 	@Override
-	public LinkedHashSet<MetaDataDto> getDevelopmentEnvironmentDescription() {
+	public LinkedHashSet<MetaDataDto> getDevelopmentEnvironmentData() {
 		try {
-			return _mapperServicePort.convert(this._developmentEnvironmentService.getDevelopmentEnvironmentDescription());
+			return this._mapperServicePort.convertToDevelopmentEnvironment(this._developmentEnvironmentService.getData());
 		}catch (Exception ex) {
 			throw new GlobalException(ex.getMessage());
 		}

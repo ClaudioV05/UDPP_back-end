@@ -2,6 +2,9 @@ package com.udpp.app.application.service;
 
 import com.udpp.app.adapter.inbound.api.mapper.MetaDataDto;
 import com.udpp.app.application.port.MapperServicePort;
+import com.udpp.app.core.domain.Architecture;
+import com.udpp.app.core.domain.Database;
+import com.udpp.app.core.domain.DatabaseEngineer;
 import com.udpp.app.core.domain.DevelopmentEnvironment;
 import org.modelmapper.ModelMapper;
 
@@ -17,7 +20,28 @@ public class MapperService implements MapperServicePort {
     }
 
     @Override
-    public LinkedHashSet<MetaDataDto> convert(LinkedHashSet<DevelopmentEnvironment> lstDevelopmentEnvironment) {
+    public LinkedHashSet<MetaDataDto> convertToArchitecture(LinkedHashSet<Architecture> lstArchitecture) {
+        return lstArchitecture.stream()
+                .map(source -> this._mapper.map(source, MetaDataDto.class))
+                .collect(Collectors.toCollection(LinkedHashSet::new));
+    }
+
+    @Override
+    public LinkedHashSet<MetaDataDto> convertToDatabase(LinkedHashSet<Database> lstDatabase) {
+        return lstDatabase.stream()
+                .map(source -> this._mapper.map(source, MetaDataDto.class))
+                .collect(Collectors.toCollection(LinkedHashSet::new));
+    }
+
+    @Override
+    public LinkedHashSet<MetaDataDto> convertToDatabaseEngineer(LinkedHashSet<DatabaseEngineer> lstDatabaseEngineer) {
+        return lstDatabaseEngineer.stream()
+                .map(source -> this._mapper.map(source, MetaDataDto.class))
+                .collect(Collectors.toCollection(LinkedHashSet::new));
+    }
+
+    @Override
+    public LinkedHashSet<MetaDataDto> convertToDevelopmentEnvironment(LinkedHashSet<DevelopmentEnvironment> lstDevelopmentEnvironment) {
         return lstDevelopmentEnvironment.stream()
                 .map(source -> this._mapper.map(source, MetaDataDto.class))
                 .collect(Collectors.toCollection(LinkedHashSet::new));

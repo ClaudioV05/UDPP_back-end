@@ -8,9 +8,9 @@ import java.util.LinkedHashSet;
 /// @since 1.0
 /// @author Claudiomildo Ventura.
 public interface DevelopmentEnvironmentServicePort {
-    /// To get enum development environment description.
+    /// To get enum development environment data.
     /// @since 1.0
     /// @author Claudiomildo Ventura.
     /// @return Set of Development environment.
-    LinkedHashSet<DevelopmentEnvironment> getDevelopmentEnvironmentDescription();
+    LinkedHashSet<DevelopmentEnvironment> getData();
 }

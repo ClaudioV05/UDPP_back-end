@@ -54,7 +54,7 @@ public final class UdppParametersController {
 	/// @return List of Architecture.
 	@GetMapping(value = { ControllerConst.ARCHITECTURES_ENDPOINT_PATH })
 	public ResponseEntity<LinkedHashSet<MetaDataDto>> architectures() {
-		return new ResponseEntity<>(_metadataService.getArchitecturesDescription(), HttpStatus.OK);
+		return new ResponseEntity<>(_metadataService.getArchitectureData(), HttpStatus.OK);
 	}
 
 	/// The database description.
@@ -64,7 +64,7 @@ public final class UdppParametersController {
 	/// @return List of Database.
 	@GetMapping(value = { ControllerConst.DATABASES_ENDPOINT_PATH })
 	public ResponseEntity<LinkedHashSet<MetaDataDto>> databases() {
-		return new ResponseEntity<>(_metadataService.getDatabasesDescription(), HttpStatus.OK);
+		return new ResponseEntity<>(_metadataService.getDatabasesData(), HttpStatus.OK);
 	}
 
 	/// The database engineer description.
@@ -74,7 +74,7 @@ public final class UdppParametersController {
 	/// @return List of Database engineer.
 	@GetMapping(value = { ControllerConst.DATABASES_ENGINEER_ENDPOINT_PATH })
 	public ResponseEntity<LinkedHashSet<MetaDataDto>> databasesEngineer() {
-		return new ResponseEntity<>(_metadataService.getDatabasesEngineerDescription(), HttpStatus.OK);
+		return new ResponseEntity<>(_metadataService.getDatabasesEngineerData(), HttpStatus.OK);
 	}
 
 	/// The development environment description.
@@ -84,6 +84,6 @@ public final class UdppParametersController {
 	/// @return List of Development environment.
 	@GetMapping(value = { ControllerConst.DEVELOPMENT_ENVIRONMENT_ENDPOINT_PATH })
 	public ResponseEntity<LinkedHashSet<MetaDataDto>> developmentEnvironment() {
-		return new ResponseEntity<>(_metadataService.getDevelopmentEnvironmentDescription(), HttpStatus.OK);
+		return new ResponseEntity<>(_metadataService.getDevelopmentEnvironmentData(), HttpStatus.OK);
 	}
 }

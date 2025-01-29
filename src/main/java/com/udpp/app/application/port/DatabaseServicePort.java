@@ -8,9 +8,9 @@ import java.util.LinkedHashSet;
 /// @since 1.0
 /// @author Claudiomildo Ventura.
 public interface DatabaseServicePort {
-    /// To get enum database description.
+    /// To get enum database data.
     /// @since 1.0
     /// @author Claudiomildo Ventura.
     /// @return Set of Database.
-    LinkedHashSet<Database> getDatabasesDescription();
+    LinkedHashSet<Database> getData();
 }

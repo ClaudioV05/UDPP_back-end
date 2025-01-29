@@ -34,24 +34,24 @@ public interface MetadataServicePort {
 	/// @author Claudiomildo Ventura.
 	/// @return MetaDataDto.
 	MetaDataDto getDescription();
-	/// To get enum architectures description.
+	/// To get enum architectures data.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
 	/// @return Set of MetaDataDto.
-	LinkedHashSet<com.udpp.app.adapter.inbound.api.mapper.MetaDataDto> getArchitecturesDescription();
-	/// To get enum database description.
+	LinkedHashSet<com.udpp.app.adapter.inbound.api.mapper.MetaDataDto> getArchitectureData();
+	/// To get enum database data.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
 	/// @return Set of MetaDataDto.
-	LinkedHashSet<com.udpp.app.adapter.inbound.api.mapper.MetaDataDto> getDatabasesDescription();
-	/// To get enum database engineer description.
+	LinkedHashSet<com.udpp.app.adapter.inbound.api.mapper.MetaDataDto> getDatabasesData();
+	/// To get enum database engineer data.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
 	/// @return Set of MetaDataDto.
-	LinkedHashSet<com.udpp.app.adapter.inbound.api.mapper.MetaDataDto> getDatabasesEngineerDescription();
-	/// To get enum development environment description.
+	LinkedHashSet<com.udpp.app.adapter.inbound.api.mapper.MetaDataDto> getDatabasesEngineerData();
+	/// To get enum development environment data.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
 	/// @return Set of MetaDataDto.
-	LinkedHashSet<com.udpp.app.adapter.inbound.api.mapper.MetaDataDto> getDevelopmentEnvironmentDescription();
+	LinkedHashSet<com.udpp.app.adapter.inbound.api.mapper.MetaDataDto> getDevelopmentEnvironmentData();
 }

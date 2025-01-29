@@ -8,9 +8,9 @@ import java.util.LinkedHashSet;
 /// @since 1.0
 /// @author Claudiomildo Ventura.
 public interface DatabaseEngineerServicePort {
-    /// To get enum database engineer description.
+    /// To get enum database engineer data.
     /// @since 1.0
     /// @author Claudiomildo Ventura.
     /// @return Set of Database engineer.
-    LinkedHashSet<DatabaseEngineer> getDatabasesEngineerDescription();
+    LinkedHashSet<DatabaseEngineer> getData();
 }

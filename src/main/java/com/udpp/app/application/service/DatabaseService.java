@@ -17,7 +17,7 @@ public class DatabaseService implements DatabaseServicePort {
     }
 
     @Override
-    public LinkedHashSet<Database> getDatabasesDescription() {
+    public LinkedHashSet<Database> getData() {
         final int[] index = {0};
         LinkedHashSet<Database> lstItem = new LinkedHashSet<>();
 

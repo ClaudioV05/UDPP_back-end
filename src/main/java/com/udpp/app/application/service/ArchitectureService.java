@@ -17,7 +17,7 @@ public class ArchitectureService implements ArchitectureServicePort {
     }
 
     @Override
-    public LinkedHashSet<Architecture> getArchitecturesDescription() {
+    public LinkedHashSet<Architecture> getData() {
         final int[] index = {0};
         LinkedHashSet<Architecture> lstItem = new LinkedHashSet<>();
 
