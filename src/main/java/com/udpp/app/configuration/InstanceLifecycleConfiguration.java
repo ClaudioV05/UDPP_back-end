@@ -40,7 +40,6 @@ public class InstanceLifecycleConfiguration {
 	@Lazy
 	MetadataService createMetadataService() {
 		return new MetadataService(
-			   new ModelMapper(),
 			   new ArchitectureService(new UnicodeService()),
 			   new DatabaseService(new UnicodeService()),
 			   new DatabaseEngineerService(new UnicodeService()),

@@ -1,7 +1,5 @@
 package com.udpp.app.application.port;
 
-import com.udpp.app.core.domain.Metadata;
-
 /// The Parameter service.
 /// @since 1.0
 /// @author Claudiomildo Ventura.
@@ -10,10 +8,10 @@ public interface ParameterServicePort {
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
 	/// @return Metadata.
-	Metadata getTitle();
+	String getTitle();
 	/// To get the application description.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
 	/// @return Metadata.
-	Metadata getDescription();
+	String getDescription();
 }

@@ -12,6 +12,18 @@ import java.util.LinkedHashSet;
 /// @since 1.0
 /// @author Claudiomildo Ventura.
 public interface MapperServicePort {
+    /// Convert application title.
+    /// @since 1.0
+    /// @author Claudiomildo Ventura.
+    /// @param title title.
+    /// @return MetaDataDto.
+    MetaDataDto getTitle(String title);
+    /// Convert application description.
+    /// @since 1.0
+    /// @author Claudiomildo Ventura.
+    /// @param description description.
+    /// @return MetaDataDto.
+    MetaDataDto getDescription(String description);
     ///  Convert to set of architecture.
     /// @since 1.0
     /// @author Claudiomildo Ventura.

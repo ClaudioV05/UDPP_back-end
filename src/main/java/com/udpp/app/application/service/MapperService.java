@@ -20,6 +20,16 @@ public class MapperService implements MapperServicePort {
     }
 
     @Override
+    public MetaDataDto getTitle(String title) {
+        return this._mapper.map(title, MetaDataDto.class);
+    }
+
+    @Override
+    public MetaDataDto getDescription(String description) {
+        return this._mapper.map(description, MetaDataDto.class);
+    }
+
+    @Override
     public LinkedHashSet<MetaDataDto> convertLstArchitecture(LinkedHashSet<Architecture> lstArchitecture) {
         return lstArchitecture.stream()
                 .map(source -> this._mapper.map(source, MetaDataDto.class))
