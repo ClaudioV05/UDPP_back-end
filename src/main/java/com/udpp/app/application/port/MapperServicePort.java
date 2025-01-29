@@ -17,23 +17,23 @@ public interface MapperServicePort {
     /// @author Claudiomildo Ventura.
     /// @param lstArchitecture lstArchitecture.
     /// @return Set of MetaDataDto.
-    LinkedHashSet<MetaDataDto> convertToArchitecture(LinkedHashSet<Architecture> lstArchitecture);
+    LinkedHashSet<MetaDataDto> convertLstArchitecture(LinkedHashSet<Architecture> lstArchitecture);
     ///  Convert to set of database.
     /// @since 1.0
     /// @author Claudiomildo Ventura.
     /// @param lstDatabase lstDatabase.
     /// @return Set of MetaDataDto.
-    LinkedHashSet<MetaDataDto> convertToDatabase(LinkedHashSet<Database> lstDatabase);
+    LinkedHashSet<MetaDataDto> convertLstDatabase(LinkedHashSet<Database> lstDatabase);
     ///  Convert to set of database engineer.
     /// @since 1.0
     /// @author Claudiomildo Ventura.
     /// @param lstDatabaseEngineer lstDatabaseEngineer.
     /// @return Set of MetaDataDto.
-    LinkedHashSet<MetaDataDto> convertToDatabaseEngineer(LinkedHashSet<DatabaseEngineer> lstDatabaseEngineer);
+    LinkedHashSet<MetaDataDto> convertLstDatabaseEngineer(LinkedHashSet<DatabaseEngineer> lstDatabaseEngineer);
     /// Convert to set of development environment.
     /// @since 1.0
     /// @author Claudiomildo Ventura.
     /// @param lstDevelopmentEnvironment lstDevelopmentEnvironment.
     /// @return Set of MetaDataDto.
-    LinkedHashSet<MetaDataDto> convertToDevelopmentEnvironment(LinkedHashSet<DevelopmentEnvironment> lstDevelopmentEnvironment);
+    LinkedHashSet<MetaDataDto> convertLstDevelopmentEnvironment(LinkedHashSet<DevelopmentEnvironment> lstDevelopmentEnvironment);
 }

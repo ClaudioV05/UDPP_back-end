@@ -86,7 +86,7 @@ public class MetadataService implements MetadataServicePort {
 	@Override
 	public LinkedHashSet<MetaDataDto> getArchitectureData() {
 		try {
-			return this._mapperServicePort.convertToArchitecture(this._architectureService.getData());
+			return this._mapperServicePort.convertLstArchitecture(this._architectureService.getData());
 		} catch (Exception ex) {
 			throw new GlobalException(ex.getMessage());
 		}
@@ -95,7 +95,7 @@ public class MetadataService implements MetadataServicePort {
 	@Override
 	public LinkedHashSet<MetaDataDto> getDatabasesData() {
 		try {
-			return this._mapperServicePort.convertToDatabase(this._databaseService.getData());
+			return this._mapperServicePort.convertLstDatabase(this._databaseService.getData());
 		}catch (Exception ex) {
 			throw new GlobalException(ex.getMessage());
 		}
@@ -104,7 +104,7 @@ public class MetadataService implements MetadataServicePort {
 	@Override
 	public LinkedHashSet<MetaDataDto> getDatabasesEngineerData() {
 		try {
-			return this._mapperServicePort.convertToDatabaseEngineer(this._databaseEngineerService.getData());
+			return this._mapperServicePort.convertLstDatabaseEngineer(this._databaseEngineerService.getData());
 		}catch (Exception ex) {
 			throw new GlobalException(ex.getMessage());
 		}
@@ -113,7 +113,7 @@ public class MetadataService implements MetadataServicePort {
 	@Override
 	public LinkedHashSet<MetaDataDto> getDevelopmentEnvironmentData() {
 		try {
-			return this._mapperServicePort.convertToDevelopmentEnvironment(this._developmentEnvironmentService.getData());
+			return this._mapperServicePort.convertLstDevelopmentEnvironment(this._developmentEnvironmentService.getData());
 		}catch (Exception ex) {
 			throw new GlobalException(ex.getMessage());
 		}

@@ -20,28 +20,28 @@ public class MapperService implements MapperServicePort {
     }
 
     @Override
-    public LinkedHashSet<MetaDataDto> convertToArchitecture(LinkedHashSet<Architecture> lstArchitecture) {
+    public LinkedHashSet<MetaDataDto> convertLstArchitecture(LinkedHashSet<Architecture> lstArchitecture) {
         return lstArchitecture.stream()
                 .map(source -> this._mapper.map(source, MetaDataDto.class))
                 .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
     @Override
-    public LinkedHashSet<MetaDataDto> convertToDatabase(LinkedHashSet<Database> lstDatabase) {
+    public LinkedHashSet<MetaDataDto> convertLstDatabase(LinkedHashSet<Database> lstDatabase) {
         return lstDatabase.stream()
                 .map(source -> this._mapper.map(source, MetaDataDto.class))
                 .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
     @Override
-    public LinkedHashSet<MetaDataDto> convertToDatabaseEngineer(LinkedHashSet<DatabaseEngineer> lstDatabaseEngineer) {
+    public LinkedHashSet<MetaDataDto> convertLstDatabaseEngineer(LinkedHashSet<DatabaseEngineer> lstDatabaseEngineer) {
         return lstDatabaseEngineer.stream()
                 .map(source -> this._mapper.map(source, MetaDataDto.class))
                 .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
     @Override
-    public LinkedHashSet<MetaDataDto> convertToDevelopmentEnvironment(LinkedHashSet<DevelopmentEnvironment> lstDevelopmentEnvironment) {
+    public LinkedHashSet<MetaDataDto> convertLstDevelopmentEnvironment(LinkedHashSet<DevelopmentEnvironment> lstDevelopmentEnvironment) {
         return lstDevelopmentEnvironment.stream()
                 .map(source -> this._mapper.map(source, MetaDataDto.class))
                 .collect(Collectors.toCollection(LinkedHashSet::new));
