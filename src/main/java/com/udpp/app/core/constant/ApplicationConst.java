@@ -1,20 +1,20 @@
 package com.udpp.app.core.constant;
 
 /// The Application const.
-/// @since 1.0
+///
 /// @author Claudiomildo Ventura.
-public enum ApplicationConst {;
-    /// Title.
+/// @since 1.0
+public enum ApplicationConst {
+    ;
     public static final String TITLE = "Unified Development Power Platform";
 
-    /// Description.
     public static final String DESCRIPTION = "This program generates 'MVC' standard class files for the 'Delphi', 'Lazarus' and '.NET' Development Ide, from a text file containing the metadata of one or more tables.\n" +
             "It is based on GeraClasseDelphi version 6.0. The difference is that it generates the files according to the 'MVC' project pattern,\n" +
             "generating the Dao, Model, Controller and View files in corresponding folders.Views, Normal and Mdi style forms are created.\n\n" +
 
             "Important:\n\n" +
 
-            "01. Font formatting obeys Delphis automatic formatter with default values, except:\n" +
+            "01. Font formatting obeys Delphi's automatic formatter with default values, except:\n" +
             "Right margin = 135\n" +
             "Indent case contents = True\n\n" +
 

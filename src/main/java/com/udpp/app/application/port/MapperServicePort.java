@@ -1,5 +1,6 @@
 package com.udpp.app.application.port;
 
+import com.udpp.app.adapter.inbound.api.mapper.Embedded;
 import com.udpp.app.adapter.inbound.api.mapper.MetaDataDto;
 import com.udpp.app.core.domain.*;
 
@@ -13,14 +14,14 @@ public interface MapperServicePort {
     /// @since 1.0
     /// @author Claudiomildo Ventura.
     /// @param title title.
-    /// @return MetaDataDto.
-    MetaDataDto getTitle(String title);
+    /// @return Embedded.
+    Embedded getTitle(String title);
     /// Convert application description.
     /// @since 1.0
     /// @author Claudiomildo Ventura.
     /// @param description description.
-    /// @return MetaDataDto.
-    MetaDataDto getDescription(String description);
+    /// @return Embedded.
+    Embedded getDescription(String description);
     ///  Convert to set of architecture.
     /// @since 1.0
     /// @author Claudiomildo Ventura.

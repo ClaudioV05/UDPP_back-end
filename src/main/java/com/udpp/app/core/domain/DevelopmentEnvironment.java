@@ -1,8 +1,9 @@
 package com.udpp.app.core.domain;
 
 /// The Development Environment.
-/// @since 1.0
+///
 /// @author Claudiomildo Ventura.
+/// @since 1.0
 public class DevelopmentEnvironment {
     private int id;
     private String data;

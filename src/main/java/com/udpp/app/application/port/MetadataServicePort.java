@@ -1,5 +1,6 @@
 package com.udpp.app.application.port;
 
+import com.udpp.app.adapter.inbound.api.mapper.Embedded;
 import com.udpp.app.adapter.inbound.api.mapper.MetaDataDto;
 import com.udpp.app.adapter.inbound.api.dto.MetaTableDto;
 import org.springframework.validation.BindingResult;
@@ -27,13 +28,13 @@ public interface MetadataServicePort {
 	/// To get the application title.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
-	/// @return MetaDataDto.
-	MetaDataDto getTitle();
+	/// @return Embedded.
+	Embedded getTitle();
 	/// To get the application description.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
-	/// @return MetaDataDto.
-	MetaDataDto getDescription();
+	/// @return Embedded.
+	Embedded getDescription();
 	/// To get enum architectures data.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.

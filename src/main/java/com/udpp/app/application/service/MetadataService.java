@@ -1,5 +1,6 @@
 package com.udpp.app.application.service;
 
+import com.udpp.app.adapter.inbound.api.mapper.Embedded;
 import com.udpp.app.adapter.inbound.api.mapper.MetaDataDto;
 import com.udpp.app.adapter.inbound.api.dto.MetaTableDto;
 import com.udpp.app.adapter.inbound.api.exceptionhandler.GlobalException;
@@ -64,7 +65,7 @@ public class MetadataService implements MetadataServicePort {
 	}
 
 	@Override
-	public MetaDataDto getTitle() {
+	public Embedded getTitle() {
 		try {
 			return this._mapperService.getTitle(this._parameterService.getTitle());
 		} catch (Exception ex) {
@@ -73,7 +74,7 @@ public class MetadataService implements MetadataServicePort {
 	}
 
 	@Override
-	public MetaDataDto getDescription() {
+	public Embedded getDescription() {
 		try {
 			return this._mapperService.getDescription(this._parameterService.getDescription());
 		} catch (Exception ex) {

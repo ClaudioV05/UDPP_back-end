@@ -3,8 +3,9 @@ package com.udpp.app.core.domain;
 import java.util.List;
 
 /// The Table.
-/// @since 1.0
+///
 /// @author Claudiomildo Ventura.
+/// @since 1.0
 public class Table {
     private int id;
     private String name;

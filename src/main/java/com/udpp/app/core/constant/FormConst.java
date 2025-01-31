@@ -1,10 +1,11 @@
 package com.udpp.app.core.constant;
 
 /// The Form const.
-/// @since 1.0
+///
 /// @author Claudiomildo Ventura.
+/// @since 1.0
 public enum FormConst {
-    UNDEFINED("Undefined",false),
+    UNDEFINED("Undefined", false),
     ANGULAR("Angular", true),
     DELPHIMDI("Delphi Mdi", false);
 

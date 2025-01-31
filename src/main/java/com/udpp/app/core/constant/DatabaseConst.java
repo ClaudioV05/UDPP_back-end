@@ -1,13 +1,14 @@
 package com.udpp.app.core.constant;
 
 /// The Database const.
-/// @since 1.0
+///
 /// @author Claudiomildo Ventura.
+/// @since 1.0
 public enum DatabaseConst {
-    UNDEFINED("Undefined",false),
-    SQLSERVER("SQL Server",false),
+    UNDEFINED("Undefined", false),
+    SQLSERVER("SQL Server", false),
     MYSQL("My SQL", true),
-    FIREBIRD("Firebird",false),
+    FIREBIRD("Firebird", false),
     SYBASE("Sybase", false);
 
     private final String data;

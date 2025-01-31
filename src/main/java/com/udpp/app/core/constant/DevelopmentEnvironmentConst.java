@@ -1,8 +1,9 @@
 package com.udpp.app.core.constant;
 
 /// The Development environment const.
-/// @since 1.0
+///
 /// @author Claudiomildo Ventura.
+/// @since 1.0
 public enum DevelopmentEnvironmentConst {
     UNDEFINED("Undefined", false),
     INTELlIJ("Intellij", true),

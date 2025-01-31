@@ -8,16 +8,17 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 
 /// Server.
-/// @since 1.0
+///
 /// @author Claudiomildo Ventura.
+/// @since 1.0
 @Configuration
-@PropertySources({ @PropertySource(value = "classpath:server.yml", factory = YamlConfiguration.class) })
+@PropertySources({@PropertySource(value = "classpath:server.yml", factory = YamlConfiguration.class)})
 public class ServerConfiguration implements WebServerFactoryCustomizer<ConfigurableWebServerFactory> {
 
-	@Value("${server.port}")
-	private int _port;
-	
-	@Override
+    @Value("${server.port}")
+    private int _port;
+
+    @Override
     public void customize(ConfigurableWebServerFactory factory) {
         factory.setPort(_port);
     }

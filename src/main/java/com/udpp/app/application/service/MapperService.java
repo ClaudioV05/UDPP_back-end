@@ -1,5 +1,6 @@
 package com.udpp.app.application.service;
 
+import com.udpp.app.adapter.inbound.api.mapper.Embedded;
 import com.udpp.app.adapter.inbound.api.mapper.MetaDataDto;
 import com.udpp.app.application.port.MapperServicePort;
 import com.udpp.app.core.domain.*;
@@ -17,13 +18,15 @@ public class MapperService implements MapperServicePort {
     }
 
     @Override
-    public MetaDataDto getTitle(String title) {
-        return this._mapper.map(title, MetaDataDto.class);
+    public Embedded getTitle(String title) {
+        MetaDataDto metaDataDto = this._mapper.map(new MetaDataDto(0, title), MetaDataDto.class);
+        return this._mapper.map(metaDataDto, Embedded.class);
     }
 
     @Override
-    public MetaDataDto getDescription(String description) {
-        return this._mapper.map(description, MetaDataDto.class);
+    public Embedded getDescription(String description) {
+        MetaDataDto metaDataDto = this._mapper.map(new MetaDataDto(0, description), MetaDataDto.class);
+        return this._mapper.map(metaDataDto, Embedded.class);
     }
 
     @Override

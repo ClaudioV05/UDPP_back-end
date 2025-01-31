@@ -1,8 +1,9 @@
 package com.udpp.app.core.constant;
 
 /// The Database engineer const.
-/// @since 1.0
+///
 /// @author Claudiomildo Ventura.
+/// @since 1.0
 public enum DatabaseEngineerConst {
     UNDEFINED("Undefined", false),
     HIBERNATE("Hibernate", true);

@@ -1,9 +1,11 @@
 package com.udpp.app.core.constant;
 
 /// The Controller const.
-/// @since 1.0
+///
 /// @author Claudiomildo Ventura.
-public enum ControllerConst {;
+/// @since 1.0
+public enum ControllerConst {
+    ;
     private static final String BASE_PATH = "/api/";
     public static final String UDPP_PATH = BASE_PATH + "udpp";
     public static final String UDPP_PARAMETER_PATH = BASE_PATH + "udppparameters";

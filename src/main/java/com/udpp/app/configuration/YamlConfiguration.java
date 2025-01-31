@@ -12,29 +12,30 @@ import org.springframework.core.env.PropertySource;
 import org.springframework.lang.Nullable;
 
 /// Yaml.
-/// @since 1.0
+///
 /// @author Claudiomildo Ventura.
+/// @since 1.0
 public class YamlConfiguration implements PropertySourceFactory {
 
-	@Override
-	public PropertySource<?> createPropertySource(@Nullable String name,
-			EncodedResource resource) throws IOException {
-		Properties propertiesFromYaml = this.loadYamlIntoProperties(resource);
-		String sourceName = name != null ? name : resource.getResource().getFilename();
-		return new PropertiesPropertySource(sourceName, propertiesFromYaml);
-	}
+    @Override
+    public PropertySource<?> createPropertySource(@Nullable String name,
+                                                  EncodedResource resource) throws IOException {
+        Properties propertiesFromYaml = this.loadYamlIntoProperties(resource);
+        String sourceName = name != null ? name : resource.getResource().getFilename();
+        return new PropertiesPropertySource(sourceName, propertiesFromYaml);
+    }
 
-	private Properties loadYamlIntoProperties(EncodedResource resource) throws FileNotFoundException {
-		try {
-			YamlPropertiesFactoryBean factory = new YamlPropertiesFactoryBean();
-			factory.setResources(resource.getResource());
-			factory.afterPropertiesSet();
-			return factory.getObject();
-		} catch (IllegalStateException ex) {
-			Throwable cause = ex.getCause();
-			if (cause instanceof FileNotFoundException)
-				throw (FileNotFoundException) ex.getCause();
-			throw ex;
-		}
-	}
+    private Properties loadYamlIntoProperties(EncodedResource resource) throws FileNotFoundException {
+        try {
+            YamlPropertiesFactoryBean factory = new YamlPropertiesFactoryBean();
+            factory.setResources(resource.getResource());
+            factory.afterPropertiesSet();
+            return factory.getObject();
+        } catch (IllegalStateException ex) {
+            Throwable cause = ex.getCause();
+            if (cause instanceof FileNotFoundException)
+                throw (FileNotFoundException) ex.getCause();
+            throw ex;
+        }
+    }
 }

@@ -1,5 +1,6 @@
 package com.udpp.app.adapter.inbound.api.controller;
 
+import com.udpp.app.adapter.inbound.api.mapper.Embedded;
 import com.udpp.app.adapter.inbound.api.mapper.MetaDataDto;
 import com.udpp.app.core.constant.ControllerConst;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,85 +16,86 @@ import java.util.LinkedHashSet;
 
 /// Unified Development Power Platform parameters - UDPP controller.
 /// --
-/// @since 1.0
+///
 /// @author Claudiomildo Ventura.
+/// @since 1.0
 @RestController
 @RequestMapping(value = ControllerConst.UDPP_PARAMETER_PATH)
 public final class UdppParametersController {
-	private final MetadataServicePort _metadataService;
+    private final MetadataServicePort _metadataService;
 
-	@Autowired
-	UdppParametersController(MetadataServicePort metadataService) {
-		_metadataService = metadataService;
-	}
+    @Autowired
+    UdppParametersController(MetadataServicePort metadataService) {
+        _metadataService = metadataService;
+    }
 
-	/// The application title.
-	///
-	/// @since 1.0
-	/// @author Claudiomildo Ventura.
-	/// @return MetaDataDto.
-	@GetMapping(value = { ControllerConst.TITLE_ENDPOINT_PATH })
-	public ResponseEntity<MetaDataDto> applicationTitle() {
-		return new ResponseEntity<>(_metadataService.getTitle(), HttpStatus.OK);
-	}
+    /// The application title.
+    ///
+    /// @return MetaDataDto.
+    /// @author Claudiomildo Ventura.
+    /// @since 1.0
+    @GetMapping(value = {ControllerConst.TITLE_ENDPOINT_PATH})
+    public ResponseEntity<Embedded> applicationTitle() {
+        return new ResponseEntity<>(_metadataService.getTitle(), HttpStatus.OK);
+    }
 
-	/// The application description.
-	///
-	/// @since 1.0
-	/// @author Claudiomildo Ventura.
-	/// @return MetaDataDto.
-	@GetMapping(value = { ControllerConst.DESCRIPTION_ENDPOINT_PATH })
-	public ResponseEntity<MetaDataDto> applicationDescription() throws Exception {
-		return new ResponseEntity<>(_metadataService.getDescription(), HttpStatus.OK);
-	}
+    /// The application description.
+    ///
+    /// @return MetaDataDto.
+    /// @author Claudiomildo Ventura.
+    /// @since 1.0
+    @GetMapping(value = {ControllerConst.DESCRIPTION_ENDPOINT_PATH})
+    public ResponseEntity<Embedded> applicationDescription() throws Exception {
+        return new ResponseEntity<>(_metadataService.getDescription(), HttpStatus.OK);
+    }
 
-	/// The architecture description.
-	///
-	/// @since 1.0
-	/// @author Claudiomildo Ventura.
-	/// @return List of Architecture.
-	@GetMapping(value = { ControllerConst.ARCHITECTURES_ENDPOINT_PATH })
-	public ResponseEntity<LinkedHashSet<MetaDataDto>> architectures() {
-		return new ResponseEntity<>(_metadataService.getArchitectureData(), HttpStatus.OK);
-	}
+    /// The architecture description.
+    ///
+    /// @return List of Architecture.
+    /// @author Claudiomildo Ventura.
+    /// @since 1.0
+    @GetMapping(value = {ControllerConst.ARCHITECTURES_ENDPOINT_PATH})
+    public ResponseEntity<LinkedHashSet<MetaDataDto>> architectures() {
+        return new ResponseEntity<>(_metadataService.getArchitectureData(), HttpStatus.OK);
+    }
 
-	/// The database description.
-	///
-	/// @since 1.0
-	/// @author Claudiomildo Ventura.
-	/// @return List of Database.
-	@GetMapping(value = { ControllerConst.DATABASES_ENDPOINT_PATH })
-	public ResponseEntity<LinkedHashSet<MetaDataDto>> databases() {
-		return new ResponseEntity<>(_metadataService.getDatabasesData(), HttpStatus.OK);
-	}
+    /// The database description.
+    ///
+    /// @return List of Database.
+    /// @author Claudiomildo Ventura.
+    /// @since 1.0
+    @GetMapping(value = {ControllerConst.DATABASES_ENDPOINT_PATH})
+    public ResponseEntity<LinkedHashSet<MetaDataDto>> databases() {
+        return new ResponseEntity<>(_metadataService.getDatabasesData(), HttpStatus.OK);
+    }
 
-	/// The database engineer description.
-	///
-	/// @since 1.0
-	/// @author Claudiomildo Ventura.
-	/// @return List of Database engineer.
-	@GetMapping(value = { ControllerConst.DATABASES_ENGINEER_ENDPOINT_PATH })
-	public ResponseEntity<LinkedHashSet<MetaDataDto>> databasesEngineer() {
-		return new ResponseEntity<>(_metadataService.getDatabasesEngineerData(), HttpStatus.OK);
-	}
+    /// The database engineer description.
+    ///
+    /// @return List of Database engineer.
+    /// @author Claudiomildo Ventura.
+    /// @since 1.0
+    @GetMapping(value = {ControllerConst.DATABASES_ENGINEER_ENDPOINT_PATH})
+    public ResponseEntity<LinkedHashSet<MetaDataDto>> databasesEngineer() {
+        return new ResponseEntity<>(_metadataService.getDatabasesEngineerData(), HttpStatus.OK);
+    }
 
-	/// The development environment description.
-	///
-	/// @since 1.0
-	/// @author Claudiomildo Ventura.
-	/// @return List of Development environment.
-	@GetMapping(value = { ControllerConst.DEVELOPMENT_ENVIRONMENT_ENDPOINT_PATH })
-	public ResponseEntity<LinkedHashSet<MetaDataDto>> developmentEnvironment() {
-		return new ResponseEntity<>(_metadataService.getDevelopmentEnvironmentData(), HttpStatus.OK);
-	}
+    /// The development environment description.
+    ///
+    /// @return List of Development environment.
+    /// @author Claudiomildo Ventura.
+    /// @since 1.0
+    @GetMapping(value = {ControllerConst.DEVELOPMENT_ENVIRONMENT_ENDPOINT_PATH})
+    public ResponseEntity<LinkedHashSet<MetaDataDto>> developmentEnvironment() {
+        return new ResponseEntity<>(_metadataService.getDevelopmentEnvironmentData(), HttpStatus.OK);
+    }
 
-	/// The development environment description.
-	///
-	/// @since 1.0
-	/// @author Claudiomildo Ventura.
-	/// @return List of Development environment.
-	@GetMapping(value = { ControllerConst.FORM_ENDPOINT_PATH })
-	public ResponseEntity<LinkedHashSet<MetaDataDto>> form() {
-		return new ResponseEntity<>(_metadataService.getFormData(), HttpStatus.OK);
-	}
+    /// The development environment description.
+    ///
+    /// @return List of Development environment.
+    /// @author Claudiomildo Ventura.
+    /// @since 1.0
+    @GetMapping(value = {ControllerConst.FORM_ENDPOINT_PATH})
+    public ResponseEntity<LinkedHashSet<MetaDataDto>> form() {
+        return new ResponseEntity<>(_metadataService.getFormData(), HttpStatus.OK);
+    }
 }

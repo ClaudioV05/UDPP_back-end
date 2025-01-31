@@ -1,8 +1,9 @@
 package com.udpp.app.core.domain;
 
 /// The Field.
-/// @since 1.0
+///
 /// @author Claudiomildo Ventura.
+/// @since 1.0
 public class Field {
     public int idTables;
     public String name;
