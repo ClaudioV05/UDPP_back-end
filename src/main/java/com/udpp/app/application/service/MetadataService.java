@@ -83,7 +83,7 @@ public class MetadataService implements MetadataServicePort {
 	}
 
 	@Override
-	public LinkedHashSet<MetaDataDto> getArchitectureData() {
+	public LinkedHashSet<Embedded> getArchitectureData() {
 		try {
 			return this._mapperService.convertLstArchitecture(this._architectureService.getData());
 		} catch (Exception ex) {
@@ -92,7 +92,7 @@ public class MetadataService implements MetadataServicePort {
 	}
 
 	@Override
-	public LinkedHashSet<MetaDataDto> getDatabasesData() {
+	public LinkedHashSet<Embedded> getDatabasesData() {
 		try {
 			return this._mapperService.convertLstDatabase(this._databaseService.getData());
 		}catch (Exception ex) {
@@ -101,7 +101,7 @@ public class MetadataService implements MetadataServicePort {
 	}
 
 	@Override
-	public LinkedHashSet<MetaDataDto> getDatabasesEngineerData() {
+	public LinkedHashSet<Embedded> getDatabasesEngineerData() {
 		try {
 			return this._mapperService.convertLstDatabaseEngineer(this._databaseEngineerService.getData());
 		}catch (Exception ex) {
@@ -110,7 +110,7 @@ public class MetadataService implements MetadataServicePort {
 	}
 
 	@Override
-	public LinkedHashSet<MetaDataDto> getDevelopmentEnvironmentData() {
+	public LinkedHashSet<Embedded> getDevelopmentEnvironmentData() {
 		try {
 			return this._mapperService.convertLstDevelopmentEnvironment(this._developmentEnvironmentService.getData());
 		}catch (Exception ex) {
@@ -119,7 +119,7 @@ public class MetadataService implements MetadataServicePort {
 	}
 
 	@Override
-	public LinkedHashSet<MetaDataDto> getFormData() {
+	public LinkedHashSet<Embedded> getFormData() {
 		try {
 			return this._mapperService.convertLstForm(this._formService.getData());
 		}catch (Exception ex) {

@@ -38,26 +38,26 @@ public interface MetadataServicePort {
 	/// To get enum architectures data.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
-	/// @return Set of MetaDataDto.
-	LinkedHashSet<com.udpp.app.adapter.inbound.api.mapper.MetaDataDto> getArchitectureData();
+	/// @return Set of Embedded.
+	LinkedHashSet<Embedded> getArchitectureData();
 	/// To get enum database data.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
-	/// @return Set of MetaDataDto.
-	LinkedHashSet<com.udpp.app.adapter.inbound.api.mapper.MetaDataDto> getDatabasesData();
+	/// @return Set of Embedded.
+	LinkedHashSet<com.udpp.app.adapter.inbound.api.mapper.Embedded> getDatabasesData();
 	/// To get enum database engineer data.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
-	/// @return Set of MetaDataDto.
-	LinkedHashSet<com.udpp.app.adapter.inbound.api.mapper.MetaDataDto> getDatabasesEngineerData();
+	/// @return Set of Embedded.
+	LinkedHashSet<com.udpp.app.adapter.inbound.api.mapper.Embedded> getDatabasesEngineerData();
 	/// To get enum development environment data.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
-	/// @return Set of MetaDataDto.
-	LinkedHashSet<com.udpp.app.adapter.inbound.api.mapper.MetaDataDto> getDevelopmentEnvironmentData();
+	/// @return Set of Embedded.
+	LinkedHashSet<com.udpp.app.adapter.inbound.api.mapper.Embedded> getDevelopmentEnvironmentData();
 	/// To get enum form data.
 	/// @since 1.0
 	/// @author Claudiomildo Ventura.
-	/// @return Set of MetaDataDto.
-	LinkedHashSet<com.udpp.app.adapter.inbound.api.mapper.MetaDataDto> getFormData();
+	/// @return Set of Embedded.
+	LinkedHashSet<com.udpp.app.adapter.inbound.api.mapper.Embedded> getFormData();
 }

@@ -55,7 +55,7 @@ public final class UdppParametersController {
     /// @author Claudiomildo Ventura.
     /// @since 1.0
     @GetMapping(value = {ControllerConst.ARCHITECTURES_ENDPOINT_PATH})
-    public ResponseEntity<LinkedHashSet<MetaDataDto>> architectures() {
+    public ResponseEntity<LinkedHashSet<Embedded>> architectures() {
         return new ResponseEntity<>(_metadataService.getArchitectureData(), HttpStatus.OK);
     }
 
@@ -65,7 +65,7 @@ public final class UdppParametersController {
     /// @author Claudiomildo Ventura.
     /// @since 1.0
     @GetMapping(value = {ControllerConst.DATABASES_ENDPOINT_PATH})
-    public ResponseEntity<LinkedHashSet<MetaDataDto>> databases() {
+    public ResponseEntity<LinkedHashSet<Embedded>> databases() {
         return new ResponseEntity<>(_metadataService.getDatabasesData(), HttpStatus.OK);
     }
 
@@ -75,7 +75,7 @@ public final class UdppParametersController {
     /// @author Claudiomildo Ventura.
     /// @since 1.0
     @GetMapping(value = {ControllerConst.DATABASES_ENGINEER_ENDPOINT_PATH})
-    public ResponseEntity<LinkedHashSet<MetaDataDto>> databasesEngineer() {
+    public ResponseEntity<LinkedHashSet<Embedded>> databasesEngineer() {
         return new ResponseEntity<>(_metadataService.getDatabasesEngineerData(), HttpStatus.OK);
     }
 
@@ -85,7 +85,7 @@ public final class UdppParametersController {
     /// @author Claudiomildo Ventura.
     /// @since 1.0
     @GetMapping(value = {ControllerConst.DEVELOPMENT_ENVIRONMENT_ENDPOINT_PATH})
-    public ResponseEntity<LinkedHashSet<MetaDataDto>> developmentEnvironment() {
+    public ResponseEntity<LinkedHashSet<Embedded>> developmentEnvironment() {
         return new ResponseEntity<>(_metadataService.getDevelopmentEnvironmentData(), HttpStatus.OK);
     }
 
@@ -95,7 +95,7 @@ public final class UdppParametersController {
     /// @author Claudiomildo Ventura.
     /// @since 1.0
     @GetMapping(value = {ControllerConst.FORM_ENDPOINT_PATH})
-    public ResponseEntity<LinkedHashSet<MetaDataDto>> form() {
+    public ResponseEntity<LinkedHashSet<Embedded>> form() {
         return new ResponseEntity<>(_metadataService.getFormData(), HttpStatus.OK);
     }
 }
