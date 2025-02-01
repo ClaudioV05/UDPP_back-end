@@ -1,7 +1,7 @@
 package com.udpp.app.adapter.inbound.api.controller;
 
 import com.udpp.app.adapter.inbound.api.mapper.Embedded;
-import com.udpp.app.adapter.inbound.api.mapper.MetaDataDto;
+import com.udpp.app.application.port.MetadataServicePort;
 import com.udpp.app.core.constant.ControllerConst;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,8 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.udpp.app.application.port.MetadataServicePort;
 
 import java.util.LinkedHashSet;
 
