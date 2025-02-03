@@ -1,17 +1,19 @@
 package com.udpp.app.application.port;
 
-import java.util.List;
-
 import org.springframework.validation.BindingResult;
 
+import java.util.List;
+
 /// The Validation service.
-/// @since 1.0
+///
 /// @author Claudiomildo Ventura.
+/// @since 1.0
 public interface ValidationServicePort {
-	/// To get error messages.
-	/// @since 1.0
-	/// @author Claudiomildo Ventura.
-	/// @param bindingResult binding result.
-	/// @return List of String.
-	List<String> getErrorMessages(BindingResult bindingResult);
+    /// To get error messages.
+    ///
+    /// @param bindingResult binding result.
+    /// @return List of String.
+    /// @author Claudiomildo Ventura.
+    /// @since 1.0
+    List<String> getErrorMessages(BindingResult bindingResult);
 }

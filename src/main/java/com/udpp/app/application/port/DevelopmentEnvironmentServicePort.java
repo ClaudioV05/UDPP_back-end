@@ -5,12 +5,14 @@ import com.udpp.app.core.domain.DevelopmentEnvironment;
 import java.util.LinkedHashSet;
 
 /// The Development environment service.
-/// @since 1.0
+///
 /// @author Claudiomildo Ventura.
+/// @since 1.0
 public interface DevelopmentEnvironmentServicePort {
     /// To get enum development environment data.
-    /// @since 1.0
-    /// @author Claudiomildo Ventura.
+    ///
     /// @return Set of Development environment.
+    /// @author Claudiomildo Ventura.
+    /// @since 1.0
     LinkedHashSet<DevelopmentEnvironment> getData();
 }

@@ -1,8 +1,9 @@
 package com.udpp.app.adapter.inbound.api.dto;
 
 /// The MetaTable (Data transfer object).
-/// @since 1.0
+///
 /// @author Claudiomildo Ventura.
+/// @since 1.0
 public final class MetaTableDto {
     private int id;
     private String data;

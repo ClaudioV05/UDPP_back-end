@@ -1,9 +1,9 @@
 package com.udpp.app.configuration;
 
-import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySources;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
+import org.springframework.stereotype.Component;
 
 /// Swagger.
 ///

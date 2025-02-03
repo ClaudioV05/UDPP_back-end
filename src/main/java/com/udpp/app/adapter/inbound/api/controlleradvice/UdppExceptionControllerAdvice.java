@@ -12,15 +12,17 @@ import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 /// Unified Development Power Platform - UDPP controller advice.
 /// --
-/// @since 1.0
+///
 /// @author Claudiomildo Ventura.
+/// @since 1.0
 @RestControllerAdvice
 public class UdppExceptionControllerAdvice {
 
     /// To Handle Http Media Type Not Acceptable exception.
-    /// @since 1.0
-    /// @author Claudiomildo Ventura.
+    ///
     /// @return ResponseEntity<String>.
+    /// @author Claudiomildo Ventura.
+    /// @since 1.0
     @ResponseBody
     @ExceptionHandler(HttpMediaTypeNotAcceptableException.class)
     protected ResponseEntity<String> handleHttpMediaTypeNotAcceptableException() {
@@ -28,12 +30,13 @@ public class UdppExceptionControllerAdvice {
     }
 
     /// To Handle No Resource Found exception.
-    /// @since 1.0
-    /// @author Claudiomildo Ventura.
+    ///
     /// @return ResponseEntity<String>.
+    /// @author Claudiomildo Ventura.
+    /// @since 1.0
     @ResponseBody
     @ExceptionHandler(NoResourceFoundException.class)
     protected ResponseEntity<String> handleNoResourceFoundException() {
-        return new ResponseEntity<>("Method not supported",new HttpHeaders(), HttpStatus.METHOD_NOT_ALLOWED);
+        return new ResponseEntity<>("Method not supported", new HttpHeaders(), HttpStatus.METHOD_NOT_ALLOWED);
     }
 }

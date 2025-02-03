@@ -2,22 +2,32 @@ package com.udpp.app.adapter.inbound.api.mapper;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.LinkedHashSet;
+
 public class Embedded {
     @JsonProperty("metadata")
-    private MetaDataDto metaDataDto;
+    private MetaDataDto metaData;
+
+    @JsonProperty("metadata")
+    private LinkedHashSet<MetaDataDto> lstMetaData;
 
     public Embedded() {
     }
 
     public Embedded(MetaDataDto metaDataDto) {
-        this.metaDataDto = metaDataDto;
+        this.metaData = metaDataDto;
     }
 
-    public MetaDataDto getMetaDataDto() {
-        return metaDataDto;
+    public Embedded(LinkedHashSet<MetaDataDto> lstMetaData) {
+        this.lstMetaData = lstMetaData;
     }
 
-    public void setMetaDataDto(MetaDataDto metaDataDto) {
-        this.metaDataDto = metaDataDto;
+    public MetaDataDto getMetaData() {
+        return metaData;
     }
+
+    public void setMetaData(MetaDataDto metaData) {
+        this.metaData = metaData;
+    }
+
 }

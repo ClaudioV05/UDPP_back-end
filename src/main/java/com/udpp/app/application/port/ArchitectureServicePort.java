@@ -5,12 +5,14 @@ import com.udpp.app.core.domain.Architecture;
 import java.util.LinkedHashSet;
 
 /// The Architecture service.
-/// @since 1.0
+///
 /// @author Claudiomildo Ventura.
+/// @since 1.0
 public interface ArchitectureServicePort {
     /// To get enum architectures data.
-    /// @since 1.0
-    /// @author Claudiomildo Ventura.
+    ///
     /// @return Set of Architecture.
+    /// @author Claudiomildo Ventura.
+    /// @since 1.0
     LinkedHashSet<Architecture> getData();
 }

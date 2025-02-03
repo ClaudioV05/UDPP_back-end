@@ -7,10 +7,10 @@ import java.util.List;
 /// @author Claudiomildo Ventura.
 /// @since 1.0
 public class Table {
+    List<Field> fields;
     private int id;
     private String name;
     private boolean autoCreate;
-    List<Field> fields;
 
     public Table(int id, String name, boolean autoCreate, List<Field> fields) {
         this.id = id;

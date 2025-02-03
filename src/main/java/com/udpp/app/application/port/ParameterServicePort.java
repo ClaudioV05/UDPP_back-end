@@ -1,17 +1,21 @@
 package com.udpp.app.application.port;
 
 /// The Parameter service.
-/// @since 1.0
+///
 /// @author Claudiomildo Ventura.
+/// @since 1.0
 public interface ParameterServicePort {
-	/// To get the application title.
-	/// @since 1.0
-	/// @author Claudiomildo Ventura.
-	/// @return Metadata.
-	String getTitle();
-	/// To get the application description.
-	/// @since 1.0
-	/// @author Claudiomildo Ventura.
-	/// @return Metadata.
-	String getDescription();
+    /// To get the application title.
+    ///
+    /// @return Metadata.
+    /// @author Claudiomildo Ventura.
+    /// @since 1.0
+    String getTitle();
+
+    /// To get the application description.
+    ///
+    /// @return Metadata.
+    /// @author Claudiomildo Ventura.
+    /// @since 1.0
+    String getDescription();
 }

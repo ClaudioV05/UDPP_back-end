@@ -5,12 +5,14 @@ import com.udpp.app.core.domain.Form;
 import java.util.LinkedHashSet;
 
 /// The Form service.
-/// @since 1.0
+///
 /// @author Claudiomildo Ventura.
+/// @since 1.0
 public interface FormServicePort {
     /// To get enum form data.
-    /// @since 1.0
-    /// @author Claudiomildo Ventura.
+    ///
     /// @return Set of Form.
+    /// @author Claudiomildo Ventura.
+    /// @since 1.0
     LinkedHashSet<Form> getData();
 }
