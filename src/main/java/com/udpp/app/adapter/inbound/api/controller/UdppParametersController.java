@@ -1,7 +1,6 @@
 package com.udpp.app.adapter.inbound.api.controller;
 
 import com.udpp.app.adapter.inbound.api.mapper.Embedded;
-import com.udpp.app.adapter.inbound.api.mapper.MetaDataDto;
 import com.udpp.app.application.port.MetadataServicePort;
 import com.udpp.app.core.constant.ControllerConst;
 import jakarta.annotation.PostConstruct;
