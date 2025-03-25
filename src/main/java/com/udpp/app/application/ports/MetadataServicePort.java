@@ -20,7 +20,7 @@ public interface MetadataServicePort {
     /// @return List<MetaDataDto>
     /// @author Claudiomildo Ventura.
     /// @since 1.0
-    List<MetaDataDto> generateMetaData(com.udpp.app.infrastructure.adapter.in.api.dto.MetaDataDto metadata, BindingResult bindingResult);
+    List<MetaDataDto> generateMetaData(List<com.udpp.app.infrastructure.adapter.in.api.dto.MetaDataDto> lstMetadata, BindingResult bindingResult);
 
     /// Generate MetaTable.
     ///
@@ -28,7 +28,7 @@ public interface MetadataServicePort {
     /// @return List<MetaTableDto>
     /// @author Claudiomildo Ventura.
     /// @since 1.0
-    List<MetaTableDto> generateMetaTable(MetaTableDto metatable);
+    List<MetaTableDto> generateMetaTable(List<MetaTableDto> lstMetatable);
 
     /// To get the application title.
     ///

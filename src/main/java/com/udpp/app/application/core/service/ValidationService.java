@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 public class ValidationService implements ValidationServicePort {
 
+    @SuppressWarnings({"deprecation"})
     @Override
     public List<String> getErrorMessages(BindingResult bindingResult) {
         List<String> result = new ArrayList<>();

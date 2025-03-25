@@ -32,7 +32,7 @@ public class MetadataService implements MetadataServicePort {
     }
 
     @Override
-    public List<MetaDataDto> generateMetaData(com.udpp.app.infrastructure.adapter.in.api.dto.MetaDataDto metadata, BindingResult bindingResult) {
+    public List<MetaDataDto> generateMetaData(List<com.udpp.app.infrastructure.adapter.in.api.dto.MetaDataDto> lstMetadata, BindingResult bindingResult) {
         try {
             var result = this._validationService.getErrorMessages(bindingResult);
 
@@ -48,7 +48,7 @@ public class MetadataService implements MetadataServicePort {
     }
 
     @Override
-    public List<MetaTableDto> generateMetaTable(MetaTableDto metatable) {
+    public List<MetaTableDto> generateMetaTable(List<MetaTableDto> lstMetatable) {
         try {
             throw new UnsupportedOperationException("Not implemented.");
         } catch (Exception ex) {

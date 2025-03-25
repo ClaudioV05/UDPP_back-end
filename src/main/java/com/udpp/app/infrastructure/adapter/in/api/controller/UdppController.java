@@ -39,8 +39,8 @@ public final class UdppController {
     /// @author Claudiomildo Ventura.
     /// @since 1.0
     @PostMapping(value = {ControllerConst.METADATA_ENDPOINT_PATH})
-    public ResponseEntity<List<MetaDataDto>> metaData(@Valid @RequestBody final com.udpp.app.infrastructure.adapter.in.api.dto.MetaDataDto metaData, final BindingResult bindingResult) throws Exception {
-        return new ResponseEntity<>(_metadataService.generateMetaData(metaData, bindingResult), HttpStatus.OK);
+    public ResponseEntity<List<MetaDataDto>> metaData(@Valid @RequestBody final List<com.udpp.app.infrastructure.adapter.in.api.dto.MetaDataDto> lstMetaData, final BindingResult bindingResult) throws Exception {
+        return new ResponseEntity<>(_metadataService.generateMetaData(lstMetaData, bindingResult), HttpStatus.OK);
     }
 
     /// To receive the table(s) with their field(s) that will generate the magic solution - UDPP.
@@ -51,7 +51,7 @@ public final class UdppController {
     /// @author Claudiomildo Ventura.
     /// @since 1.0
     @PostMapping(value = {ControllerConst.METATABLE_ENDPOINT_PATH})
-    public ResponseEntity<List<MetaTableDto>> metaTable(@Valid @RequestBody final MetaTableDto metaTable) throws Exception {
-        return new ResponseEntity<>(_metadataService.generateMetaTable(metaTable), HttpStatus.OK);
+    public ResponseEntity<List<MetaTableDto>> metaTable(@Valid @RequestBody final List<MetaTableDto> lstMetaTable) throws Exception {
+        return new ResponseEntity<>(_metadataService.generateMetaTable(lstMetaTable), HttpStatus.OK);
     }
 }
