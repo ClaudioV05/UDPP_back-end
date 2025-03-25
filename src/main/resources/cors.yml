@@ -3,8 +3,8 @@ cors:
   base_path:
     /**
   allowed_origins: >
+    http://localhost:3001,
     http://localhost:4200,
     http://localhost:4300,
     http://localhost:4400,
     http://localhost:4500
-
