@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 
 import java.util.Date;
+import java.util.logging.*;
 
 /// Unified Development Power Platform - UDPP global exception controller advice.
 /// --
@@ -18,6 +19,8 @@ import java.util.Date;
 /// @since 1.0
 @RestControllerAdvice
 public class UdppGlobalExceptionControllerAdvice {
+
+    private static Logger logger = Logger.getLogger(UdppGlobalExceptionControllerAdvice.class.getName());
 
     /// To Handle Http Media Type Not Acceptable exception.
     ///
@@ -28,7 +31,7 @@ public class UdppGlobalExceptionControllerAdvice {
     @ExceptionHandler(GlobalException.class)
     protected ResponseEntity<MessageErrorDto> handleHttpMediaTypeNotAcceptableException(GlobalException ex, WebRequest request) {
         MessageErrorDto errorMessage = new MessageErrorDto(HttpStatus.INTERNAL_SERVER_ERROR.value(), new Date(), ex.getMessage(), request.getDescription(false));
-        // Todo: Put the log here to get {errorMessage} and return a generic error.
+        logger.log(Level.WARNING, ex.getMessage());
         return new ResponseEntity<MessageErrorDto>(errorMessage, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

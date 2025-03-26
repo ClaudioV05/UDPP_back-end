@@ -4,10 +4,12 @@ import com.udpp.app.application.ports.DevelopmentEnvironmentServicePort;
 import com.udpp.app.application.ports.UnicodeServicePort;
 import com.udpp.app.application.core.constant.DevelopmentEnvironmentConst;
 import com.udpp.app.application.core.domain.DevelopmentEnvironment;
+import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 
+@Service
 public class DevelopmentEnvironmentService implements DevelopmentEnvironmentServicePort {
 
     private final UnicodeServicePort _unicodeService;

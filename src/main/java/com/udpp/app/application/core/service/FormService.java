@@ -4,10 +4,12 @@ import com.udpp.app.application.ports.FormServicePort;
 import com.udpp.app.application.ports.UnicodeServicePort;
 import com.udpp.app.application.core.constant.FormConst;
 import com.udpp.app.application.core.domain.Form;
+import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 
+@Service
 public class FormService implements FormServicePort {
 
     private final UnicodeServicePort _unicodeService;

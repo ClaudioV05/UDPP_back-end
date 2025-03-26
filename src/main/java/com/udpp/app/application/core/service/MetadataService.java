@@ -5,11 +5,13 @@ import com.udpp.app.infrastructure.adapter.in.api.exceptionhandler.GlobalExcepti
 import com.udpp.app.infrastructure.adapter.in.api.mapper.Embedded;
 import com.udpp.app.infrastructure.adapter.in.api.mapper.MetaDataDto;
 import com.udpp.app.application.ports.*;
+import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
 import java.util.LinkedHashSet;
 import java.util.List;
 
+@Service
 public class MetadataService implements MetadataServicePort {
     private final ArchitectureServicePort _architectureService;
     private final DatabaseServicePort _databaseService;
@@ -19,8 +21,9 @@ public class MetadataService implements MetadataServicePort {
     private final ValidationServicePort _validationService;
     private final MapperServicePort _mapperService;
     private final FormServicePort _formService;
+    private final LogServicePort logService;
 
-    public MetadataService(ArchitectureService architectureService, DatabaseServicePort databaseService, DatabaseEngineerServicePort databaseEngineerService, DevelopmentEnvironmentServicePort developmentEnvironmentService, ParameterServicePort parameterService, ValidationServicePort validationService, MapperServicePort mapperService, FormServicePort formService) {
+    public MetadataService(ArchitectureService architectureService, DatabaseServicePort databaseService, DatabaseEngineerServicePort databaseEngineerService, DevelopmentEnvironmentServicePort developmentEnvironmentService, ParameterServicePort parameterService, ValidationServicePort validationService, MapperServicePort mapperService, FormServicePort formService, LogServicePort logService) {
         this._databaseService = databaseService;
         this._databaseEngineerService = databaseEngineerService;
         this._developmentEnvironmentService = developmentEnvironmentService;
@@ -29,6 +32,7 @@ public class MetadataService implements MetadataServicePort {
         this._validationService = validationService;
         this._mapperService = mapperService;
         this._formService = formService;
+        this.logService = logService;
     }
 
     @Override
@@ -39,7 +43,7 @@ public class MetadataService implements MetadataServicePort {
             if (!result.isEmpty()) {
                 throw new GlobalException(result.toString());
             }
-            // continue here.
+            logService.registerLog(MetadataService.class.getName(), "continue here.");
 
             return null;
         } catch (Exception ex) {

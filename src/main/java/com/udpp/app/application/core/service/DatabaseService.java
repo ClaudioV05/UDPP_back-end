@@ -4,10 +4,12 @@ import com.udpp.app.application.ports.DatabaseServicePort;
 import com.udpp.app.application.ports.UnicodeServicePort;
 import com.udpp.app.application.core.constant.DatabaseConst;
 import com.udpp.app.application.core.domain.Database;
+import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 
+@Service
 public class DatabaseService implements DatabaseServicePort {
 
     private final UnicodeServicePort _unicodeService;

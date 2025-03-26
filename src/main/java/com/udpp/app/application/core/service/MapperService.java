@@ -5,16 +5,18 @@ import com.udpp.app.infrastructure.adapter.in.api.mapper.MetaDataDto;
 import com.udpp.app.application.core.domain.*;
 import com.udpp.app.application.ports.MapperServicePort;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
 
 import java.util.LinkedHashSet;
 import java.util.stream.Collectors;
 
+@Service
 public class MapperService implements MapperServicePort {
 
-    private final ModelMapper _mapper;
+    private final ModelMapper mapper;
 
-    public MapperService(ModelMapper _mapper) {
-        this._mapper = _mapper;
+    public MapperService() {
+        this.mapper = new ModelMapper();
     }
 
     @Override
@@ -64,13 +66,13 @@ public class MapperService implements MapperServicePort {
 
     /// Convert to list of embedded.
     private Embedded convertToListEmbedded(Object obj) {
-        MetaDataDto metaDataDto = this._mapper.map(obj, MetaDataDto.class);
-        return this._mapper.map(metaDataDto, Embedded.class);
+        MetaDataDto metaDataDto = this.mapper.map(obj, MetaDataDto.class);
+        return this.mapper.map(metaDataDto, Embedded.class);
     }
 
     /// Convert to embedded.
     private Embedded convertToEmbedded(String obj) {
-        MetaDataDto metaDataDto = this._mapper.map(new MetaDataDto(0, obj), MetaDataDto.class);
-        return this._mapper.map(metaDataDto, Embedded.class);
+        MetaDataDto metaDataDto = this.mapper.map(new MetaDataDto(0, obj), MetaDataDto.class);
+        return this.mapper.map(metaDataDto, Embedded.class);
     }
 }

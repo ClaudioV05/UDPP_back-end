@@ -5,10 +5,12 @@ package com.udpp.app.application.ports;
 /// @author Claudiomildo Ventura.
 /// @since 1.0
 public interface LogServicePort {
+
     /// The register log.
     ///
+    /// @param object object.
     /// @param message message.
     /// @author Claudiomildo Ventura.
     /// @since 1.0
-    void registerLog(String message);
+    void registerLog(String object, String message);
 }

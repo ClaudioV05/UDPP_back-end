@@ -4,10 +4,12 @@ import com.udpp.app.application.ports.ArchitectureServicePort;
 import com.udpp.app.application.ports.UnicodeServicePort;
 import com.udpp.app.application.core.constant.ArchitectureConst;
 import com.udpp.app.application.core.domain.Architecture;
+import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 
+@Service
 public class ArchitectureService implements ArchitectureServicePort {
 
     private final UnicodeServicePort _unicodeService;
