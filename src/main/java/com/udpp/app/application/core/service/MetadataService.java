@@ -13,39 +13,41 @@ import java.util.List;
 
 @Service
 public class MetadataService implements MetadataServicePort {
-    private final ArchitectureServicePort _architectureService;
-    private final DatabaseServicePort _databaseService;
-    private final DatabaseEngineerServicePort _databaseEngineerService;
-    private final DevelopmentEnvironmentServicePort _developmentEnvironmentService;
-    private final ParameterServicePort _parameterService;
-    private final ValidationServicePort _validationService;
-    private final MapperServicePort _mapperService;
-    private final FormServicePort _formService;
+    private final ArchitectureServicePort architectureService;
+    private final DatabaseServicePort databaseService;
+    private final DatabaseEngineerServicePort databaseEngineerService;
+    private final DevelopmentEnvironmentServicePort developmentEnvironmentService;
+    private final ParameterServicePort parameterService;
+    private final ValidationServicePort validationService;
+    private final MapperServicePort mapperService;
+    private final FormServicePort formService;
     private final LogServicePort logService;
 
     public MetadataService(ArchitectureService architectureService, DatabaseServicePort databaseService, DatabaseEngineerServicePort databaseEngineerService, DevelopmentEnvironmentServicePort developmentEnvironmentService, ParameterServicePort parameterService, ValidationServicePort validationService, MapperServicePort mapperService, FormServicePort formService, LogServicePort logService) {
-        this._databaseService = databaseService;
-        this._databaseEngineerService = databaseEngineerService;
-        this._developmentEnvironmentService = developmentEnvironmentService;
-        this._architectureService = architectureService;
-        this._parameterService = parameterService;
-        this._validationService = validationService;
-        this._mapperService = mapperService;
-        this._formService = formService;
+        this.databaseService = databaseService;
+        this.databaseEngineerService = databaseEngineerService;
+        this.developmentEnvironmentService = developmentEnvironmentService;
+        this.architectureService = architectureService;
+        this.parameterService = parameterService;
+        this.validationService = validationService;
+        this.mapperService = mapperService;
+        this.formService = formService;
         this.logService = logService;
     }
 
     @Override
     public List<MetaDataDto> generateMetaData(List<com.udpp.app.infrastructure.adapter.in.api.dto.MetaDataDto> lstMetadata, BindingResult bindingResult) {
         try {
-            var result = this._validationService.getErrorMessages(bindingResult);
+            var result = this.validationService.getErrorMessages(bindingResult);
 
             if (!result.isEmpty()) {
                 throw new GlobalException(result.toString());
             }
+
             logService.registerLog(MetadataService.class.getName(), "continue here.");
 
             return null;
+
         } catch (Exception ex) {
             throw new GlobalException(ex.getMessage());
         }
@@ -63,7 +65,7 @@ public class MetadataService implements MetadataServicePort {
     @Override
     public Embedded getTitle() {
         try {
-            return this._mapperService.getTitle(this._parameterService.getTitle());
+            return this.mapperService.getTitle(this.parameterService.getTitle());
         } catch (Exception ex) {
             throw new GlobalException(ex.getMessage());
         }
@@ -72,7 +74,7 @@ public class MetadataService implements MetadataServicePort {
     @Override
     public Embedded getDescription() {
         try {
-            return this._mapperService.getDescription(this._parameterService.getDescription());
+            return this.mapperService.getDescription(this.parameterService.getDescription());
         } catch (Exception ex) {
             throw new GlobalException(ex.getMessage());
         }
@@ -81,7 +83,7 @@ public class MetadataService implements MetadataServicePort {
     @Override
     public LinkedHashSet<Embedded> getArchitectureData() {
         try {
-            return this._mapperService.convertLstArchitecture(this._architectureService.getData());
+            return this.mapperService.convertLstArchitecture(this.architectureService.getData());
         } catch (Exception ex) {
             throw new GlobalException(ex.getMessage());
         }
@@ -90,7 +92,7 @@ public class MetadataService implements MetadataServicePort {
     @Override
     public LinkedHashSet<Embedded> getDatabasesData() {
         try {
-            return this._mapperService.convertLstDatabase(this._databaseService.getData());
+            return this.mapperService.convertLstDatabase(this.databaseService.getData());
         } catch (Exception ex) {
             throw new GlobalException(ex.getMessage());
         }
@@ -99,7 +101,7 @@ public class MetadataService implements MetadataServicePort {
     @Override
     public LinkedHashSet<Embedded> getDatabasesEngineerData() {
         try {
-            return this._mapperService.convertLstDatabaseEngineer(this._databaseEngineerService.getData());
+            return this.mapperService.convertLstDatabaseEngineer(this.databaseEngineerService.getData());
         } catch (Exception ex) {
             throw new GlobalException(ex.getMessage());
         }
@@ -108,7 +110,7 @@ public class MetadataService implements MetadataServicePort {
     @Override
     public LinkedHashSet<Embedded> getDevelopmentEnvironmentData() {
         try {
-            return this._mapperService.convertLstDevelopmentEnvironment(this._developmentEnvironmentService.getData());
+            return this.mapperService.convertLstDevelopmentEnvironment(this.developmentEnvironmentService.getData());
         } catch (Exception ex) {
             throw new GlobalException(ex.getMessage());
         }
@@ -117,7 +119,7 @@ public class MetadataService implements MetadataServicePort {
     @Override
     public LinkedHashSet<Embedded> getFormData() {
         try {
-            return this._mapperService.convertLstForm(this._formService.getData());
+            return this.mapperService.convertLstForm(this.formService.getData());
         } catch (Exception ex) {
             throw new GlobalException(ex.getMessage());
         }
