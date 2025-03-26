@@ -15,7 +15,18 @@ public class UnicodeService implements UnicodeServicePort {
         return content.toLowerCase();
     }
 
+    @Override
     public String setStringEmpty() {
         return "";
+    }
+
+    @Override
+    public int getLastIndexOf(String content, String itemToFind) {
+       return content.lastIndexOf(itemToFind);
+    }
+
+    @Override
+    public String setSubstring(String content, int startPosition, int length) {
+        return content.substring(startPosition, length);
     }
 }

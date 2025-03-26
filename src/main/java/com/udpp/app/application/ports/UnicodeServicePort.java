@@ -27,4 +27,23 @@ public interface UnicodeServicePort {
     /// @author Claudiomildo Ventura.
     /// @since 1.0
     String setStringEmpty();
+
+    /// Get last index of.
+    ///
+    /// @param content content.
+    /// @param itemToFind itemToFind.
+    /// @return integer.
+    /// @author Claudiomildo Ventura.
+    /// @since 1.0
+    int getLastIndexOf(String content, String itemToFind);
+
+    /// Set sub string.
+    ///
+    /// @param content content.
+    /// @param startPosition startPosition.
+    /// @param length length.
+    /// @return integer.
+    /// @author Claudiomildo Ventura.
+    /// @since 1.0
+    String setSubstring(String content, int startPosition, int length);
 }

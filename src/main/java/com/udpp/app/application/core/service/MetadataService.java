@@ -22,8 +22,18 @@ public class MetadataService implements MetadataServicePort {
     private final MapperServicePort mapperService;
     private final FormServicePort formService;
     private final LogServicePort logService;
+    private final DirectoryServicePort directoryService;
 
-    public MetadataService(ArchitectureService architectureService, DatabaseServicePort databaseService, DatabaseEngineerServicePort databaseEngineerService, DevelopmentEnvironmentServicePort developmentEnvironmentService, ParameterServicePort parameterService, ValidationServicePort validationService, MapperServicePort mapperService, FormServicePort formService, LogServicePort logService) {
+    public MetadataService(ArchitectureService architectureService,
+                           DatabaseServicePort databaseService,
+                           DatabaseEngineerServicePort databaseEngineerService,
+                           DevelopmentEnvironmentServicePort developmentEnvironmentService,
+                           ParameterServicePort parameterService,
+                           ValidationServicePort validationService,
+                           MapperServicePort mapperService,
+                           FormServicePort formService,
+                           LogServicePort logService,
+                           DirectoryServicePort directoryService) {
         this.databaseService = databaseService;
         this.databaseEngineerService = databaseEngineerService;
         this.developmentEnvironmentService = developmentEnvironmentService;
@@ -33,18 +43,22 @@ public class MetadataService implements MetadataServicePort {
         this.mapperService = mapperService;
         this.formService = formService;
         this.logService = logService;
+        this.directoryService = directoryService;
     }
 
     @Override
     public List<MetaDataDto> generateMetaData(List<com.udpp.app.infrastructure.adapter.in.api.dto.MetaDataDto> lstMetadata, BindingResult bindingResult) {
         try {
-            var result = this.validationService.getErrorMessages(bindingResult);
+            var resultError = this.validationService.getErrorMessages(bindingResult);
 
-            if (!result.isEmpty()) {
-                throw new GlobalException(result.toString());
+            if (!resultError.isEmpty()) {
+                throw new GlobalException(resultError.toString());
+            } else if (!lstMetadata.isEmpty()){
+                this.directoryService.generateDefault();
+                // Create the folder.
+                // Get the values and generate.
+                logService.registerLog(MetadataService.class.getName(), "continue here.");
             }
-
-            logService.registerLog(MetadataService.class.getName(), "continue here.");
 
             return null;
 

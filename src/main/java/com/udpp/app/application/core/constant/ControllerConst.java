@@ -4,8 +4,7 @@ package com.udpp.app.application.core.constant;
 ///
 /// @author Claudiomildo Ventura.
 /// @since 1.0
-public enum ControllerConst {
-    ;
+public class ControllerConst {
     public static final String METADATA_ENDPOINT_PATH = "/metadata";
     public static final String METATABLE_ENDPOINT_PATH = "/metatable";
     public static final String TITLE_ENDPOINT_PATH = "/applicationTitle";

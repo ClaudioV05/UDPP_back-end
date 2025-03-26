@@ -4,7 +4,7 @@ package com.udpp.app.application.core.constant;
 ///
 /// @author Claudiomildo Ventura.
 /// @since 1.0
-public enum ApplicationConst {
+public class ApplicationConst {
     ;
     public static final String TITLE = "Unified Development Power Platform";
 
