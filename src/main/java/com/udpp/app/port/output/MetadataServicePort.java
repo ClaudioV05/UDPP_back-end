@@ -1,8 +1,8 @@
 package com.udpp.app.port.output;
 
-import com.udpp.app.adapter.input.dto.MetaTableDto;
-import com.udpp.app.adapter.input.mapper.Embedded;
-import com.udpp.app.adapter.input.mapper.MetaDataDto;
+import com.udpp.app.adapter.generator.input.dto.MetaTableDto;
+import com.udpp.app.adapter.generator.input.mapper.Embedded;
+import com.udpp.app.adapter.generator.input.mapper.MetaDataDto;
 import org.springframework.validation.BindingResult;
 
 import java.util.LinkedHashSet;
@@ -20,7 +20,7 @@ public interface MetadataServicePort {
     /// @return List<MetaDataDto>
     /// @author Claudiomildo Ventura.
     /// @since 1.0
-    List<MetaDataDto> generateMetaData(List<com.udpp.app.adapter.input.dto.MetaDataDto> lstMetadata, BindingResult bindingResult);
+    List<MetaDataDto> generateMetaData(List<com.udpp.app.adapter.generator.input.dto.MetaDataDto> lstMetadata, BindingResult bindingResult);
 
     /// Generate MetaTable.
     ///

@@ -1,4 +1,4 @@
-package com.udpp.app.adapter.input.dto;
+package com.udpp.app.adapter.generator.input.dto;
 
 import java.util.Date;
 

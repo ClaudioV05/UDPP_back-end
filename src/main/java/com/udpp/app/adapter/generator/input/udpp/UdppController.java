@@ -1,7 +1,7 @@
-package com.udpp.app.adapter.input.udpp;
+package com.udpp.app.adapter.generator.input.udpp;
 
-import com.udpp.app.adapter.input.mapper.MetaDataDto;
-import com.udpp.app.adapter.input.dto.MetaTableDto;
+import com.udpp.app.adapter.generator.input.mapper.MetaDataDto;
+import com.udpp.app.adapter.generator.input.dto.MetaTableDto;
 import com.udpp.app.port.output.MetadataServicePort;
 import com.udpp.app.domain.constant.Controller;
 import org.slf4j.Logger;
@@ -35,7 +35,7 @@ public class UdppController implements UdppApi {
     }
 
     @Override
-    public ResponseEntity<List<MetaDataDto>> metaData(final List<com.udpp.app.adapter.input.dto.MetaDataDto> lstMetaData, final BindingResult bindingResult) throws Exception {
+    public ResponseEntity<List<MetaDataDto>> metaData(final List<com.udpp.app.adapter.generator.input.dto.MetaDataDto> lstMetaData, final BindingResult bindingResult) throws Exception {
         _log.info("Request to metaData: {}", lstMetaData);
         return ResponseEntity.status(HttpStatus.OK).body(_metadataService.generateMetaData(lstMetaData, bindingResult));
     }

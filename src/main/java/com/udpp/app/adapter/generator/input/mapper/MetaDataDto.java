@@ -1,4 +1,4 @@
-package com.udpp.app.adapter.input.mapper;
+package com.udpp.app.adapter.generator.input.mapper;
 
 public class MetaDataDto {
     private int id;

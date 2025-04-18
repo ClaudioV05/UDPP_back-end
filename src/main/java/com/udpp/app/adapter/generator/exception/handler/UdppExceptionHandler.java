@@ -1,4 +1,4 @@
-package com.udpp.app.adapter.exception.handler;
+package com.udpp.app.adapter.generator.exception.handler;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

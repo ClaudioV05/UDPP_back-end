@@ -1,4 +1,4 @@
-package com.udpp.app.adapter.exception.infrastructure;
+package com.udpp.app.adapter.generator.exception.infrastructure;
 
 public class InfrastructureException extends RuntimeException {
     private static final long serialVersionUID = 1L;

@@ -1,9 +1,9 @@
 package com.udpp.app.domain.service;
 
-import com.udpp.app.adapter.input.dto.MetaTableDto;
+import com.udpp.app.adapter.generator.input.dto.MetaTableDto;
 import com.udpp.app.domain.exception.GlobalException;
-import com.udpp.app.adapter.input.mapper.Embedded;
-import com.udpp.app.adapter.input.mapper.MetaDataDto;
+import com.udpp.app.adapter.generator.input.mapper.Embedded;
+import com.udpp.app.adapter.generator.input.mapper.MetaDataDto;
 import com.udpp.app.port.input.*;
 import com.udpp.app.port.output.MetadataServicePort;
 import org.slf4j.Logger;
@@ -50,7 +50,7 @@ public class MetadataService implements MetadataServicePort {
     }
 
     @Override
-    public List<MetaDataDto> generateMetaData(List<com.udpp.app.adapter.input.dto.MetaDataDto> lstMetadata, BindingResult bindingResult) {
+    public List<MetaDataDto> generateMetaData(List<com.udpp.app.adapter.generator.input.dto.MetaDataDto> lstMetadata, BindingResult bindingResult) {
         try {
             var resultError = this.validationService.getErrorMessages(bindingResult);
 

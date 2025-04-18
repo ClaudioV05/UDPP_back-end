@@ -1,6 +1,6 @@
 package com.udpp.app.port.input;
 
-import com.udpp.app.adapter.input.mapper.Embedded;
+import com.udpp.app.adapter.generator.input.mapper.Embedded;
 import com.udpp.app.domain.entity.*;
 
 import java.util.LinkedHashSet;

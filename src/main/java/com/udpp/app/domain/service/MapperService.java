@@ -1,7 +1,7 @@
 package com.udpp.app.domain.service;
 
-import com.udpp.app.adapter.input.mapper.Embedded;
-import com.udpp.app.adapter.input.mapper.MetaDataDto;
+import com.udpp.app.adapter.generator.input.mapper.Embedded;
+import com.udpp.app.adapter.generator.input.mapper.MetaDataDto;
 import com.udpp.app.domain.entity.*;
 import com.udpp.app.port.input.MapperServicePort;
 import org.modelmapper.ModelMapper;
