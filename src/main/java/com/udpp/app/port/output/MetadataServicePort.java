@@ -1,6 +1,7 @@
 package com.udpp.app.port.output;
 
-import com.udpp.app.adapter.generator.input.dto.MetaTableDto;
+import com.udpp.app.adapter.generator.dto.request.MetaData;
+import com.udpp.app.adapter.generator.dto.request.MetaTable;
 import com.udpp.app.adapter.generator.input.mapper.Embedded;
 import com.udpp.app.adapter.generator.input.mapper.MetaDataDto;
 import org.springframework.validation.BindingResult;
@@ -17,18 +18,18 @@ public interface MetadataServicePort {
     ///
     /// @param metadata      metadata.
     /// @param bindingResult binding result.
-    /// @return List<MetaDataDto>
+    /// @return List<MetaData>
     /// @author Claudiomildo Ventura.
     /// @since 1.0
-    List<MetaDataDto> generateMetaData(List<com.udpp.app.adapter.generator.input.dto.MetaDataDto> lstMetadata, BindingResult bindingResult);
+    List<MetaDataDto> generateMetaData(List<MetaData> lstMetadata, BindingResult bindingResult);
 
     /// Generate MetaTable.
     ///
     /// @param metatable metatable.
-    /// @return List<MetaTableDto>
+    /// @return List<MetaTable>
     /// @author Claudiomildo Ventura.
     /// @since 1.0
-    List<MetaTableDto> generateMetaTable(List<MetaTableDto> lstMetatable);
+    List<MetaTable> generateMetaTable(List<MetaTable> lstMetatable);
 
     /// To get the application title.
     ///

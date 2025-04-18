@@ -1,8 +1,8 @@
 package com.udpp.app.adapter.generator.output.udppparameter;
 
 import com.udpp.app.adapter.generator.input.mapper.Embedded;
-import com.udpp.app.port.output.MetadataServicePort;
 import com.udpp.app.domain.constant.Controller;
+import com.udpp.app.port.output.MetadataServicePort;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.slf4j.Logger;
@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.LinkedHashSet;
 
 /// Unified Development Power Platform parameters controller.
-/// --
 ///
 /// @author Claudiomildo Ventura.
 /// @since 1.0

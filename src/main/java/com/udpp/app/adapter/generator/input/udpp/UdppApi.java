@@ -1,6 +1,7 @@
 package com.udpp.app.adapter.generator.input.udpp;
 
-import com.udpp.app.adapter.generator.input.dto.MetaTableDto;
+import com.udpp.app.adapter.generator.dto.request.MetaData;
+import com.udpp.app.adapter.generator.dto.request.MetaTable;
 import com.udpp.app.adapter.generator.input.mapper.MetaDataDto;
 import com.udpp.app.domain.constant.Controller;
 import com.udpp.app.domain.constant.StatusCode;
@@ -25,7 +26,7 @@ public interface UdppApi {
     /// To receive the schema of database and do the creation of the tables with their fields.
     ///
     /// @param metaData
-    /// @return List<MetaDataDto>
+    /// @return List<MetaData>
     /// @throws Exception
     /// @author Claudiomildo Ventura.
     /// @since 1.0
@@ -36,12 +37,12 @@ public interface UdppApi {
             @ApiResponse(responseCode = StatusCode.HTTP_STATUS_NOT_FOUND, description = StatusCodeText.HTTP_STATUS_NOT_FOUND),
             @ApiResponse(responseCode = StatusCode.HTTP_STATUS_INTERNAL_SERVE_ERROR, description = StatusCodeText.HTTP_STATUS_INTERNAL_SERVE_ERROR)})
     @PostMapping(value = {Controller.METADATA_ENDPOINT_PATH}, produces = {APPLICATION_JSON_VALUE})
-    ResponseEntity<List<MetaDataDto>> metaData(@Valid @RequestBody final List<com.udpp.app.adapter.generator.input.dto.MetaDataDto> lstMetaData, final BindingResult bindingResult) throws Exception;
+    ResponseEntity<List<MetaDataDto>> metaData(@Valid @RequestBody final List<MetaData> lstMetaData, final BindingResult bindingResult) throws Exception;
 
     /// To receive the table(s) with their field(s) that will generate the magic solution - UDPP.
     ///
     /// @param metaTable
-    /// @return List<MetaTableDto>
+    /// @return List<MetaTable>
     /// @throws Exception
     /// @author Claudiomildo Ventura.
     /// @since 1.0
@@ -52,5 +53,5 @@ public interface UdppApi {
             @ApiResponse(responseCode = StatusCode.HTTP_STATUS_NOT_FOUND, description = StatusCodeText.HTTP_STATUS_NOT_FOUND),
             @ApiResponse(responseCode = StatusCode.HTTP_STATUS_INTERNAL_SERVE_ERROR, description = StatusCodeText.HTTP_STATUS_INTERNAL_SERVE_ERROR)})
     @PostMapping(value = {Controller.METATABLE_ENDPOINT_PATH}, produces = {APPLICATION_JSON_VALUE})
-    ResponseEntity<List<MetaTableDto>> metaTable(@Valid @RequestBody final List<MetaTableDto> lstMetaTable) throws Exception;
+    ResponseEntity<List<MetaTable>> metaTable(@Valid @RequestBody final List<MetaTable> lstMetaTable) throws Exception;
 }

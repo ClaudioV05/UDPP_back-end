@@ -1,9 +1,10 @@
 package com.udpp.app.adapter.generator.input.udpp;
 
+import com.udpp.app.adapter.generator.dto.request.MetaData;
+import com.udpp.app.adapter.generator.dto.request.MetaTable;
 import com.udpp.app.adapter.generator.input.mapper.MetaDataDto;
-import com.udpp.app.adapter.generator.input.dto.MetaTableDto;
-import com.udpp.app.port.output.MetadataServicePort;
 import com.udpp.app.domain.constant.Controller;
+import com.udpp.app.port.output.MetadataServicePort;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-/// Unified Development Power Platform - UDPP controller.
-/// --
+/// Unified Development Power Platform controller.
 ///
 /// @author Claudiomildo Ventura.
 /// @since 1.0
@@ -35,13 +35,13 @@ public class UdppController implements UdppApi {
     }
 
     @Override
-    public ResponseEntity<List<MetaDataDto>> metaData(final List<com.udpp.app.adapter.generator.input.dto.MetaDataDto> lstMetaData, final BindingResult bindingResult) throws Exception {
+    public ResponseEntity<List<MetaDataDto>> metaData(final List<MetaData> lstMetaData, final BindingResult bindingResult) throws Exception {
         _log.info("Request to metaData: {}", lstMetaData);
         return ResponseEntity.status(HttpStatus.OK).body(_metadataService.generateMetaData(lstMetaData, bindingResult));
     }
 
     @Override
-    public ResponseEntity<List<MetaTableDto>> metaTable(final List<MetaTableDto> lstMetaTable) throws Exception {
+    public ResponseEntity<List<MetaTable>> metaTable(final List<MetaTable> lstMetaTable) throws Exception {
         _log.info("Request to metaTable: {}", lstMetaTable);
         return ResponseEntity.status(HttpStatus.OK).body(_metadataService.generateMetaTable(lstMetaTable));
     }

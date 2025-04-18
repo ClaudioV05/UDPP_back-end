@@ -1,6 +1,6 @@
 package com.udpp.app.adapter.generator.exception.handler;
 
-import com.udpp.app.adapter.generator.input.dto.MessageErrorDto;
+import com.udpp.app.adapter.generator.dto.response.MessageErrorDto;
 import com.udpp.app.domain.exception.GlobalException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

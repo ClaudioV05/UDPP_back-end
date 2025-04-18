@@ -1,6 +1,7 @@
 package com.udpp.app.domain.service;
 
-import com.udpp.app.adapter.generator.input.dto.MetaTableDto;
+import com.udpp.app.adapter.generator.dto.request.MetaData;
+import com.udpp.app.adapter.generator.dto.request.MetaTable;
 import com.udpp.app.domain.exception.GlobalException;
 import com.udpp.app.adapter.generator.input.mapper.Embedded;
 import com.udpp.app.adapter.generator.input.mapper.MetaDataDto;
@@ -50,7 +51,7 @@ public class MetadataService implements MetadataServicePort {
     }
 
     @Override
-    public List<MetaDataDto> generateMetaData(List<com.udpp.app.adapter.generator.input.dto.MetaDataDto> lstMetadata, BindingResult bindingResult) {
+    public List<MetaDataDto> generateMetaData(List<MetaData> lstMetadata, BindingResult bindingResult) {
         try {
             var resultError = this.validationService.getErrorMessages(bindingResult);
 
@@ -71,7 +72,7 @@ public class MetadataService implements MetadataServicePort {
     }
 
     @Override
-    public List<MetaTableDto> generateMetaTable(List<MetaTableDto> lstMetatable) {
+    public List<MetaTable> generateMetaTable(List<MetaTable> lstMetatable) {
         try {
             throw new UnsupportedOperationException("Not implemented.");
         } catch (Exception ex) {

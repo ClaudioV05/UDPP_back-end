@@ -24,7 +24,9 @@ public interface UdppParametersApi {
     /// @return Embedded.
     /// @author Claudiomildo Ventura.
     /// @since 1.0
-    @Operation(summary = "The Title", description= "The Unified Development Power Platform title.")
+    @Operation(operationId = "UdppParametersTitle",
+            summary = "The Title",
+            description= "The Unified Development Power Platform title.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = StatusCode.HTTP_STATUS_OK, description = StatusCodeText.HTTP_STATUS_OK),
             @ApiResponse(responseCode = StatusCode.HTTP_STATUS_BAD_REQUEST, description = StatusCodeText.HTTP_STATUS_BAD_REQUEST),
