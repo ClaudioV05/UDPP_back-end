@@ -8,6 +8,7 @@ import jakarta.validation.constraints.*;
 /// @author Claudiomildo Ventura.
 /// @since 1.0
 public record MetaData(
+
         @NotNull(message = "do not be empty")
         @NotEmpty(message = "do not be empty")
         @JsonProperty("data")

@@ -18,9 +18,9 @@ import java.util.logging.*;
 /// @author Claudiomildo Ventura.
 /// @since 1.0
 @RestControllerAdvice
-public class UdppGlobalExceptionHandler {
+public class UdppGlobalException {
 
-    private static Logger logger = Logger.getLogger(UdppGlobalExceptionHandler.class.getName());
+    private static Logger logger = Logger.getLogger(UdppGlobalException.class.getName());
 
     /// To Handle Http Media Type Not Acceptable exception.
     ///

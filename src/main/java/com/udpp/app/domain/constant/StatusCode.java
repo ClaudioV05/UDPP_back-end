@@ -7,6 +7,7 @@ package com.udpp.app.domain.constant;
 public class StatusCode {
     public static final String HTTP_STATUS_OK = "200";
     public static final String HTTP_STATUS_BAD_REQUEST = "400";
+    public static final String HTTP_STATUS_UNAUTHORIZED = "401";
     public static final String HTTP_STATUS_NOT_FOUND = "404";
     public static final String HTTP_STATUS_INTERNAL_SERVE_ERROR = "500";
 }

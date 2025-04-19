@@ -62,13 +62,16 @@ public class SwaggerConfig implements WebMvcConfigurer {
 
     @Bean
     OpenAPI openApiDetails() {
-        return new OpenAPI()
-                .info(new Info()
+        return new OpenAPI().info(new Info()
                         .title(_openApiTitle)
                         .description(_openApiDescription)
                         .version(_openApiVersion)
-                        .license(new License().name(_openApiEnginnerName).url(_openApiEnginnerEmail)))
-                .externalDocs(new ExternalDocumentation().description(_openApiEnginnerEmail).url(_openApiEnginnerEmail));
+                        .license(new License()
+                                .name(_openApiEnginnerName)
+                                .url(_openApiEnginnerEmail)))
+                .externalDocs(new ExternalDocumentation()
+                        .description(_openApiEnginnerEmail)
+                        .url(_openApiEnginnerEmail));
     }
 
     @Bean

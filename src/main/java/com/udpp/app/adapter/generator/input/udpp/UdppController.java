@@ -3,7 +3,7 @@ package com.udpp.app.adapter.generator.input.udpp;
 import com.udpp.app.adapter.generator.dto.request.MetaData;
 import com.udpp.app.adapter.generator.dto.request.MetaTable;
 import com.udpp.app.adapter.generator.input.mapper.MetaDataDto;
-import com.udpp.app.domain.constant.Controller;
+import com.udpp.app.domain.constant.Api.Controller;
 import com.udpp.app.port.output.MetadataServicePort;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +22,7 @@ import java.util.List;
 /// @author Claudiomildo Ventura.
 /// @since 1.0
 @RestController
-@RequestMapping(value = Controller.UDPP_PATH)
+@RequestMapping(value = Controller.UDPP)
 @Validated
 public class UdppController implements UdppApi {
 

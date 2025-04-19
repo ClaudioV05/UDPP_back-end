@@ -16,7 +16,7 @@ import org.springframework.web.servlet.resource.NoResourceFoundException;
 /// @author Claudiomildo Ventura.
 /// @since 1.0
 @RestControllerAdvice
-public class UdppExceptionHandler {
+public class UdppException {
 
     /// To Handle Http Media Type Not Acceptable exception.
     ///
