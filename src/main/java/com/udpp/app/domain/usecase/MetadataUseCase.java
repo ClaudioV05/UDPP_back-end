@@ -20,45 +20,45 @@ public class MetadataUseCase implements MetadataServicePort {
 
     private static final Logger _log = LoggerFactory.getLogger(MetadataUseCase.class);
 
-    private final ArchitectureUseCasePort architectureService;
-    private final DatabaseUseCasePort databaseService;
-    private final DatabaseEngineerUseCasePort databaseEngineerService;
-    private final DevelopmentEnvironmentUseCasePort developmentEnvironmentService;
-    private final ParameterUseCasePort parameterService;
-    private final ValidationUseCasePort validationService;
-    private final MapperUseCasePort mapperService;
-    private final FormUseCasePort formService;
-    private final DirectoryUseCasePort directoryService;
+    private final ArchitectureUseCasePort architectureUseCase;
+    private final DatabaseUseCasePort databaseUseCase;
+    private final DatabaseEngineerUseCasePort databaseEngineerUseCase;
+    private final DevelopmentEnvironmentUseCasePort developmentEnvironmentUseCase;
+    private final ParameterUseCasePort parameterUseCase;
+    private final ValidationUseCasePort validationUseCase;
+    private final MapperUseCasePort mapperUseCase;
+    private final FormUseCasePort formUseCase;
+    private final DirectoryUseCasePort directoryUseCase;
 
-    public MetadataUseCase(ArchitectureUseCase architectureService,
-                           DatabaseUseCasePort databaseService,
-                           DatabaseEngineerUseCasePort databaseEngineerService,
-                           DevelopmentEnvironmentUseCasePort developmentEnvironmentService,
-                           ParameterUseCasePort parameterService,
-                           ValidationUseCasePort validationService,
-                           MapperUseCasePort mapperService,
-                           FormUseCasePort formService,
-                           DirectoryUseCasePort directoryService) {
-        this.databaseService = databaseService;
-        this.databaseEngineerService = databaseEngineerService;
-        this.developmentEnvironmentService = developmentEnvironmentService;
-        this.architectureService = architectureService;
-        this.parameterService = parameterService;
-        this.validationService = validationService;
-        this.mapperService = mapperService;
-        this.formService = formService;
-        this.directoryService = directoryService;
+    public MetadataUseCase(ArchitectureUseCase architectureUseCase,
+                           DatabaseUseCasePort databaseUseCase,
+                           DatabaseEngineerUseCasePort databaseEngineerUseCase,
+                           DevelopmentEnvironmentUseCasePort developmentEnvironmentUseCase,
+                           ParameterUseCasePort parameterUseCase,
+                           ValidationUseCasePort validationUseCase,
+                           MapperUseCasePort mapperUseCase,
+                           FormUseCasePort formUseCase,
+                           DirectoryUseCasePort directoryUseCase) {
+        this.databaseUseCase = databaseUseCase;
+        this.databaseEngineerUseCase = databaseEngineerUseCase;
+        this.developmentEnvironmentUseCase = developmentEnvironmentUseCase;
+        this.architectureUseCase = architectureUseCase;
+        this.parameterUseCase = parameterUseCase;
+        this.validationUseCase = validationUseCase;
+        this.mapperUseCase = mapperUseCase;
+        this.formUseCase = formUseCase;
+        this.directoryUseCase = directoryUseCase;
     }
 
     @Override
     public List<MetaDataDto> generateMetaData(List<MetaData> lstMetadata, BindingResult bindingResult) {
         try {
-            var resultError = this.validationService.getErrorMessages(bindingResult);
+            var resultError = this.validationUseCase.getErrorMessages(bindingResult);
 
             if (!resultError.isEmpty()) {
                 throw new GlobalException(resultError.toString());
             } else if (!lstMetadata.isEmpty()) {
-                this.directoryService.generateDefault();
+                this.directoryUseCase.generateDefault();
                 // Create the folder.
                 // Get the values and generate.
                 _log.info("continue here. {}", lstMetadata);
@@ -86,7 +86,7 @@ public class MetadataUseCase implements MetadataServicePort {
     @Override
     public Embedded getTitle() {
         try {
-            return this.mapperService.getTitle(this.parameterService.getTitle());
+            return this.mapperUseCase.getTitle(this.parameterUseCase.getTitle());
         } catch (Exception ex) {
             throw new GlobalException(ex.getMessage());
         }
@@ -95,7 +95,7 @@ public class MetadataUseCase implements MetadataServicePort {
     @Override
     public Embedded getDescription() {
         try {
-            return this.mapperService.getDescription(this.parameterService.getDescription());
+            return this.mapperUseCase.getDescription(this.parameterUseCase.getDescription());
         } catch (Exception ex) {
             throw new GlobalException(ex.getMessage());
         }
@@ -104,7 +104,7 @@ public class MetadataUseCase implements MetadataServicePort {
     @Override
     public LinkedHashSet<Embedded> getArchitectureData() {
         try {
-            return this.mapperService.convertLstArchitecture(this.architectureService.getData());
+            return this.mapperUseCase.convertLstArchitecture(this.architectureUseCase.getData());
         } catch (Exception ex) {
             throw new GlobalException(ex.getMessage());
         }
@@ -113,7 +113,7 @@ public class MetadataUseCase implements MetadataServicePort {
     @Override
     public LinkedHashSet<Embedded> getDatabasesData() {
         try {
-            return this.mapperService.convertLstDatabase(this.databaseService.getData());
+            return this.mapperUseCase.convertLstDatabase(this.databaseUseCase.getData());
         } catch (Exception ex) {
             throw new GlobalException(ex.getMessage());
         }
@@ -122,7 +122,7 @@ public class MetadataUseCase implements MetadataServicePort {
     @Override
     public LinkedHashSet<Embedded> getDatabasesEngineerData() {
         try {
-            return this.mapperService.convertLstDatabaseEngineer(this.databaseEngineerService.getData());
+            return this.mapperUseCase.convertLstDatabaseEngineer(this.databaseEngineerUseCase.getData());
         } catch (Exception ex) {
             throw new GlobalException(ex.getMessage());
         }
@@ -131,7 +131,7 @@ public class MetadataUseCase implements MetadataServicePort {
     @Override
     public LinkedHashSet<Embedded> getDevelopmentEnvironmentData() {
         try {
-            return this.mapperService.convertLstDevelopmentEnvironment(this.developmentEnvironmentService.getData());
+            return this.mapperUseCase.convertLstDevelopmentEnvironment(this.developmentEnvironmentUseCase.getData());
         } catch (Exception ex) {
             throw new GlobalException(ex.getMessage());
         }
@@ -140,7 +140,7 @@ public class MetadataUseCase implements MetadataServicePort {
     @Override
     public LinkedHashSet<Embedded> getFormData() {
         try {
-            return this.mapperService.convertLstForm(this.formService.getData());
+            return this.mapperUseCase.convertLstForm(this.formUseCase.getData());
         } catch (Exception ex) {
             throw new GlobalException(ex.getMessage());
         }
