@@ -5,11 +5,11 @@ import com.udpp.app.domain.entity.*;
 
 import java.util.LinkedHashSet;
 
-/// The Mapper service.
+/// The Mapper use case.
 ///
 /// @author Claudiomildo Ventura.
 /// @since 1.0
-public interface MapperServicePort {
+public interface MapperUseCasePort {
     /// Convert application title.
     ///
     /// @param title title.

@@ -4,11 +4,11 @@ import com.udpp.app.domain.entity.Database;
 
 import java.util.LinkedHashSet;
 
-/// The Database service.
+/// The Database use case.
 ///
 /// @author Claudiomildo Ventura.
 /// @since 1.0
-public interface DatabaseServicePort {
+public interface DatabaseUseCasePort {
     /// To get enum database data.
     ///
     /// @return Set of Database.

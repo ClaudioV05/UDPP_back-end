@@ -1,10 +1,10 @@
 package com.udpp.app.port.input;
 
-/// The Parameter service.
+/// The Parameter use case.
 ///
 /// @author Claudiomildo Ventura.
 /// @since 1.0
-public interface ParameterServicePort {
+public interface ParameterUseCasePort {
     /// To get the application title.
     ///
     /// @return Metadata.

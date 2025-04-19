@@ -1,10 +1,10 @@
 package com.udpp.app.port.input;
 
-/// The Unicode service.
+/// The Unicode use case.
 ///
 /// @author Claudiomildo Ventura.
 /// @since 1.0
-public interface UnicodeServicePort {
+public interface UnicodeUseCasePort {
     /// Set the content to upper case.
     ///
     /// @param content content.

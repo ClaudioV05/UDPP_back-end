@@ -1,9 +1,9 @@
-package com.udpp.app.domain.service;
+package com.udpp.app.domain.usecase;
 
 import com.udpp.app.adapter.generator.input.mapper.Embedded;
 import com.udpp.app.adapter.generator.input.mapper.MetaDataDto;
 import com.udpp.app.domain.entity.*;
-import com.udpp.app.port.input.MapperServicePort;
+import com.udpp.app.port.input.MapperUseCasePort;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +11,11 @@ import java.util.LinkedHashSet;
 import java.util.stream.Collectors;
 
 @Service
-public class MapperService implements MapperServicePort {
+public class MapperUseCase implements MapperUseCasePort {
 
     private final ModelMapper mapper;
 
-    public MapperService() {
+    public MapperUseCase() {
         this.mapper = new ModelMapper();
     }
 

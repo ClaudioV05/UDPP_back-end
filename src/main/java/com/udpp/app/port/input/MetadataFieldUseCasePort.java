@@ -1,9 +1,9 @@
 package com.udpp.app.port.input;
 
-/// The Meta field service.
+/// The Meta field use case.
 ///
 /// @author Claudiomildo Ventura.
 /// @since 1.0
-public interface MetadataFieldServicePort {
+public interface MetadataFieldUseCasePort {
 
 }

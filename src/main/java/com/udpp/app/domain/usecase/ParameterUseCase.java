@@ -1,15 +1,15 @@
-package com.udpp.app.domain.service;
+package com.udpp.app.domain.usecase;
 
-import com.udpp.app.port.input.ParameterServicePort;
-import com.udpp.app.port.input.UnicodeServicePort;
+import com.udpp.app.port.input.ParameterUseCasePort;
+import com.udpp.app.port.input.UnicodeUseCasePort;
 import com.udpp.app.domain.constant.Application;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ParameterService implements ParameterServicePort {
-    private final UnicodeServicePort _unicodeService;
+public class ParameterUseCase implements ParameterUseCasePort {
+    private final UnicodeUseCasePort _unicodeService;
 
-    public ParameterService(UnicodeServicePort unicodeService) {
+    public ParameterUseCase(UnicodeUseCasePort unicodeService) {
         this._unicodeService = unicodeService;
     }
 

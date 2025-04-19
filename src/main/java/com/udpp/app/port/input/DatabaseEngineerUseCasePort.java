@@ -4,11 +4,11 @@ import com.udpp.app.domain.entity.DatabaseEngineer;
 
 import java.util.LinkedHashSet;
 
-/// The database engineer service.
+/// The database engineer use case.
 ///
 /// @author Claudiomildo Ventura.
 /// @since 1.0
-public interface DatabaseEngineerServicePort {
+public interface DatabaseEngineerUseCasePort {
     /// To get enum database engineer data.
     ///
     /// @return Set of Database engineer.

@@ -1,10 +1,10 @@
-package com.udpp.app.domain.service;
+package com.udpp.app.domain.usecase;
 
 import com.udpp.app.adapter.generator.dto.request.MetaData;
 import com.udpp.app.adapter.generator.dto.request.MetaTable;
-import com.udpp.app.domain.exception.GlobalException;
 import com.udpp.app.adapter.generator.input.mapper.Embedded;
 import com.udpp.app.adapter.generator.input.mapper.MetaDataDto;
+import com.udpp.app.domain.exception.GlobalException;
 import com.udpp.app.port.input.*;
 import com.udpp.app.port.output.MetadataServicePort;
 import org.slf4j.Logger;
@@ -16,29 +16,29 @@ import java.util.LinkedHashSet;
 import java.util.List;
 
 @Service
-public class MetadataService implements MetadataServicePort {
+public class MetadataUseCase implements MetadataServicePort {
 
-    private static final Logger log = LoggerFactory.getLogger(MetadataService.class);
+    private static final Logger _log = LoggerFactory.getLogger(MetadataUseCase.class);
 
-    private final ArchitectureServicePort architectureService;
-    private final DatabaseServicePort databaseService;
-    private final DatabaseEngineerServicePort databaseEngineerService;
-    private final DevelopmentEnvironmentServicePort developmentEnvironmentService;
-    private final ParameterServicePort parameterService;
-    private final ValidationServicePort validationService;
-    private final MapperServicePort mapperService;
-    private final FormServicePort formService;
-    private final DirectoryServicePort directoryService;
+    private final ArchitectureUseCasePort architectureService;
+    private final DatabaseUseCasePort databaseService;
+    private final DatabaseEngineerUseCasePort databaseEngineerService;
+    private final DevelopmentEnvironmentUseCasePort developmentEnvironmentService;
+    private final ParameterUseCasePort parameterService;
+    private final ValidationUseCasePort validationService;
+    private final MapperUseCasePort mapperService;
+    private final FormUseCasePort formService;
+    private final DirectoryUseCasePort directoryService;
 
-    public MetadataService(ArchitectureService architectureService,
-                           DatabaseServicePort databaseService,
-                           DatabaseEngineerServicePort databaseEngineerService,
-                           DevelopmentEnvironmentServicePort developmentEnvironmentService,
-                           ParameterServicePort parameterService,
-                           ValidationServicePort validationService,
-                           MapperServicePort mapperService,
-                           FormServicePort formService,
-                           DirectoryServicePort directoryService) {
+    public MetadataUseCase(ArchitectureUseCase architectureService,
+                           DatabaseUseCasePort databaseService,
+                           DatabaseEngineerUseCasePort databaseEngineerService,
+                           DevelopmentEnvironmentUseCasePort developmentEnvironmentService,
+                           ParameterUseCasePort parameterService,
+                           ValidationUseCasePort validationService,
+                           MapperUseCasePort mapperService,
+                           FormUseCasePort formService,
+                           DirectoryUseCasePort directoryService) {
         this.databaseService = databaseService;
         this.databaseEngineerService = databaseEngineerService;
         this.developmentEnvironmentService = developmentEnvironmentService;
@@ -57,11 +57,14 @@ public class MetadataService implements MetadataServicePort {
 
             if (!resultError.isEmpty()) {
                 throw new GlobalException(resultError.toString());
-            } else if (!lstMetadata.isEmpty()){
+            } else if (!lstMetadata.isEmpty()) {
                 this.directoryService.generateDefault();
                 // Create the folder.
                 // Get the values and generate.
-                log.info("continue here. {}", lstMetadata);
+                _log.info("continue here. {}", lstMetadata);
+                _log.info("Request to {}", Thread.currentThread().getStackTrace()[1].getMethodName());
+
+
             }
 
             return null;

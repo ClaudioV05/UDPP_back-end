@@ -1,7 +1,7 @@
-package com.udpp.app.domain.service;
+package com.udpp.app.domain.usecase;
 
-import com.udpp.app.port.input.FormServicePort;
-import com.udpp.app.port.input.UnicodeServicePort;
+import com.udpp.app.port.input.FormUseCasePort;
+import com.udpp.app.port.input.UnicodeUseCasePort;
 import com.udpp.app.domain.type.Form;
 import org.springframework.stereotype.Service;
 
@@ -9,11 +9,11 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 
 @Service
-public class FormService implements FormServicePort {
+public class FormUseCase implements FormUseCasePort {
 
-    private final UnicodeServicePort _unicodeService;
+    private final UnicodeUseCasePort _unicodeService;
 
-    public FormService(UnicodeServicePort unicodeService) {
+    public FormUseCase(UnicodeUseCasePort unicodeService) {
         this._unicodeService = unicodeService;
     }
 

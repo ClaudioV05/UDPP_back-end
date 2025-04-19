@@ -1,10 +1,10 @@
-package com.udpp.app.domain.service;
+package com.udpp.app.domain.usecase;
 
-import com.udpp.app.port.input.UnicodeServicePort;
+import com.udpp.app.port.input.UnicodeUseCasePort;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UnicodeService implements UnicodeServicePort {
+public class UnicodeUseCase implements UnicodeUseCasePort {
     @Override
     public String setToUpper(String content) {
         return content.toUpperCase();

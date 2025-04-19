@@ -1,9 +1,9 @@
-package com.udpp.app.domain.service;
+package com.udpp.app.domain.usecase;
 
 import com.udpp.app.domain.constant.Directory;
 import com.udpp.app.domain.constant.Symbol;
-import com.udpp.app.port.input.DirectoryServicePort;
-import com.udpp.app.port.input.UnicodeServicePort;
+import com.udpp.app.port.input.DirectoryUseCasePort;
+import com.udpp.app.port.input.UnicodeUseCasePort;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -12,11 +12,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @Service
-public class DirectoryService implements DirectoryServicePort {
+public class DirectoryUseCase implements DirectoryUseCasePort {
 
-    private final UnicodeServicePort unicodeService;
+    private final UnicodeUseCasePort unicodeService;
 
-    public DirectoryService(UnicodeServicePort unicodeService) {
+    public DirectoryUseCase(UnicodeUseCasePort unicodeService) {
         this.unicodeService = unicodeService;
     }
 

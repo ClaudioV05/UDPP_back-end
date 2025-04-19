@@ -4,11 +4,11 @@ import org.springframework.validation.BindingResult;
 
 import java.util.List;
 
-/// The Validation service.
+/// The Validation use case.
 ///
 /// @author Claudiomildo Ventura.
 /// @since 1.0
-public interface ValidationServicePort {
+public interface ValidationUseCasePort {
     /// To get error messages.
     ///
     /// @param bindingResult binding result.

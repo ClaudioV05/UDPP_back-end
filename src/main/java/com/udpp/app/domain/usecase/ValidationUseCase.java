@@ -1,6 +1,6 @@
-package com.udpp.app.domain.service;
+package com.udpp.app.domain.usecase;
 
-import com.udpp.app.port.input.ValidationServicePort;
+import com.udpp.app.port.input.ValidationUseCasePort;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class ValidationService implements ValidationServicePort {
+public class ValidationUseCase implements ValidationUseCasePort {
 
     @SuppressWarnings({"deprecation"})
     @Override

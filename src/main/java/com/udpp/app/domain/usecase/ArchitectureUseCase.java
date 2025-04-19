@@ -1,7 +1,7 @@
-package com.udpp.app.domain.service;
+package com.udpp.app.domain.usecase;
 
-import com.udpp.app.port.input.ArchitectureServicePort;
-import com.udpp.app.port.input.UnicodeServicePort;
+import com.udpp.app.port.input.ArchitectureUseCasePort;
+import com.udpp.app.port.input.UnicodeUseCasePort;
 import com.udpp.app.domain.type.Architecture;
 import org.springframework.stereotype.Service;
 
@@ -9,11 +9,11 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 
 @Service
-public class ArchitectureService implements ArchitectureServicePort {
+public class ArchitectureUseCase implements ArchitectureUseCasePort {
 
-    private final UnicodeServicePort _unicodeService;
+    private final UnicodeUseCasePort _unicodeService;
 
-    public ArchitectureService(UnicodeServicePort unicodeService) {
+    public ArchitectureUseCase(UnicodeUseCasePort unicodeService) {
         this._unicodeService = unicodeService;
     }
 

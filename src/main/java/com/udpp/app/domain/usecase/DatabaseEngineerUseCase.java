@@ -1,7 +1,7 @@
-package com.udpp.app.domain.service;
+package com.udpp.app.domain.usecase;
 
-import com.udpp.app.port.input.DatabaseEngineerServicePort;
-import com.udpp.app.port.input.UnicodeServicePort;
+import com.udpp.app.port.input.DatabaseEngineerUseCasePort;
+import com.udpp.app.port.input.UnicodeUseCasePort;
 import com.udpp.app.domain.type.DatabaseEngineer;
 import org.springframework.stereotype.Service;
 
@@ -9,11 +9,11 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 
 @Service
-public class DatabaseEngineerService implements DatabaseEngineerServicePort {
+public class DatabaseEngineerUseCase implements DatabaseEngineerUseCasePort {
 
-    private final UnicodeServicePort _unicodeService;
+    private final UnicodeUseCasePort _unicodeService;
 
-    public DatabaseEngineerService(UnicodeServicePort _unicodeService) {
+    public DatabaseEngineerUseCase(UnicodeUseCasePort _unicodeService) {
         this._unicodeService = _unicodeService;
     }
 

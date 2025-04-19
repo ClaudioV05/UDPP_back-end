@@ -1,7 +1,7 @@
-package com.udpp.app.domain.service;
+package com.udpp.app.domain.usecase;
 
-import com.udpp.app.port.input.DevelopmentEnvironmentServicePort;
-import com.udpp.app.port.input.UnicodeServicePort;
+import com.udpp.app.port.input.DevelopmentEnvironmentUseCasePort;
+import com.udpp.app.port.input.UnicodeUseCasePort;
 import com.udpp.app.domain.type.DevelopmentEnvironment;
 import org.springframework.stereotype.Service;
 
@@ -9,11 +9,11 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 
 @Service
-public class DevelopmentEnvironmentService implements DevelopmentEnvironmentServicePort {
+public class DevelopmentEnvironmentUseCase implements DevelopmentEnvironmentUseCasePort {
 
-    private final UnicodeServicePort _unicodeService;
+    private final UnicodeUseCasePort _unicodeService;
 
-    public DevelopmentEnvironmentService(UnicodeServicePort _unicodeService) {
+    public DevelopmentEnvironmentUseCase(UnicodeUseCasePort _unicodeService) {
         this._unicodeService = _unicodeService;
     }
 

@@ -4,11 +4,11 @@ import com.udpp.app.domain.entity.Form;
 
 import java.util.LinkedHashSet;
 
-/// The Form service.
+/// The Form use case.
 ///
 /// @author Claudiomildo Ventura.
 /// @since 1.0
-public interface FormServicePort {
+public interface FormUseCasePort {
     /// To get enum form data.
     ///
     /// @return Set of Form.

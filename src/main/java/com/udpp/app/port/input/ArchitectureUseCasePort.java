@@ -4,11 +4,11 @@ import com.udpp.app.domain.entity.Architecture;
 
 import java.util.LinkedHashSet;
 
-/// The Architecture service.
+/// The Architecture use case.
 ///
 /// @author Claudiomildo Ventura.
 /// @since 1.0
-public interface ArchitectureServicePort {
+public interface ArchitectureUseCasePort {
     /// To get enum architectures data.
     ///
     /// @return Set of Architecture.
