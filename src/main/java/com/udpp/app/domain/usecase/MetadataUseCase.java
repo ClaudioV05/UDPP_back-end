@@ -4,6 +4,7 @@ import com.udpp.app.adapter.generator.dto.request.MetaData;
 import com.udpp.app.adapter.generator.dto.request.MetaTable;
 import com.udpp.app.adapter.generator.input.mapper.Embedded;
 import com.udpp.app.adapter.generator.input.mapper.MetaDataDto;
+import com.udpp.app.domain.entity.Log;
 import com.udpp.app.domain.exception.GlobalException;
 import com.udpp.app.port.input.*;
 import com.udpp.app.port.output.MetadataServicePort;
@@ -57,18 +58,17 @@ public class MetadataUseCase implements MetadataServicePort {
 
             if (!resultError.isEmpty()) {
                 throw new GlobalException(resultError.toString());
-            } else if (!lstMetadata.isEmpty()) {
+            }
+
+            if (!lstMetadata.isEmpty()) {
                 this.directoryUseCase.generateDefault();
                 // Create the folder.
                 // Get the values and generate.
                 _log.info("continue here. {}", lstMetadata);
                 _log.info("Request to {}", Thread.currentThread().getStackTrace()[1].getMethodName());
-
-
             }
 
             return null;
-
         } catch (Exception ex) {
             throw new GlobalException(ex.getMessage());
         }
@@ -83,6 +83,7 @@ public class MetadataUseCase implements MetadataServicePort {
         }
     }
 
+    @Log
     @Override
     public Embedded getTitle() {
         try {
