@@ -2,6 +2,7 @@ package com.udpp.app.config;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -18,6 +19,11 @@ public class AspectConfig {
     @Before("execution(* com.udpp.app.adapter.generator.output.udppparameter.*.*(..))")
     public void logBefore(JoinPoint joinPoint) {
         System.out.println(">>> Logging before method: " + joinPoint.getSignature().getName());
+    }
+
+    @After("execution(* com.example..*(..))")
+    public void logAfter() {
+        System.out.println("After method runs");
     }
 
     @Around("@annotation(com.udpp.app.domain.entity.Log)")
